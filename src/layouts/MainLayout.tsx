@@ -3,11 +3,11 @@ import { Header } from "../components/header/Header";
 import { Footer } from "../components/footer/Footer";
 import { Intro } from "../components/intro/Intro";
 
-interface LayoutProps {
+interface MainLayout {
   children: ReactNode;
 }
 
-export function Layout({ children }: LayoutProps) {
+export function Layout({ children }: MainLayout) {
   return (
     <div className="relative min-h-screen bg-black">
       <Intro />

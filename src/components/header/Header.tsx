@@ -5,7 +5,7 @@ import { Menu, X } from "lucide-react"; // Instale lucide-react ou use SVGs
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const menuLinks = ["O QUE FAZEMOS", "SOBRE NÓS", "PORTFOLIO", "ORÇAMENTO"];
+  const menuLinks = ["O QUE FAZEMOS", "SOBRE NÓS", "PORTFóLIO", "ORÇAMENTO"];
 
   return (
     <>
@@ -13,7 +13,7 @@ export function Header() {
         initial={{ y: -50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.5, ease: [0.76, 0, 0.24, 1] }}
-        className="fixed top-0 left-0 w-full z-[90] flex items-center justify-between px-6 md:px-12 py-6 border-b border-white/[0.05] bg-black/10 backdrop-blur-sm"
+        className="fixed top-0 left-0 w-full z-[90] flex items-center justify-between px-6 md:px-12 py-6 border-b border-white/[0.05] bg-black/80 "
       >
         {/* LOGO */}
         <div className="flex items-center z-[100]">
@@ -30,7 +30,7 @@ export function Header() {
 
         {/* DESKTOP NAV */}
         <nav className="hidden lg:block">
-          <ul className="flex gap-10 text-[10px] font-bold uppercase tracking-[0.3em] text-gray-400">
+          <ul className="flex gap-10 text-[10px] font-bold uppercase tracking-[0.3em] text-gray-100">
             {menuLinks.map((link) => (
               <li
                 key={link}

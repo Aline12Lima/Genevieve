@@ -1,14 +1,22 @@
-import { Layout } from "./layouts/MainLayout"; // Ajuste o caminho conforme sua pasta
-import { Hero } from "./components/hero/Hero";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Layout } from "./layouts/MainLayout";
+import { Home } from "./pages/Home";
+import { About } from "./pages/About";
+import { Projects } from "./pages/Projects";
+import { Contact } from "./pages/Contact";
 
-function App() {
+export function App() {
   return (
-    <Layout>
-      {/* O conteúdo abaixo é passado para a prop 'children' do Layout */}
-      <Hero />
-
-      {/* Seções futuras como 'About', 'Services', 'Portfolio' entrarão aqui */}
-    </Layout>
+    <BrowserRouter>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/sobre" element={<About />} />
+          <Route path="/projetos" element={<Projects />} />
+          <Route path="/contato" element={<Contact />} />
+        </Routes>
+      </Layout>
+    </BrowserRouter>
   );
 }
 
