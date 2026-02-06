@@ -3,20 +3,20 @@ import { Link } from "react-router-dom";
 
 export function CTAWorkTogether() {
   return (
-    <section className="relative py-32 bg-surface-base  flex flex-col items-center justify-center text-center px-6 overflow-hidden">
+    <section className="relative py-12 bg-surface-base  flex flex-col items-center justify-center text-center px-6 overflow-hidden">
       {/* Video Background */}
 
       {/* Overlay (opcional, mas recomendado) */}
       <div className="absolute inset-0 bg-surface-base z-10" />
 
       {/* Conteúdo */}
-      <span className="relative z-20 text-gray-500 text-xs uppercase tracking-[0.4em] mb-8">
+      <span className="relative z-20 text-gray-500 text-xs uppercase tracking-[0.4em] mb-0">
         Entre em contato
       </span>
 
-      <h2 className="relative z-20 text-text-primary  text-6xl md:text-9xl font-black tracking-tighter leading-none mb-12">
-        Fale com <br />
-        A Gente <br />
+      <h2 className="relative z-20 text-white  text-6xl md:text-9xl font-black tracking-tighter leading-none mb-12">
+        Fale <br />
+        conosco <br />
         <span
           style={{ WebkitTextStroke: "1px white" }}
           className="text-transparent"

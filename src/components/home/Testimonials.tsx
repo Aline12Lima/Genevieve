@@ -11,7 +11,7 @@ const stats = [
 
 export function Testimonials() {
   return (
-    <section className="py-32 bg-black">
+    <section className="py-32 pb-0 bg-black">
       <div className="max-w-6xl mx-auto px-6 text-center mb-32">
         <h2 className="text-white text-4xl md:text-6xl font-black uppercase leading-tight mx-auto">
           Será um PRAZER <br />
@@ -61,18 +61,18 @@ export function Testimonials() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 border-t border-white/5">
+      <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 border-t border-white/5">
         {stats.map((s, i) => (
           <div
             key={i}
             className="p-12 border-r border-white/5 text-center group hover:bg-white/5 transition-colors"
           >
-            <p className="text-gray-500 text-[10px] font-bold uppercase tracking-[0.3em] mb-4">
+            <p className="text-gray-500 text-[10px] font-bold uppercase tracking-[0.3em] mb-0">
               {s.label}
             </p>
             <span
               style={s.outline ? { WebkitTextStroke: "1px white" } : {}}
-              className={`text-6xl md:text-8xl font-black ${
+              className={`text-3xl md:text-5xl font-black ${
                 s.outline ? "text-transparent" : "text-white"
               }`}
             >

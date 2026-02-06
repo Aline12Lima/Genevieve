@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react"; // Instale lucide-react ou use SVGs
+import { Menu, X } from "lucide-react";
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,11 +9,12 @@ export function Header() {
 
   return (
     <>
+      {/* HEADER FIXO */}
       <motion.header
         initial={{ y: -50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.5, ease: [0.76, 0, 0.24, 1] }}
-        className="fixed top-0 left-0 w-full z-[90] flex items-center justify-between px-6 md:px-12 py-6 border-b border-white/[0.05] bg-black/80 "
+        className="fixed top-0 left-0 w-full z-[90] flex items-center justify-between px-6 md:px-12 py-6 border-b border-white/[0.05] bg-black/80"
       >
         {/* LOGO */}
         <div className="flex items-center z-[100]">
@@ -30,7 +31,7 @@ export function Header() {
 
         {/* DESKTOP NAV */}
         <nav className="hidden lg:block">
-          <ul className="flex gap-10 text-[10px] font-bold uppercase tracking-[0.3em] text-gray-100">
+          <ul className="flex gap-6 text-[8px] font-bold uppercase tracking-[0.3em] text-gray-100">
             {menuLinks.map((link) => (
               <li
                 key={link}
@@ -39,32 +40,33 @@ export function Header() {
                 <span className="block hover:text-white transition-colors duration-500">
                   {link}
                 </span>
-                <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-white transition-all duration-500 group-hover:w-full"></span>
+                <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-white transition-all duration-500 group-hover:w-full" />
               </li>
             ))}
           </ul>
         </nav>
 
-        {/* MOBILE TRIGGER & CTA */}
+        {/* CTA + MENU MOBILE */}
         <div className="flex items-center gap-4">
-          <button className="hidden md:block  relative px-6 py-2 overflow-hidden border border-white/20 group transition-all duration-500">
+          {/* CTA DESKTOP / TABLET */}
+          <button className="hidden md:block relative px-6 py-2 overflow-hidden border border-white/20 group transition-all duration-500">
             <span className="relative z-10 text-[10px] font-bold uppercase tracking-[0.2em] text-white group-hover:text-black transition-colors">
               ADERIR AGORA
             </span>
-            <div className="absolute inset-0 bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+            <div className="absolute inset-0 bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
           </button>
 
           {/* ÍCONE MOBILE */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden text-white z-[100] p-2"
+            className="lg:hidden text-white z-[100] p-2 md:mr-4"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </motion.header>
 
-      {/* MOBILE MENU OVERLAY */}
+      {/* MENU MOBILE OVERLAY */}
       <AnimatePresence>
         {isOpen && (
           <motion.div

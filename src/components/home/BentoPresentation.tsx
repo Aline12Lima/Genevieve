@@ -10,37 +10,52 @@ export function BentoPresentation() {
   };
 
   return (
-    <section className="py-20 bg-surface-base px-6 md:px-12">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-4 h-auto md:h-[800px]">
-        {/* Card Grande de Imagem - Bento 1 */}
+    <section className="py-0 bg-black px-6 md:px-12">
+      <div
+        className="
+          max-w-7xl mx-auto 
+          grid grid-cols-1 
+          md:grid-cols-4 
+          /* Desktop: Linha 1 curta (260px) e Linha 2 alta (540px) */
+          lg:grid-rows-[260px_540px] 
+          md:grid-rows-[400px_400px] 
+          gap-3 h-auto md:h-[800px]
+        "
+      >
+        {/* 1. Imagem Superior Esquerda */}
         <motion.div
           variants={cardVariants}
-          initial="hidden"
-          whileInView="visible"
-          transition={{ duration: 0.6 }}
-          className="md:col-span-2 md:row-span-1 bg-surface-card overflow-hidden rounded-2xl"
+          className="md:col-span-1 bg-[#121212] overflow-hidden rounded-2xl"
         >
           <img
             src={bento2}
-            className="w-full h-full object-cover transition-all duration-700 hover:scale-105"
-            alt="Design de Interface Genevieve"
+            className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+            alt="Design"
           />
         </motion.div>
 
-        {/* Card de Texto "CONCEPT" - Otimizado */}
+        {/* 2. Imagem Vertical Central (Ocupa as 2 linhas) */}
         <motion.div
           variants={cardVariants}
-          initial="hidden"
-          whileInView="visible"
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="md:col-span-1 bg-surface-soft p-8 rounded-2xl flex flex-col justify-start border border-border-soft"
+          className="md:col-span-1 md:row-span-2 bg-[#121212] overflow-hidden rounded-2xl"
         >
-          <span className="text-[10px] text-accent-blue font-bold tracking-[0.2em] uppercase mb-6">
-            CONCEPT
+          <img
+            src={bento1}
+            className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+            alt="Vertical"
+          />
+        </motion.div>
+
+        {/* 3. Card CONCEITO / IMAGINE (Superior Direita) - Mais curto no Desktop */}
+        <motion.div
+          variants={cardVariants}
+          className="md:col-span-2 bg-[#121212] p-8 rounded-2xl flex flex-col justify-center border border-white/5"
+        >
+          <span className="text-[10px] text-gray-500 font-bold tracking-[0.2em] uppercase mb-2">
+            CONCEITO
           </span>
-          <h3 className="text-text-primary text-5xl font-black mb-4 uppercase leading-[0.9] tracking-tighter">
+          <h3 className="text-white text-5xl font-black uppercase tracking-tighter leading-none">
             RE
-            <br />
             <span
               className="text-transparent"
               style={{ WebkitTextStroke: "1px white" }}
@@ -48,64 +63,43 @@ export function BentoPresentation() {
               IMAGINE
             </span>
           </h3>
-          <p className="text-text-secondary text-[11px] leading-relaxed mt-auto">
-            Design focado em modernidade com tecnologias de ponta.
+          <p className="text-gray-400 text-[11px] font-medium mt-3 uppercase tracking-wider">
+            Transformamos sua ideia em novas oportunidades.
           </p>
         </motion.div>
 
-        {/* Card de Imagem Vertical - Bento 2 */}
+        {/* 4. Card MARCA / EVOLUIR (Inferior Esquerda) */}
         <motion.div
           variants={cardVariants}
-          initial="hidden"
-          whileInView="visible"
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="md:col-span-1 md:row-span-2 bg-[#111] overflow-hidden rounded-2xl"
+          className="md:col-span-1 bg-[#121212] p-8 rounded-2xl flex flex-col justify-center border border-white/5"
         >
-          <img
-            src={bento1}
-            className="w-full h-full object-cover transition-all duration-700 hover:scale-105"
-            alt="Experiência Mobile First"
-          />
-        </motion.div>
-
-        {/* Card de Texto "BRANDING" - Otimizado */}
-        <motion.div
-          variants={cardVariants}
-          initial="hidden"
-          whileInView="visible"
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="md:col-span-2 bg-surface-soft p-10 rounded-2xl flex flex-col justify-center border border-border-soft"
-        >
-          <span className="text-[10px] text-text-muted font-bold tracking-[0.3em] uppercase mb-4">
-            construção
+          <span className="text-[10px] text-gray-500 font-bold tracking-[0.3em] uppercase mb-4">
+            MARCA
           </span>
-          <h3 className="text-text-text-primary text-6xl md:text-8xl font-black uppercase tracking-tighter leading-none">
-            RE
+          <h3 className="text-white text-4xl font-black uppercase tracking-tighter leading-[0.9]">
+            EVO
+            <br />
             <span
               className="text-transparent"
               style={{ WebkitTextStroke: "1px white" }}
             >
-              DESIGN
+              LUIR
             </span>
           </h3>
-          <p className="text-text-secondary  text-sm mt-6 max-w-xs">
-            Sua marca em evidência nas pesquisas do Google com entrega em uma
-            semana.
+          <p className="text-gray-400 text-[10px] mt-4 uppercase">
+            Dê o novo passo: Redesign.
           </p>
         </motion.div>
 
-        {/* Card de Imagem Horizontal - Bento 3 */}
+        {/* 5. Imagem Inferior Direita (Fica mais alta no Desktop) */}
         <motion.div
           variants={cardVariants}
-          initial="hidden"
-          whileInView="visible"
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="md:col-span-1 bg-surface-card overflow-hidden rounded-2xl"
+          className="md:col-span-2 bg-[#121212] overflow-hidden rounded-2xl"
         >
           <img
             src={bento3}
-            className="w-full h-full object-cover transition-all duration-700 hover:scale-105"
-            alt="Customização sob medida"
+            className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+            alt="Equipe"
           />
         </motion.div>
       </div>
