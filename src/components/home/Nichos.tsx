@@ -143,10 +143,13 @@ function NichoRow({
     </motion.div>
   );
 }
-
 export function Nichos() {
   return (
-    <section className="relative bg-black text-gray-200 py-4 md:py-32 lg:py-40 overflow-hidden">
+    // ADICIONADO O ID "nichos" AQUI PARA O LINK DO HEADER FUNCIONAR
+    <section
+      id="nichos"
+      className="relative bg-black text-gray-200 py-4 md:py-32 lg:py-40 overflow-hidden"
+    >
       {/* Background decorativo */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#23007B]/5 to-transparent pointer-events-none" />
 

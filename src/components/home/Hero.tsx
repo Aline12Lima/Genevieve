@@ -42,11 +42,12 @@ export function Hero() {
         {/* H1 CENTRAL - No mobile vira WEBSITES */}
         <motion.div
           style={{ opacity: h1Opacity, scale: h1Scale }}
-          className="relative z-30 text-center pointer-events-none w-full"
+          className="relative z-30 text-center  w-full"
         >
           {/* Desktop exibe 'genevieve', Mobile exibe 'websites' */}
           <h1 className="font-beauty text-white text-[16vw] md:text-[15vw] leading-[0.8] tracking-tighter lowercase">
-            <span className="md:hidden">websites</span>
+            <span className="md:hidden opacity-90">websites</span>
+            <span className="hidden md:inline">genevieve</span>
           </h1>
         </motion.div>
 

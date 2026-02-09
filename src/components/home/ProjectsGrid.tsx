@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 
@@ -103,7 +104,10 @@ const projects: Project[] = [
 
 export function ProjectsGrid() {
   return (
-    <section className="relative bg-black text-white py-24 md:py-32 overflow-hidden">
+    <section
+      id="projects"
+      className="relative bg-black text-white py-16 md:py-0 overflow-hidden scroll-mt-12"
+    >
       {/* Header */}
       <div className="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16 mb-16">
         <motion.div
@@ -118,7 +122,7 @@ export function ProjectsGrid() {
           </h2>
           <p className="text-xl md:text-2xl text-gray-400 font-light">
             Ideias transformadas em{" "}
-            <span className="text-[#23007B] font-bold">sucessos criativos</span>
+            <span className="text-[#00a3ff] font-bold">sucessos criativos</span>
           </p>
         </motion.div>
       </div>
@@ -142,65 +146,58 @@ interface ProjectCardProps {
 
 function ProjectCard({ project, index }: ProjectCardProps) {
   return (
-    <motion.a
-      href={`#${project.slug}`} // Temporário - substitua por /projetos/${project.slug} quando criar as páginas
+    <motion.div
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
       className="group relative block"
     >
-      {/* Container do Card */}
-      <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-gray-900 border border-white/10">
-        {/* Vídeo */}
-        <video
-          src={project.video}
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-        />
+      <Link to={`/projeto/${project.slug}`}>
+        <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-gray-900 border border-white/10 mb-12">
+          <video
+            src={project.video}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+          />
 
-        {/* Overlay Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
 
-        {/* Content */}
-        <div className="absolute inset-0 p-6 flex flex-col justify-between">
-          {/* Tags */}
-          <div className="flex gap-2 flex-wrap">
-            {project.tags.map((tag) => (
-              <span
-                key={tag}
-                className="px-3 py-1 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-xs font-semibold uppercase tracking-wider"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-
-          {/* Info */}
-          <div className="space-y-2">
-            {/* Ícone de link */}
-            <div className="inline-flex items-center justify-center w-12 h-12 bg-white/10 backdrop-blur-md border border-white/30 rounded-full mb-4 group-hover:bg-[#23007B] group-hover:border-[#23007B] transition-all duration-300">
-              <ArrowUpRight className="w-6 h-6 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+          <div className="absolute inset-0 p-6 flex flex-col justify-between">
+            <div className="flex gap-2 flex-wrap">
+              {project.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="px-3 py-1 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-xs font-semibold uppercase tracking-wider"
+                >
+                  {tag}
+                </span>
+              ))}
             </div>
 
-            <p className="text-xs uppercase tracking-wider text-gray-400 font-bold">
-              {project.category}
-            </p>
-            <h3 className="text-2xl md:text-3xl font-black uppercase leading-tight">
-              {project.title}
-            </h3>
-            <p className="text-sm text-gray-300 leading-relaxed line-clamp-2">
-              {project.description}
-            </p>
-          </div>
-        </div>
+            <div className="space-y-2">
+              <div className="inline-flex items-center justify-center w-12 h-12 bg-white/10 backdrop-blur-md border border-white/30 rounded-full mb-4 group-hover:bg-[#00a3ff] group-hover:border-[#23007B] transition-all duration-300">
+                <ArrowUpRight className="w-6 h-6 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+              </div>
 
-        {/* Hover Border Effect */}
-        <div className="absolute inset-0 rounded-2xl ring-2 ring-transparent group-hover:ring-[#23007B] transition-all duration-300" />
-      </div>
-    </motion.a>
+              <p className="text-xs uppercase tracking-wider text-gray-400 font-bold">
+                {project.category}
+              </p>
+              <h3 className="text-2xl md:text-3xl font-black uppercase leading-tight">
+                {project.title}
+              </h3>
+              <p className="text-sm text-gray-300 leading-relaxed line-clamp-2">
+                {project.description}
+              </p>
+            </div>
+          </div>
+
+          <div className="absolute inset-0 rounded-2xl ring-2 ring-transparent group-hover:ring-[#23007B] transition-all duration-300" />
+        </div>
+      </Link>
+    </motion.div>
   );
 }
