@@ -1,1 +1,26 @@
 @import "tailwindcss";
+
+@layer base {
+    @font-face {
+        font-family: 'BeautiqueDisplay';
+        src: url('/fonts/BeautiqueDisplay/BeautiqueDisplay-Regular.otf') format('opentype');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: 'BeautiqueDisplay';
+        src: url('/fonts/BeautiqueDisplay/BeautiqueDisplay-Light.otf') format('opentype');
+        font-weight: 300;
+        font-style: normal;
+        font-display: swap;
+    }
+}
+
+@theme {
+    --font-beauty: "BeautiqueDisplay", sans-serif;
+
+    --color-primary: #23007B;
+    --cxolor-secondaary: #00a3ff;
+}

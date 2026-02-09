@@ -1,89 +1,82 @@
-import { motion } from "framer-motion";
-import img1 from "../../assets/img2/1.png";
-import img2 from "../../assets/img2/2.png";
-import img3 from "../../assets/images/Templares1service.png";
-import img4 from "../../assets/img2/8.png";
-import img5 from "../../assets/img2/9.png";
-
-const images = [img1, img2, img3, img4, img5];
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+import imageHero from "../../assets/images/woman-wearing-smart-glasses-futuristic-technology-digital-remix.jpg";
 
 export function Hero() {
-  return (
-    <section
-      className="
-    relative
-    w-full
-    h-auto
-    bg-black
-    overflow-hidden
-    flex flex-col
-    items-center
-    pt-24 sm:pt-16 md:pt-32
-  "
-    >
-      <div className="relative mb-2 text-center z-20">
-        <h1
-          className="
-    text-white
-    font-bold
-    tracking-tight
-    leading-tight
-    text-3xl sm:text-3xl md:text-5xl lg:text-6xl
-  "
-        >
-          Construindo web
-          <span className="italic font-serif text-[#00a3ff]">Sites</span>
-          <br />
-          Sofisticados
-        </h1>
-      </div>
+  const container = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: container,
+    offset: ["start start", "end end"],
+  });
 
-      <div
-        className="relative w-full overflow-visible"
-        style={{ perspective: "1200px" }}
-      >
+  const imageOpacity = useTransform(scrollYProgress, [0, 0.08], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.4], [1, 0.8]);
+  const borderRadius = useTransform(scrollYProgress, [0, 0.4], ["0px", "60px"]);
+  const h1Opacity = useTransform(scrollYProgress, [0, 0.2, 0.35], [1, 1, 0]);
+  const h1Scale = useTransform(scrollYProgress, [0, 0.4], [1, 0.9]);
+  const bgTextOpacity = useTransform(scrollYProgress, [0, 0.06], [1, 0]);
+
+  return (
+    <section ref={container} className="relative h-[200vh] bg-black">
+      <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
+        {/* IMAGEM BACKDROP */}
         <motion.div
-          className="flex gap-6 w-max"
-          style={{ rotateX: "10deg" }}
-          animate={{ x: ["0%", "-50%"] }}
-          transition={{
-            duration: 14,
-            repeat: Infinity,
-            ease: "linear",
+          style={{
+            scale,
+            borderRadius,
+            opacity: imageOpacity,
+            visibility: useTransform(scrollYProgress, (pos) =>
+              pos > 0.2 ? "hidden" : "visible",
+            ),
           }}
+          className="absolute inset-0 z-20 overflow-hidden border border-white/5"
         >
-          {[...images, ...images].map((src, index) => (
-            <motion.div
-              key={index}
-              className="
-                w-70 h-120
-                sm:w-64 sm:h-80
-                md:w-72 md:h-[420px]
-                flex-shrink-0
-                bg-zinc-900
-                rounded-[2rem]
-                overflow-hidden
-                border border-zinc-800
-                shadow-[0_20px_50px_rgba(0,0,0,0.5)]
-              "
-              whileHover={{
-                z: 40,
-                rotateX: "10deg",
-                transition: { duration: 0.3 },
-              }}
-            >
-              <img
-                src={src}
-                alt={`Projeto ${index + 1}`}
-                className="w-full h-full object-cover"
-                loading="lazy"
-              />
-            </motion.div>
-          ))}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#1a1a8a]/40 via-black to-black opacity-90" />
+          <img
+            src={imageHero}
+            alt="Hero Background"
+            className="w-full h-full object-cover object-center mix-blend-lighten"
+          />
         </motion.div>
 
-        <div className="absolute inset-y-0 left-0 w-32 md:w-48 bg-gradient-to-r from-black via-black/60 to-transparent z-10" />
-        <div className="absolute inset-y-0 right-0 w-32 md:w-48 bg-gradient-to-l from-black via-black/60 to-transparent z-10" />
+        {/* H1 CENTRAL - No mobile vira WEBSITES */}
+        <motion.div
+          style={{ opacity: h1Opacity, scale: h1Scale }}
+          className="relative z-30 text-center pointer-events-none w-full"
+        >
+          {/* Desktop exibe 'genevieve', Mobile exibe 'websites' */}
+          <h1 className="font-beauty text-white text-[16vw] md:text-[15vw] leading-[0.8] tracking-tighter lowercase">
+            <span className="md:hidden">websites</span>
+          </h1>
+        </motion.div>
+
+        {/* ELEMENTOS AUXILIARES */}
+        <motion.div
+          style={{ opacity: bgTextOpacity }}
+          className="absolute inset-0 z-40 flex items-center justify-between p-8 md:p-16 pointer-events-none"
+        >
+          {/* LADO ESQUERDO (Ajustado no mobile para subir: justify-start + pt-20) */}
+          <div className="flex flex-col h-full justify-start pt-20 md:justify-center md:pt-0">
+            {/* No mobile exibe 'Design', no desktop 'WebSites®' */}
+            <h2 className="text-white text-lg md:text-2xl font-medium tracking-tight top-">
+              <span className="hidden md:inline">WebSites®</span>
+            </h2>
+          </div>
+
+          {/* LADO DIREITO (Ajustado no mobile para subir: justify-start + pt-24) */}
+          <div className="flex flex-col h-full justify-start pt-24 md:justify-center items-end text-right">
+            <div className="flex flex-col gap-1 md:mt-30">
+              {["Design", "Desenvolvimento", "Manutenção"].map((item) => (
+                <span
+                  key={item}
+                  className="text-white text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] opacity-90"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
