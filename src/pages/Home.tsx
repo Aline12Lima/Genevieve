@@ -8,6 +8,7 @@ import { ProjectsGrid } from "../components/home/ProjectsGrid";
 export function Home() {
   useEffect(() => {
     // Proteção para ambientes sem window (SSR / prerender)
+
     if (typeof window === "undefined") return;
 
     const handleHashScroll = () => {
