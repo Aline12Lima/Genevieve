@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import Persona1 from "../assets/images/Aline.jpg";
 import Persona2 from "../assets/images/ju.png";
 import Persona3 from "../assets/images/Jeff.jpg";
+import bgIMG from "../assets/images/Templares1service.png";
 
 export function About() {
   return (
@@ -37,34 +38,49 @@ export function About() {
       </section>
 
       {/* ===================== O QUE FAZEMOS ===================== */}
-      <section className="py-32 px-6 md:px-12 max-w-[1440px] mx-auto border-t border-white/10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          <div className="lg:col-span-4">
-            <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-gray-300">
-              [ 01 ] O QUE FAZEMOS
-            </span>
-          </div>
+      <section
+        className="
+          relative
+          py-32 px-6 md:px-12
+          border-t border-white/10
+          bg-cover bg-center bg-no-repeat
+          "
+        style={{
+          backgroundImage: `url(${bgIMG})`,
+        }}
+      >
+        {/* overlay opcional para contraste */}
+        <div className="absolute inset-0 bg-black/60" />
 
-          <div className="lg:col-span-8 space-y-16">
-            <p className="text-2xl md:text-4xl font-medium leading-[1.2] tracking-tight text-gray-200 max-w-3xl">
-              Criamos soluções digitais claras, funcionais e elegantes para
-              marcas que precisam crescer, se posicionar e converter.
-            </p>
+        <div className="relative max-w-[1440px] mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            <div className="lg:col-span-4">
+              <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-gray-100">
+                [ 01 ] O QUE FAZEMOS
+              </span>
+            </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-[#00a3ff]">
-              <ul className="space-y-4">
-                <li>— Landing pages e websites profissionais</li>
-                <li>— Portfólios e cardápios digitais</li>
-                <li>— Campanhas e páginas de produtos</li>
-                <li>— Evolução e reformulação de sites existentes</li>
-              </ul>
+            <div className="lg:col-span-8 space-y-16">
+              <p className="text-2xl md:text-4xl font-medium leading-[1.2] tracking-tight text-white max-w-3xl">
+                Criamos soluções digitais claras, funcionais e elegantes para
+                marcas que precisam crescer, se posicionar e converter.
+              </p>
 
-              <ul className="space-y-4">
-                <li>— Painéis administrativos e CMS</li>
-                <li>— Integrações com Google, WhatsApp e Instagram</li>
-                <li>— Automações de e-mail e fluxos de contato</li>
-                <li>— Manutenção pós-lançamento</li>
-              </ul>
+              <div className="grid grid-cols-1 bg-white/100 rounded-[13px] py-4 md:grid-cols-2 gap-12  front-black text-black ">
+                <ul className="space-y-4  py-4 ml-4 ">
+                  <li>— Landing pages e websites profissionais</li>
+                  <li>— Portfólios e cardápios digitais</li>
+                  <li>— Campanhas e páginas de produtos</li>
+                  <li>— Evolução e reformulação de sites existentes</li>
+                </ul>
+
+                <ul className="space-y-4">
+                  <li>— Painéis administrativos e CMS</li>
+                  <li>— Integrações com Google, WhatsApp e Instagram</li>
+                  <li>— Automações de e-mail e fluxos de contato</li>
+                  <li>— Manutenção pós-lançamento</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
