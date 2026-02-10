@@ -1,34 +1,38 @@
-import { useEffect } from "react"; // 1. Adicionado o Hook necessário
+import { useEffect } from "react";
 import { Hero } from "../components/home/Hero";
 import { Perfil } from "../components/home/Perfil";
 import { Nichos } from "../components/home/Nichos";
-import { GroupWork } from "../components/home/GroupWork";
 import { Skills } from "../components/home/Skills";
 import { ProjectsGrid } from "../components/home/ProjectsGrid";
 
 export function Home() {
-  // 2. Lógica de Scroll (Boas práticas de Engenharia de Software)
-  // Esta função "escuta" se alguém clicou no link "Serviços" do Header
   useEffect(() => {
+    // Proteção para ambientes sem window (SSR / prerender)
+    if (typeof window === "undefined") return;
+
     const handleHashScroll = () => {
-      const hash = window.location.hash;
-      if (hash === "#nichos") {
-        const element = document.getElementById("nichos");
-        if (element) {
-          // Timeout pequeno para garantir que o DOM renderizou
-          setTimeout(() => {
-            element.scrollIntoView({ behavior: "smooth" });
-          }, 100);
-        }
+      const { hash } = window.location;
+      if (!hash) return;
+
+      const targetId = hash.replace("#", "");
+      const element = document.getElementById(targetId);
+
+      if (element) {
+        requestAnimationFrame(() => {
+          element.scrollIntoView({ behavior: "smooth" });
+        });
       }
     };
 
     // Executa ao carregar a página
     handleHashScroll();
 
-    // Opcional: Escuta mudanças na hash (caso o usuário clique várias vezes)
+    // Escuta mudanças na hash
     window.addEventListener("hashchange", handleHashScroll);
-    return () => window.removeEventListener("hashchange", handleHashScroll);
+
+    return () => {
+      window.removeEventListener("hashchange", handleHashScroll);
+    };
   }, []);
 
   return (
@@ -38,7 +42,6 @@ export function Home() {
       <Nichos />
       <ProjectsGrid />
       <Skills />
-      <GroupWork />
     </main>
   );
 }

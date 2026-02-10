@@ -45,21 +45,34 @@ export function Perfil() {
               destacar, escalar e converter.
             </p>
 
-            <a
-              href="#projects"
+            <button
+              onClick={() => {
+                const el = document.getElementById("projects");
+                if (!el) return;
+
+                const headerOffset = 140;
+                const elementPosition = el.getBoundingClientRect().top;
+                const offsetPosition =
+                  elementPosition + window.pageYOffset - headerOffset;
+
+                window.scrollTo({
+                  top: offsetPosition,
+                  behavior: "smooth",
+                });
+              }}
               className="
-             inline-flex items-center gap-2
-             mt-6
-             text-sm uppercase tracking-widest
-             font-semibold
-             text-[#00a3ff]
-             hover:text-white
-             transition-colors duration-300
-  "
+                inline-flex items-center gap-2
+                mt-6
+                text-sm uppercase tracking-widest
+                font-semibold
+                text-[var(--color-blue)]
+                hover:text-black
+                transition-colors duration-300
+                 "
             >
               Ver outros projetos
               <span className="text-lg">→</span>
-            </a>
+            </button>
           </motion.div>
         </div>
       </div>

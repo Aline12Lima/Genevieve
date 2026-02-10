@@ -30,10 +30,12 @@ export function Header() {
 
   /* ===================== OBSERVER BG ===================== */
   useEffect(() => {
+    let sectionObserver: IntersectionObserver | null = null;
+
     const observeSections = () => {
-      const sectionObserver = new IntersectionObserver(
+      sectionObserver = new IntersectionObserver(
         (entries) => {
-          let mostVisibleSection = null;
+          let mostVisibleSection: Element | null = null;
           let maxRatio = 0;
 
           entries.forEach((entry) => {
@@ -47,25 +49,30 @@ export function Header() {
             const styles = window.getComputedStyle(mostVisibleSection);
             const bgColor = styles.backgroundColor;
             const rgbMatch = bgColor.match(/\d+/g);
+
             if (rgbMatch) {
               const brightness =
                 (parseInt(rgbMatch[0]) +
                   parseInt(rgbMatch[1]) +
                   parseInt(rgbMatch[2])) /
                 3;
+
               setIsDarkBg(brightness < 180);
             }
           }
         },
-        { threshold: [0, 0.25, 0.5, 0.75, 1] },
+        {
+          threshold: [0, 0.25, 0.5, 0.75, 1],
+        },
       );
-
-      document.querySelectorAll("section").forEach((section) => {
-        sectionObserver.observe(section);
-      });
     };
 
-    setTimeout(observeSections, 100);
+    const timer = setTimeout(observeSections, 100);
+
+    return () => {
+      clearTimeout(timer);
+      sectionObserver?.disconnect();
+    };
   }, []);
 
   /* ===================== LOCK BODY ===================== */
@@ -111,6 +118,7 @@ export function Header() {
 
   const menuLinks = [
     { name: "Início", action: scrollToTop },
+    { name: "Sobre", action: () => navigate("/about") },
     { name: "Serviços", action: () => scrollToSection("nichos") },
     { name: "Projetos", action: () => scrollToSection("projects") }, // Alterado de "/projetos" para "projects"
   ];

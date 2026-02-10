@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 import imagembg from "../../assets/images/skills.png";
 
 const skills = [
-  { name: "DESING WEB", level: "100%" },
+  { name: "DESIng WEB", level: "85%" },
   { name: "LANDING PAGES", level: "100%" },
-  { name: "INTEGRAÇÃO NO GOOGLE", level: "100%" },
-  { name: "Manutenções", level: "100%" },
+  { name: "Indexação no Google", level: "90%" },
+  { name: "Manutenções", level: "78%" },
 ];
 
 export function Skills() {

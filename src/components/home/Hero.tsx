@@ -3,7 +3,7 @@ import { useRef } from "react";
 import imageHero from "../../assets/images/woman-wearing-smart-glasses-futuristic-technology-digital-remix.jpg";
 
 export function Hero() {
-  const container = useRef(null);
+  const container = useRef<HTMLElement | null>(null);
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ["start start", "end end"],
@@ -15,19 +15,21 @@ export function Hero() {
   const h1Opacity = useTransform(scrollYProgress, [0, 0.2, 0.35], [1, 1, 0]);
   const h1Scale = useTransform(scrollYProgress, [0, 0.4], [1, 0.9]);
   const bgTextOpacity = useTransform(scrollYProgress, [0, 0.06], [1, 0]);
+  const visibility = useTransform(scrollYProgress, (pos) =>
+    pos > 0.2 ? "hidden" : "visible",
+  );
 
   return (
     <section ref={container} className="relative h-[200vh] bg-black">
       <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
         {/* IMAGEM BACKDROP */}
+
         <motion.div
           style={{
             scale,
             borderRadius,
             opacity: imageOpacity,
-            visibility: useTransform(scrollYProgress, (pos) =>
-              pos > 0.2 ? "hidden" : "visible",
-            ),
+            visibility,
           }}
           className="absolute inset-0 z-20 overflow-hidden border border-white/5"
         >
@@ -57,7 +59,7 @@ export function Hero() {
           className="absolute inset-0 z-40 flex items-center justify-between p-8 md:p-16 pointer-events-none"
         >
           {/* LADO ESQUERDO (Ajustado no mobile para subir: justify-start + pt-20) */}
-          <div className="fflex flex-col h-full justify-start pt-32 sm:mt-12 md:justify-center md:pt-36">
+          <div className="flex flex-col h-full justify-start pt-32 sm:mt-12 md:justify-center md:pt-36">
             {/* No mobile exibe 'Design', no desktop 'WebSites®' */}
             <h2 className="text-white text-lg md:text-2xl font-medium tracking-tight top-">
               <span className=" ">WebSite®</span>

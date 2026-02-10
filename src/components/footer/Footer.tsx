@@ -73,7 +73,7 @@ export function Footer() {
               <li>
                 <button
                   onClick={scrollToTop}
-                  className="hover:text-[#00a3ff] transition-colors"
+                  className="hover:text-[var(--color-blue)] transition-colors"
                 >
                   Início
                 </button>
@@ -82,7 +82,7 @@ export function Footer() {
               <li>
                 <button
                   onClick={() => scrollToSection("nichos")}
-                  className="hover:text-[#00a3ff] transition-colors"
+                  className="hover:text-[var(--color-blue)] transition-colors"
                 >
                   Serviços
                 </button>
@@ -91,7 +91,7 @@ export function Footer() {
               <li>
                 <button
                   onClick={() => scrollToSection("projects")}
-                  className="hover:text-[#00a3ff] transition-colors"
+                  className="hover:text-[var(--color-blue)] transition-colors"
                 >
                   Projetos
                 </button>
@@ -120,7 +120,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram Genevieve Website"
-                className="hover:text-white transition-colors"
+                className="hover:text-[var(--color-blue)] transition-colors"
               >
                 <Instagram size={18} />
               </a>
@@ -130,7 +130,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp Genevieve Website"
-                className="hover:text-white transition-colors"
+                className="hover:text-[var(--color-blue)] transition-colors"
               >
                 <MessageCircle size={18} />
               </a>

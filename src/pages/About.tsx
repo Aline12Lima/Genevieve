@@ -1,92 +1,154 @@
 import { motion } from "framer-motion";
 
+import Persona1 from "../assets/images/Aline.jpg";
+import Persona2 from "../assets/images/ju.png";
+import Persona3 from "../assets/images/Jeff.jpg";
+
 export function About() {
   return (
     <div className="bg-black text-white selection:bg-white selection:text-black">
-      {/* SEÇÃO HERO - Títulos Monumentais */}
-      <section className="pt-40 pb-20 px-6 md:px-12 max-w-[1440px] mx-auto">
-        <div className="overflow-hidden">
+      {/* ===================== HERO ===================== */}
+      <section className="min-h-[80vh] flex flex-col justify-end px-6 md:px-12 pb-20 border-b border-white/10">
+        <div className="max-w-[1440px] mx-auto w-full mt-32">
           <motion.h1
-            initial={{ y: "100%" }}
-            animate={{ y: 0 }}
-            transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
-            className="text-[14vw] md:text-[10vw] font-black leading-[0.85] tracking-tighter uppercase"
+            initial={{ y: 60, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: "circOut" }}
+            className="text-[12vw] md:text-[8vw] font-bold leading-[0.9] tracking-tighter uppercase mb-12"
           >
-            WE BUILD <br />
-            <span
-              style={{ WebkitTextStroke: "1px white" }}
-              className="text-transparent"
-            >
-              DIGITAL
+            Construindo
+            <br />
+            <span className="text-[#00a3ff] font-light font-beauty">
+              Experiências
             </span>
+            <br />
+            Digitais
           </motion.h1>
-        </div>
 
-        <div className="overflow-hidden mt-2">
-          <motion.h1
-            initial={{ y: "100%" }}
-            animate={{ y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1, ease: [0.76, 0, 0.24, 1] }}
-            className="text-[14vw] md:text-[10vw] font-black leading-[0.85] tracking-tighter uppercase"
-          >
-            EXPERIENCES
-          </motion.h1>
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
+            <p className="md:col-start-7 md:col-span-6 text-xl md:text-2xl text-gray-200 font-light leading-relaxed">
+              Um estúdio enxuto focado em criar landing pages, websites
+              profissionais, sistemas administrativos, integrações e soluções
+              digitais que elevam negócios com clareza, performance e design.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* SEÇÃO MANIFESTO - Grid Assimétrico */}
+      {/* ===================== O QUE FAZEMOS ===================== */}
       <section className="py-32 px-6 md:px-12 max-w-[1440px] mx-auto border-t border-white/10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          {/* Coluna Esquerda: Subtítulo Técnico */}
           <div className="lg:col-span-4">
-            <h2 className="text-[10px] font-bold uppercase tracking-[0.4em] text-gray-500">
-              [ 01 ] NOSSA ABORDAGEM
-            </h2>
+            <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-gray-300">
+              [ 01 ] O QUE FAZEMOS
+            </span>
           </div>
 
-          {/* Coluna Direita: Texto de Destaque */}
-          <div className="lg:col-span-8 space-y-12">
-            <p className="text-2xl md:text-4xl font-medium leading-[1.2] tracking-tight text-gray-200">
-              Acreditamos que a simplicidade é o último grau da sofisticação. Na
-              Genevieve, fundimos engenharia de software de elite com design
-              visceral.
+          <div className="lg:col-span-8 space-y-16">
+            <p className="text-2xl md:text-4xl font-medium leading-[1.2] tracking-tight text-gray-200 max-w-3xl">
+              Criamos soluções digitais claras, funcionais e elegantes para
+              marcas que precisam crescer, se posicionar e converter.
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 text-gray-400 font-normal leading-relaxed">
-              <p>
-                Como estudantes e entusiastas de engenharia, entendemos que o
-                código é a base, mas a experiência do usuário é o que define o
-                sucesso. Cada pixel é planejado, cada transição é calculada.
-              </p>
-              <p>
-                Não entregamos apenas sites; entregamos ferramentas de
-                crescimento. Focamos em escalabilidade e performance, garantindo
-                que sua presença digital esteja anos à frente da concorrência.
-              </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-[#00a3ff]">
+              <ul className="space-y-4">
+                <li>— Landing pages e websites profissionais</li>
+                <li>— Portfólios e cardápios digitais</li>
+                <li>— Campanhas e páginas de produtos</li>
+                <li>— Evolução e reformulação de sites existentes</li>
+              </ul>
+
+              <ul className="space-y-4">
+                <li>— Painéis administrativos e CMS</li>
+                <li>— Integrações com Google, WhatsApp e Instagram</li>
+                <li>— Automações de e-mail e fluxos de contato</li>
+                <li>— Manutenção pós-lançamento</li>
+              </ul>
             </div>
           </div>
         </div>
       </section>
 
-      {/* SEÇÃO NÚMEROS - Estilo Minimalista */}
+      {/* ===================== EQUIPE ===================== */}
       <section className="py-32 px-6 md:px-12 max-w-[1440px] mx-auto border-t border-white/10">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-16">
-          {[
-            { label: "Anos de Experiência", value: "05" },
-            { label: "Projetos Lançados", value: "120+" },
-            { label: "Países Atendidos", value: "08" },
-            { label: "Satisfação", value: "99%" },
-          ].map((item, idx) => (
-            <div key={idx} className="space-y-4">
-              <h4 className="text-5xl md:text-7xl font-black tracking-tighter">
-                {item.value}
-              </h4>
-              <p className="text-[10px] font-bold uppercase tracking-widest text-gray-600">
-                {item.label}
-              </p>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          <div className="lg:col-span-4">
+            <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-gray-300">
+              [ 02 ] NOSSO TIME
+            </span>
+          </div>
+
+          <div className="lg:col-span-8 space-y-16">
+            <p className="text-2xl md:text-4xl font-medium leading-[1.2] tracking-tight text-gray-200 max-w-3xl">
+              Um time enxuto, multidisciplinar e focado em resultado.
+            </p>
+
+            <div className="flex flex-wrap gap-16">
+              {[
+                {
+                  name: "Juliane Lima",
+                  role: "Comercial",
+                  image: Persona2,
+                },
+                {
+                  name: "Aline Lima",
+                  role: "Desenvolvimento",
+                  image: Persona1,
+                },
+                {
+                  name: "Jefferson",
+                  role: "Design",
+                  image: Persona3,
+                },
+              ].map((person) => (
+                <div key={person.name} className="flex items-center gap-4">
+                  <img
+                    src={person.image}
+                    alt={person.name}
+                    className="w-16 h-16 rounded-full object-cover"
+                  />
+                  <div>
+                    <p className="text-white font-bold text-sm uppercase">
+                      {person.name}
+                    </p>
+                    <p className="text-gray-500 text-[10px] uppercase tracking-widest">
+                      {person.role}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
+      </section>
+
+      {/* ===================== CTA ===================== */}
+      <section className="py-32 border-t border-white/10 text-center">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="px-6"
+        >
+          <h2 className="text-6xl md:text-[10vw] font-bold tracking-[-0.05em] uppercase leading-none mb-12">
+            Vamos Trabalhar
+            <br />
+            <span
+              className="text-transparent"
+              style={{ WebkitTextStroke: "1px #f5f5f5" }}
+            >
+              Juntos?
+            </span>
+          </h2>
+
+          <a
+            href="mailto:contato@suaagencia.com"
+            className="text-xl md:text-2xl border-b border-[#00a3ff] pb-2 hover:text-[#00a3ff] transition-colors"
+          >
+            Mande um Olá →
+          </a>
+        </motion.div>
       </section>
     </div>
   );
