@@ -1,16 +1,18 @@
 import { motion } from "framer-motion";
-import imagefuture1 from "../../assets/images/Futuristic.png";
-import imagefuture2 from "../../assets/images/Futuristic.png";
-import imagefuture3 from "../../assets/images/Futuristic.png";
-import imagefuture4 from "../../assets/images/Futuristic.png";
-import imagefuture5 from "../../assets/images/Futuristic.png";
-import imagefuture6 from "../../assets/images/Futuristic.png";
-import imagefuture7 from "../../assets/images/Futuristic.png";
-import imagefuture8 from "../../assets/images/Futuristic.png";
-import imagefuture9 from "../../assets/images/Futuristic.png";
-import imagefuture10 from "../../assets/images/Futuristic.png";
-import imagefuture11 from "../../assets/images/Futuristic.png";
-import imagefuture12 from "../../assets/images/Futuristic.png";
+import imagefuture1 from "../../assets/nichos/Smile1.png";
+import imagefuture2 from "../../assets/nichos/Dentist.png";
+import imagefuture3 from "../../assets/nichos/skills.png";
+import imagefuture4 from "../../assets/nichos/Smile2.png";
+
+import imagefuture5 from "../../assets/nichos/Consult1.png";
+import imagefuture6 from "../../assets/nichos/Consult2.png";
+import imagefuture7 from "../../assets/nichos/Consult3.png";
+import imagefuture8 from "../../assets/nichos/Consult4.png";
+
+import imagefuture9 from "../../assets/nichos/rest1.png";
+import imagefuture10 from "../../assets/nichos/rest2.png";
+import imagefuture11 from "../../assets/nichos/rest3.png";
+import imagefuture12 from "../../assets/nichos/rest4.png";
 
 type NichoProps = {
   title: string;
@@ -23,6 +25,7 @@ type NichoProps = {
   icon: string;
   iconBgColor?: string;
   sectionBgColor?: string;
+  link?: string;
 };
 
 function NichoRow({
@@ -34,6 +37,7 @@ function NichoRow({
   icon,
   iconBgColor = "bg-white",
   sectionBgColor = "transparent",
+  link,
 }: NichoProps) {
   const isLeft = direction === "left";
   const duplicatedImages = [...images, ...images];
@@ -105,7 +109,7 @@ function NichoRow({
               key={index}
               // ALTURA DIMINUÍDA AQUI:
               // Mudamos de aspect-[2/3] para aspect-video (horizontal) ou aspect-[4/3]
-              className="relative flex-shrink-0 w-[420px] md:w-[450px] lg:w-[550px] aspect-[16/18] group"
+              className="relative flex-shrink-0 w-[420px] md:w-[400px] lg:w-[550px] aspect-[14/10] group"
             >
               {/* Card Container */}
               <div className="relative w-full h-full rounded-2xl overflow-hidden bg-gray-900 shadow-2xl">
@@ -113,13 +117,18 @@ function NichoRow({
                 <img
                   src={img}
                   alt={`${title} - Projeto ${(index % images.length) + 1}`}
-                  className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
+                  className=" object-cover object-contain transition-transform duration-700 group-hover:scale-110"
                 />
 
                 {/* Botão Ver projetos */}
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40">
-                  <button className="flex items-center gap-2 px-6 py-3 bg-white/20 backdrop-blur-md border border-white/40 rounded-lg text-white text-xs font-bold uppercase tracking-widest hover:bg-white/30 transition-all duration-300">
-                    Ver projetos
+                  <a
+                    href={link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-6 py-3 bg-white/20 backdrop-blur-md border border-white/40 rounded-lg text-white text-xs font-bold uppercase tracking-widest hover:bg-white/30 transition-all duration-300"
+                  >
+                    Ver Template
                     <svg
                       className="w-4 h-4"
                       fill="none"
@@ -133,7 +142,7 @@ function NichoRow({
                         d="M9 5l7 7-7 7"
                       />
                     </svg>
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -180,6 +189,7 @@ export function Nichos() {
           iconColor="text-blue-500"
           icon="/icons/stethoscope.svg"
           images={[imagefuture1, imagefuture2, imagefuture3, imagefuture4]}
+          link="https://dentista-template.webflow.io/"
         />
 
         {/* Nicho 2: Empresarial */}
@@ -194,6 +204,7 @@ export function Nichos() {
           iconBgColor="bg-[#00a3ff]"
           sectionBgColor="#F2F2F2"
           images={[imagefuture5, imagefuture6, imagefuture7, imagefuture8]}
+          link="https://consut.webflow.io/services"
         />
 
         {/* Nicho 3: Gastronomia */}
@@ -206,6 +217,7 @@ export function Nichos() {
           iconColor="text-orange-500"
           icon="/icons/fork-knife.svg"
           images={[imagefuture9, imagefuture10, imagefuture11, imagefuture12]}
+          link="https://monkscrave.framer.website/about"
         />
       </div>
     </section>

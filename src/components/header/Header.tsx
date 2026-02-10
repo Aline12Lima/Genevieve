@@ -195,23 +195,33 @@ export function Header() {
                   link.action();
                   setIsOpen(false);
                 }}
-                className="text-5xl font-veauly text-white italic hover:text-[#23007B] transition-colors"
+                className="text-5xl font-beauty text-white  hover:text-[#23007B] transition-colors"
               >
                 {link.name}
               </motion.button>
             ))}
 
-            <motion.button
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
+            <button
               onClick={() => {
-                navigate("/contato");
                 setIsOpen(false);
+                navigate("/contato");
               }}
-              className="mt-4 px-12 py-4 rounded-full border border-white/20 text-white font-veauly text-2xl hover:bg-[#23007B] transition-all"
+              className={`
+              bg-white/10
+              hover:bg-[#00a3ff]
+              px-6 py-2
+              rounded-full
+              text-[11px]
+              font-bold
+              uppercase
+              tracking-widest
+              ${scrolledTextClass}
+              transition-all
+              border ${scrolled ? "border-gray-400/40" : "border-white/10"}
+            `}
             >
               Contato
-            </motion.button>
+            </button>
           </motion.div>
         )}
       </AnimatePresence>

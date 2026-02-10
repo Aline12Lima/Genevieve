@@ -5,7 +5,6 @@ import { Nichos } from "../components/home/Nichos";
 import { GroupWork } from "../components/home/GroupWork";
 import { Skills } from "../components/home/Skills";
 import { ProjectsGrid } from "../components/home/ProjectsGrid";
-import { CTAFlutuanteMobile } from "../components/home/CTAFlutuanteMobile";
 
 export function Home() {
   // 2. Lógica de Scroll (Boas práticas de Engenharia de Software)
@@ -40,7 +39,6 @@ export function Home() {
       <ProjectsGrid />
       <Skills />
       <GroupWork />
-      <CTAFlutuanteMobile />
     </main>
   );
 }

@@ -2,105 +2,9 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 
-// Imports dos vídeos
-import videoRH from "../../assets/video/RH.mp4";
-import videoCompany from "../../assets/video/companyConsut.mp4";
-import videoAdvocacia from "../../assets/video/advocacia.mp4";
-import videoTourism from "../../assets/video/tourism.mp4";
-import videoSalon from "../../assets/video/salon.mp4";
-import videoDentist from "../../assets/video/dentist.mp4";
-import videoRestaurantPasta from "../../assets/video/restaurantPasta.mp4";
-import videoRestaurant1 from "../../assets/video/restautant1.mp4";
-
-interface Project {
-  id: number;
-  title: string;
-  category: string;
-  tags: string[];
-  video: string;
-  description: string;
-  slug: string; // Para futura página individual
-}
-
-const projects: Project[] = [
-  {
-    id: 1,
-    title: "RH Solutions",
-    category: "Consultoria de Recursos Humanos",
-    tags: ["Web", "Branding"],
-    video: videoRH,
-    description:
-      "Plataforma digital moderna para gestão de talentos e recrutamento.",
-    slug: "rh-solutions",
-  },
-  {
-    id: 2,
-    title: "AGveia Consulting",
-    category: "Consultoria Empresarial",
-    tags: ["Web", "Corporativo"],
-    video: videoCompany,
-    description:
-      "Website institucional com dashboard de gestão para empresa de consultoria.",
-    slug: "agveia-consulting",
-  },
-  {
-    id: 3,
-    title: "Advocacia & Direito",
-    category: "Escritório de Advocacia",
-    tags: ["Web", "Institucional"],
-    video: videoAdvocacia,
-    description:
-      "Portal elegante para escritório de advocacia com área do cliente.",
-    slug: "advocacia-direito",
-  },
-  {
-    id: 4,
-    title: "Célia Turismo",
-    category: "Agência de Viagens",
-    tags: ["Web", "E-commerce"],
-    video: videoTourism,
-    description:
-      "Sistema de reservas e catálogo de destinos para agência de turismo.",
-    slug: "celia-turismo",
-  },
-  {
-    id: 5,
-    title: "Beleza & Estilo",
-    category: "Salão de Beleza",
-    tags: ["Web", "Agendamento"],
-    video: videoSalon,
-    description: "Plataforma de agendamento online com galeria de serviços.",
-    slug: "beleza-estilo",
-  },
-  {
-    id: 6,
-    title: "Odonto Care",
-    category: "Clínica Odontológica",
-    tags: ["Web", "Saúde"],
-    video: videoDentist,
-    description:
-      "Website médico com sistema de agendamento e prontuário digital.",
-    slug: "odonto-care",
-  },
-  {
-    id: 7,
-    title: "Pasta Italiana",
-    category: "Restaurante",
-    tags: ["Web", "Cardápio Digital"],
-    video: videoRestaurantPasta,
-    description: "Cardápio digital interativo com sistema de pedidos online.",
-    slug: "pasta-italiana",
-  },
-  {
-    id: 8,
-    title: "Grand Chef",
-    category: "Restaurante Fine Dining",
-    tags: ["Web", "Reservas"],
-    video: videoRestaurant1,
-    description: "Experiência digital premium com reservas e menu degustação.",
-    slug: "grand-chef",
-  },
-];
+// Importações separadas para respeitar o 'verbatimModuleSyntax'
+import { projects } from "../../data/projetctDetail";
+import type { Project } from "../../data/projetctDetail";
 
 export function ProjectsGrid() {
   return (
@@ -155,12 +59,10 @@ function ProjectCard({ project, index }: ProjectCardProps) {
     >
       <Link to={`/projeto/${project.slug}`}>
         <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-gray-900 border border-white/10 mb-12">
-          <video
-            src={project.video}
-            autoPlay
-            loop
-            muted
-            playsInline
+          {/* Vínculo da Imagem do Data */}
+          <img
+            src={project.mainImage}
+            alt={project.title}
             className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
           />
 
@@ -179,8 +81,9 @@ function ProjectCard({ project, index }: ProjectCardProps) {
             </div>
 
             <div className="space-y-2">
+              {/* Mantendo seu template: bg original do ícone e cor azul no hover */}
               <div className="inline-flex items-center justify-center w-12 h-12 bg-white/10 backdrop-blur-md border border-white/30 rounded-full mb-4 group-hover:bg-[#00a3ff] group-hover:border-[#23007B] transition-all duration-300">
-                <ArrowUpRight className="w-6 h-6 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                <ArrowUpRight className="w-6 h-6 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 text-white" />
               </div>
 
               <p className="text-xs uppercase tracking-wider text-gray-400 font-bold">

@@ -1,15 +1,15 @@
 import { createPortal } from "react-dom";
+import { Link } from "react-router-dom";
 
 export function CTAFlutuanteMobile() {
-  // Evita erro de SSR (Server Side Rendering)
   if (typeof document === "undefined") return null;
 
   return createPortal(
-    <button
+    <Link
+      to="/contato"
       className="
         fixed bottom-10 right-6
-        z-[9999] 
-        lg:hidden
+        z-[9999]
         px-8 py-4
         rounded-full
         bg-white
@@ -24,7 +24,7 @@ export function CTAFlutuanteMobile() {
       "
     >
       Aderir agora
-    </button>,
+    </Link>,
     document.body,
   );
 }

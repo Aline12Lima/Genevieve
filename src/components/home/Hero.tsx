@@ -46,7 +46,7 @@ export function Hero() {
         >
           {/* Desktop exibe 'genevieve', Mobile exibe 'websites' */}
           <h1 className="font-beauty text-white text-[16vw] md:text-[15vw] leading-[0.8] tracking-tighter lowercase">
-            <span className="md:hidden opacity-90">websites</span>
+            <span className="md:hidden opacity-90">Genevieve</span>
             <span className="hidden md:inline">genevieve</span>
           </h1>
         </motion.div>
@@ -57,17 +57,23 @@ export function Hero() {
           className="absolute inset-0 z-40 flex items-center justify-between p-8 md:p-16 pointer-events-none"
         >
           {/* LADO ESQUERDO (Ajustado no mobile para subir: justify-start + pt-20) */}
-          <div className="flex flex-col h-full justify-start pt-20 md:justify-center md:pt-0">
+          <div className="fflex flex-col h-full justify-start pt-32 sm:mt-12 md:justify-center md:pt-36">
             {/* No mobile exibe 'Design', no desktop 'WebSites®' */}
             <h2 className="text-white text-lg md:text-2xl font-medium tracking-tight top-">
-              <span className="hidden md:inline">WebSites®</span>
+              <span className=" ">WebSite®</span>
             </h2>
           </div>
 
           {/* LADO DIREITO (Ajustado no mobile para subir: justify-start + pt-24) */}
           <div className="flex flex-col h-full justify-start pt-24 md:justify-center items-end text-right">
             <div className="flex flex-col gap-1 md:mt-30">
-              {["Design", "Desenvolvimento", "Manutenção"].map((item) => (
+              {[
+                "Design",
+                "Landing Pages",
+                "Cardápios",
+                "Portifólios",
+                "Manutenção pós venda",
+              ].map((item) => (
                 <span
                   key={item}
                   className="text-white text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] opacity-90"

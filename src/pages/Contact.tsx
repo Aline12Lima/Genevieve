@@ -11,12 +11,12 @@ export function Contact() {
             animate={{ y: 0, opacity: 1 }}
             className="text-[12vw] md:text-[6vw] font-black leading-none tracking-tighter uppercase"
           >
-            LET'S <br />
+            Vamos <br />
             <span
               style={{ WebkitTextStroke: "1px white" }}
               className="text-transparent"
             >
-              TALK
+              Coversar
             </span>
           </motion.h1>
 
@@ -26,7 +26,7 @@ export function Contact() {
                 E-mail
               </h3>
               <p className="text-xl hover:text-gray-400 transition-colors cursor-pointer">
-                contato@genevieve.com
+                genevievewebsite@gmail.com
               </p>
             </div>
             <div>
@@ -34,9 +34,17 @@ export function Contact() {
                 Social
               </h3>
               <ul className="flex flex-col gap-2 text-xl">
-                <li className="hover:translate-x-2 transition-transform cursor-pointer">
-                  Instagram
+                <li className="hover:translate-x-2 transition-transform">
+                  <a
+                    href="https://www.instagram.com/genevieve_website/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="cursor-pointer"
+                  >
+                    Instagram
+                  </a>
                 </li>
+
                 <li className="hover:translate-x-2 transition-transform cursor-pointer">
                   LinkedIn
                 </li>

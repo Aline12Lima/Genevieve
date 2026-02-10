@@ -45,13 +45,21 @@ export function Perfil() {
               destacar, escalar e converter.
             </p>
 
-            <motion.button
-              whileHover={{ x: 10 }}
-              className="mt-10 flex items-center gap-4 text-sm font-bold uppercase tracking-widest border-b border-black/10 pb-2 w-fit"
+            <a
+              href="#projects"
+              className="
+             inline-flex items-center gap-2
+             mt-6
+             text-sm uppercase tracking-widest
+             font-semibold
+             text-[#00a3ff]
+             hover:text-white
+             transition-colors duration-300
+  "
             >
-              Projetos Selecionados
+              Ver outros projetos
               <span className="text-lg">→</span>
-            </motion.button>
+            </a>
           </motion.div>
         </div>
       </div>
