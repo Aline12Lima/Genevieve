@@ -47,10 +47,10 @@ export function Hero() {
           className="relative z-30 text-center  w-full"
         >
           {/* Desktop exibe 'genevieve', Mobile exibe 'websites' */}
-          <h1 className="font-beauty text-white text-[16vw] md:text-[15vw] leading-[0.8] tracking-tighter lowercase">
+          <h2 className="font-beauty text-white text-[16vw] md:text-[15vw] leading-[0.8] tracking-tighter lowercase">
             <span className="md:hidden opacity-90">Genevieve</span>
             <span className="hidden md:inline">genevieve</span>
-          </h1>
+          </h2>
         </motion.div>
 
         {/* ELEMENTOS AUXILIARES */}
@@ -61,20 +61,24 @@ export function Hero() {
           {/* LADO ESQUERDO (Ajustado no mobile para subir: justify-start + pt-20) */}
           <div className="flex flex-col h-full justify-start pt-32 sm:mt-12 md:justify-center md:pt-36">
             {/* No mobile exibe 'Design', no desktop 'WebSites®' */}
-            <h2 className="text-white text-lg md:text-2xl font-medium tracking-tight top-">
+            <p className="text-white text-lg md:text-2xl font-medium tracking-tight top-">
               <span className=" ">WebSite®</span>
-            </h2>
+            </p>
           </div>
 
           {/* LADO DIREITO (Ajustado no mobile para subir: justify-start + pt-24) */}
           <div className="flex flex-col h-full justify-start pt-24 md:justify-center items-end text-right">
             <div className="flex flex-col gap-1 md:mt-30">
+              <h1 className="sr-only">
+                Criação de Sites e Landing Pages Estratégicas para Clínicas,
+                Restaurantes e Empresas
+              </h1>
               {[
                 "Design",
                 "Landing Pages",
                 "Cardápios",
-                "Portifólios",
-                "Manutenção pós venda",
+                "Portfólios",
+                "Manutenção pós-venda",
               ].map((item) => (
                 <span
                   key={item}

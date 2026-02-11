@@ -23,9 +23,9 @@ export function ProjectsGrid() {
           transition={{ duration: 0.8 }}
           className="text-center space-y-4"
         >
-          <h2 className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black uppercase leading-none">
+          <h6 className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black uppercase leading-none">
             Nossos Projetos
-          </h2>
+          </h6>
           <p className="text-xl md:text-2xl text-gray-400 font-light">
             Ideias transformadas em{" "}
             <span className="text-[var(--color-blue)] font-bold">
@@ -97,9 +97,9 @@ function ProjectCard({ project }: ProjectCardProps) {
             <p className="text-xs uppercase tracking-wider text-gray-400 font-bold">
               {project.category}
             </p>
-            <h3 className="text-2xl md:text-3xl font-black uppercase leading-tight">
+            <h6 className="text-2xl md:text-3xl font-black uppercase leading-tight">
               {project.title}
-            </h3>
+            </h6>
             <p className="text-sm text-gray-300 leading-relaxed line-clamp-2">
               {project.description}
             </p>

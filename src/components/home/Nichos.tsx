@@ -53,13 +53,13 @@ function NichoRow({
       {/* Header do Nicho */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 px-6 md:px-12 lg:px-16">
         <div>
-          <h3
+          <h4
             className={`text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight ${
               sectionBgColor === "#F2F2F2" ? "text-black" : "text-[#F2F2F2]"
             }`}
           >
             {title}
-          </h3>
+          </h4>
 
           <div className="flex items-center gap-3 mt-2">
             <div
@@ -162,9 +162,9 @@ export function Nichos() {
           transition={{ duration: 0.8 }}
           className="text-center space-y-4 px-6"
         >
-          <h2 className="text-5xl md:text-6xl lg:text-8xl xl:text-9xl font-black text-gray-200 uppercase leading-none">
+          <h3 className="text-5xl md:text-6xl lg:text-8xl xl:text-9xl font-black text-gray-200 uppercase leading-none">
             Especialistas onde a exigência é maior
-          </h2>
+          </h3>
           <p className="text-xl md:text-2xl lg:text-3xl text-gray-300 font-light">
             Precisão, clareza e intenção.
           </p>

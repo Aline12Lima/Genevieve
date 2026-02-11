@@ -25,11 +25,11 @@ export function Perfil() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
           {/* Título Grande à Esquerda - Linha 24 */}
           <motion.div {...fadeInUp} className="lg:col-span-7">
-            <h2 className="font-beauty text-5xl md:text-[5.5vw] leading-[1.1] tracking-tighter">
+            <h5 className="font-beauty text-5xl md:text-[5.5vw] leading-[1.1] tracking-tighter">
               Ajudamos marcas a <br />
               <span className="text-[#00a3ff]">elevar o padrão</span> <br />
               do mercado digital.
-            </h2>
+            </h5>
           </motion.div>
 
           {/* Texto Descritivo à Direita */}
@@ -79,9 +79,9 @@ export function Perfil() {
 
       {/* Marca d'água decorativa */}
       <div className="absolute top-0 right-0 p-10 opacity-[0.03] pointer-events-none">
-        <h4 className="font-beauty text-[10vw] leading-none italic">
+        <h5 className="font-beauty text-[10vw] leading-none italic">
           Genevieve
-        </h4>
+        </h5>
       </div>
     </section>
   );

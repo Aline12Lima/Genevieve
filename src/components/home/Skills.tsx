@@ -14,9 +14,9 @@ export function Skills() {
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         {/* COLUNA ESQUERDA — TEXTO */}
         <div className="order-1 space-y-16">
-          <h3 className="font-beauty text-black text-6xl lg:text-7xl font-black tracking-tighter">
+          <h6 className="font-beauty text-black text-6xl lg:text-7xl font-black tracking-tighter">
             HABILIDADES
-          </h3>
+          </h6>
 
           <div className="space-y-12">
             {skills.map((skill) => (
@@ -43,9 +43,9 @@ export function Skills() {
 
         {/* COLUNA DIREITA — IMAGEM */}
         <div className="order-2 relative">
-          <h2 className="text-[120px] font-black text-black/5 absolute -top-20 -left-10 select-none hidden lg:block">
+          <h6 className="text-[120px] font-black text-black/5 absolute -top-20 -left-10 select-none hidden lg:block">
             ESSENCIAL
-          </h2>
+          </h6>
 
           <div className="bg-white p-2 w-full max-w-md aspect-[3/4] overflow-hidden">
             <img
