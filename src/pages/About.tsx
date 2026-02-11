@@ -49,7 +49,7 @@ export function About() {
         <div className="max-w-[1440px] mx-auto space-y-12 md:space-y-20">
           <div className="text-center space-y-4 md:space-y-6">
             <span className="text-sm md:text-[16px] font-bold uppercase tracking-[0.4em] text-gray-400">
-              FERRAMENTAS & METODOLOGIA
+              O que Fazemos
             </span>
 
             <h2 className="text-3xl md:text-6xl font-bold tracking-tight">
