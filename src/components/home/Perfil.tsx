@@ -17,19 +17,19 @@ export function Perfil() {
       <div className="max-w-[1400px] mx-auto">
         {/* Header da Seção - Linha 16 */}
         <motion.div {...fadeInUp} className="mb-20">
-          <span className="text-[10px] uppercase tracking-[0.4em] text-black/40 font-bold">
+          <h2 className="text-[10px] uppercase tracking-[0.4em] text-black/40 font-bold">
             Perfil
-          </span>
+          </h2>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
           {/* Título Grande à Esquerda - Linha 24 */}
           <motion.div {...fadeInUp} className="lg:col-span-7">
-            <h5 className="font-beauty text-5xl md:text-[5.5vw] leading-[1.1] tracking-tighter">
+            <h3 className="font-beauty text-5xl md:text-[5.5vw] leading-[1.1] tracking-tighter">
               Ajudamos marcas a <br />
               <span className="text-[#00a3ff]">elevar o padrão</span> <br />
               do mercado digital.
-            </h5>
+            </h3>
           </motion.div>
 
           {/* Texto Descritivo à Direita */}
@@ -79,9 +79,7 @@ export function Perfil() {
 
       {/* Marca d'água decorativa */}
       <div className="absolute top-0 right-0 p-10 opacity-[0.03] pointer-events-none">
-        <h5 className="font-beauty text-[10vw] leading-none italic">
-          Genevieve
-        </h5>
+        <p className="font-beauty text-[10vw] leading-none italic">Genevieve</p>
       </div>
     </section>
   );

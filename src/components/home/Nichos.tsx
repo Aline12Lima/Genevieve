@@ -53,13 +53,13 @@ function NichoRow({
       {/* Header do Nicho */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 px-6 md:px-12 lg:px-16">
         <div>
-          <h4
+          <h3
             className={`text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight ${
               sectionBgColor === "#F2F2F2" ? "text-black" : "text-[#F2F2F2]"
             }`}
           >
             {title}
-          </h4>
+          </h3>
 
           <div className="flex items-center gap-3 mt-2">
             <div
@@ -162,10 +162,10 @@ export function Nichos() {
           transition={{ duration: 0.8 }}
           className="text-center space-y-4 px-6"
         >
-          <h3 className="text-5xl md:text-6xl lg:text-8xl xl:text-9xl font-black text-gray-200 uppercase leading-none">
-            Especialistas onde a exigência é maior
-          </h3>
-          <p className="text-xl md:text-2xl lg:text-3xl text-gray-300 font-light">
+          <h2 className="text-6xl md:text-3xl lg:text-5xl xl:text-6xl font-black text-gray-200 uppercase leading-none">
+            Criação de Sites para Setores <br /> que Exigem Performance
+          </h2>
+          <p className="text-xl md:text-2xl lg:text-5xl text-gray-300 font-light">
             Precisão, clareza e intenção.
           </p>
         </motion.div>
@@ -181,7 +181,7 @@ export function Nichos() {
 
         <NichoRow
           title="Empresarial"
-          subtitle="Gestão • Administrativo • Corporativo"
+          subtitle="Gestão • Administração • Corporativo"
           description="No ambiente corporativo, clareza é poder. Criamos interfaces que organizam decisões e sustentam crescimento."
           direction="right"
           sectionBgColor="#F2F2F2"

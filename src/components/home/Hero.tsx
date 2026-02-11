@@ -4,6 +4,7 @@ import imageHero from "../../assets/images/woman-wearing-smart-glasses-futuristi
 
 export function Hero() {
   const container = useRef<HTMLElement | null>(null);
+
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ["start start", "end end"],
@@ -14,65 +15,39 @@ export function Hero() {
   const borderRadius = useTransform(scrollYProgress, [0, 0.4], ["0px", "60px"]);
   const h1Opacity = useTransform(scrollYProgress, [0, 0.4, 1], [1, 1, 0]);
   const h1Scale = useTransform(scrollYProgress, [0, 0.4], [1, 0.9]);
-  const bgTextOpacity = useTransform(scrollYProgress, [0, 0.06], [1, 0]);
-  const visibility = useTransform(scrollYProgress, (pos) =>
-    pos > 0.1 ? "hidden" : "visible",
-  );
 
   return (
     <section ref={container} className="relative h-[200vh] bg-black">
-      <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
-        {/* IMAGEM BACKDROP */}
+      <h1 className="sr-only">
+        Criação de Sites e Landing Pages Estratégicas para Clínicas,
+        Restaurantes e Empresas
+      </h1>
 
+      <div className="sticky top-0 h-screen w-full overflow-hidden">
+        {/* BACKDROP */}
         <motion.div
-          style={{
-            scale,
-            borderRadius,
-            opacity: imageOpacity,
-            visibility,
-          }}
-          className="absolute inset-0 z-20 overflow-hidden border border-white/5"
+          style={{ scale, borderRadius, opacity: imageOpacity }}
+          className="absolute inset-0 z-10 overflow-hidden border border-white/5"
         >
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#1a1a8a]/40 via-black to-black opacity-90" />
           <img
             src={imageHero}
-            alt="Hero Background"
+            alt="Criação de sites modernos e estratégicos"
             className="w-full h-full object-cover object-center mix-blend-lighten"
           />
         </motion.div>
 
-        {/* H1 CENTRAL - No mobile vira WEBSITES */}
-        <motion.div
-          style={{ opacity: h1Opacity, scale: h1Scale }}
-          className="relative z-30 text-center  w-full"
-        >
-          {/* Desktop exibe 'genevieve', Mobile exibe 'websites' */}
-          <h2 className="font-beauty text-white text-[16vw] md:text-[15vw] leading-[0.8] tracking-tighter lowercase">
-            <span className="md:hidden opacity-90">Genevieve</span>
-            <span className="hidden md:inline">genevieve</span>
-          </h2>
-        </motion.div>
-
-        {/* ELEMENTOS AUXILIARES */}
-        <motion.div
-          style={{ opacity: bgTextOpacity }}
-          className="absolute inset-0 z-40 flex items-center justify-between p-8 md:p-16 pointer-events-none"
-        >
-          {/* LADO ESQUERDO (Ajustado no mobile para subir: justify-start + pt-20) */}
-          <div className="flex flex-col h-full justify-start pt-32 sm:mt-12 md:justify-center md:pt-36">
-            {/* No mobile exibe 'Design', no desktop 'WebSites®' */}
-            <p className="text-white text-lg md:text-2xl font-medium tracking-tight top-">
-              <span className=" ">WebSite®</span>
+        {/* CONTEÚDO MOBILE/TABLET */}
+        <div className="relative z-30 flex flex-col justify-start pt-40  md:mt-0 md:pt-60 px-6 md:px-16">
+          {/* BLOCO SUPERIOR (WebSite + Lista) */}
+          <div className="flex justify-between items-start mb-6 md:mb-8">
+            {/* WebSite® */}
+            <p className="text-white text-sm sm:text-lg md:text-2xl font-medium tracking-tight">
+              WebSite®
             </p>
-          </div>
 
-          {/* LADO DIREITO (Ajustado no mobile para subir: justify-start + pt-24) */}
-          <div className="flex flex-col h-full justify-start pt-24 md:justify-center items-end text-right">
-            <div className="flex flex-col gap-1 md:mt-30">
-              <h1 className="sr-only">
-                Criação de Sites e Landing Pages Estratégicas para Clínicas,
-                Restaurantes e Empresas
-              </h1>
+            {/* Lista lateral */}
+            <div className="flex flex-col text-right gap-1">
               {[
                 "Design",
                 "Landing Pages",
@@ -82,14 +57,24 @@ export function Hero() {
               ].map((item) => (
                 <span
                   key={item}
-                  className="text-white text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] opacity-90"
+                  className="text-white text-[9px] sm:text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] opacity-90"
                 >
                   {item}
                 </span>
               ))}
             </div>
           </div>
-        </motion.div>
+
+          {/* GENEVIÈVE */}
+          <motion.div
+            style={{ opacity: h1Opacity, scale: h1Scale }}
+            className="flex items-center justify-center"
+          >
+            <p className="font-beauty text-white text-[18vw] sm:text-[16vw] md:text-[15vw] leading-[0.8] tracking-tighter lowercase text-center">
+              Genevieve
+            </p>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import imagembg from "../../assets/images/skills.png";
 
 const skills = [
-  { name: "DESIng WEB", level: "85%" },
+  { name: "DESIGN WEB", level: "85%" },
   { name: "LANDING PAGES", level: "100%" },
   { name: "Indexação no Google", level: "90%" },
   { name: "Manutenções", level: "78%" },
@@ -14,9 +14,9 @@ export function Skills() {
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         {/* COLUNA ESQUERDA — TEXTO */}
         <div className="order-1 space-y-16">
-          <h6 className="font-beauty text-black text-6xl lg:text-7xl font-black tracking-tighter">
+          <h2 className="font-beauty text-black text-6xl lg:text-7xl font-black tracking-tighter">
             HABILIDADES
-          </h6>
+          </h2>
 
           <div className="space-y-12">
             {skills.map((skill) => (
@@ -43,14 +43,14 @@ export function Skills() {
 
         {/* COLUNA DIREITA — IMAGEM */}
         <div className="order-2 relative">
-          <h6 className="text-[120px] font-black text-black/5 absolute -top-20 -left-10 select-none hidden lg:block">
+          <span className="text-[120px] font-black text-black/5 absolute -top-20 -left-10 select-none hidden lg:block">
             ESSENCIAL
-          </h6>
+          </span>
 
           <div className="bg-white p-2 w-full max-w-md aspect-[3/4] overflow-hidden">
             <img
               src={imagembg}
-              alt="Skills"
+              alt="Criação de sites e habilidades em performance digital"
               className="w-full h-full object-cover"
             />
           </div>
