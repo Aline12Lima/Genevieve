@@ -12,11 +12,11 @@ export function Hero() {
   const imageOpacity = useTransform(scrollYProgress, [0, 0.08], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.4], [1, 0.8]);
   const borderRadius = useTransform(scrollYProgress, [0, 0.4], ["0px", "60px"]);
-  const h1Opacity = useTransform(scrollYProgress, [0, 0.2, 0.35], [1, 1, 0]);
+  const h1Opacity = useTransform(scrollYProgress, [0, 0.4, 1], [1, 1, 0]);
   const h1Scale = useTransform(scrollYProgress, [0, 0.4], [1, 0.9]);
   const bgTextOpacity = useTransform(scrollYProgress, [0, 0.06], [1, 0]);
   const visibility = useTransform(scrollYProgress, (pos) =>
-    pos > 0.2 ? "hidden" : "visible",
+    pos > 0.1 ? "hidden" : "visible",
   );
 
   return (
