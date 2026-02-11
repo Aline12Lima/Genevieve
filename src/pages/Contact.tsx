@@ -51,6 +51,33 @@ export function Contact() {
 
   return (
     <div className="bg-black text-white pt-40 pb-20 px-6 md:px-12 selection:bg-white selection:text-black">
+      {/* ===================== CTA ===================== */}
+      <section className="py-32 border-t border-white/10 text-center">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="px-6"
+        >
+          <h2 className="text-6xl md:text-[10vw] font-bold tracking-[-0.05em] uppercase leading-none mb-12">
+            Vamos Trabalhar
+            <br />
+            <span
+              className="text-transparent"
+              style={{ WebkitTextStroke: "1px #f5f5f5" }}
+            >
+              Juntos?
+            </span>
+          </h2>
+
+          <a
+            href="mailto:genevievewebsite@gmail.com"
+            className="text-xl md:text-2xl border-b border-[#00a3ff] pb-2 hover:text-[#00a3ff] transition-colors"
+          >
+            Mande um Olá →
+          </a>
+        </motion.div>
+      </section>
       <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-20">
         {/* COLUNA ESQUERDA */}
         <div className="lg:col-span-5 space-y-12">

@@ -41,13 +41,13 @@ export function Footer() {
   }
 
   return (
-    <footer className="w-full bg-[#0a0a0a] border-t border-white/[0.05] pt-16 pb-8 px-6 md:px-12">
+    <footer className="w-full bg-[#0a0a0a] border-t border-white/[0.05] pt-16 pb-10 px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
         {/* Grid principal */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-          {/* Coluna 1: Logo + Descrição */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-14 mb-16">
+          {/* Coluna 1 */}
           <div className="space-y-6">
-            <h1 className="text-white text-2xl font-black tracking-tighter uppercase leading-none">
+            <h1 className="text-white text-3xl md:text-2xl font-black tracking-tighter uppercase leading-none">
               GENE
               <span
                 style={{ WebkitTextStroke: "1px white" }}
@@ -57,19 +57,21 @@ export function Footer() {
               </span>
             </h1>
 
-            <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
-              Soluções de Lading Pages modernas, <br /> pensadas para crescer.
-              <br /> Portifólios, Cardápios e muito mais.
+            <p className="text-gray-400 text-base md:text-sm leading-relaxed max-w-xs">
+              Soluções de Landing Pages modernas, <br />
+              pensadas para crescer.
+              <br />
+              Portfólios, Cardápios e muito mais.
             </p>
           </div>
 
-          {/* Coluna 2: Páginas */}
+          {/* Coluna 2 */}
           <div className="space-y-6">
-            <h3 className="text-white text-[10px] font-bold uppercase tracking-[0.3em] opacity-50">
+            <h3 className="text-white text-xs md:text-[10px] font-bold uppercase tracking-[0.3em] opacity-50">
               Páginas
             </h3>
 
-            <ul className="flex flex-col gap-4 text-sm text-gray-400">
+            <ul className="flex flex-col gap-4 text-base md:text-sm text-gray-400">
               <li>
                 <button
                   onClick={scrollToTop}
@@ -108,9 +110,9 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Coluna 3: Redes Sociais */}
+          {/* Coluna 3 */}
           <div className="space-y-6">
-            <h3 className="text-white text-[10px] font-bold uppercase tracking-[0.3em] opacity-50">
+            <h3 className="text-white text-xs md:text-[10px] font-bold uppercase tracking-[0.3em] opacity-50">
               Redes Sociais
             </h3>
 
@@ -122,7 +124,7 @@ export function Footer() {
                 aria-label="Instagram Genevieve Website"
                 className="hover:text-[var(--color-blue)] transition-colors"
               >
-                <Instagram size={18} />
+                <Instagram size={22} className="md:w-[18px] md:h-[18px]" />
               </a>
 
               <a
@@ -132,18 +134,18 @@ export function Footer() {
                 aria-label="WhatsApp Genevieve Website"
                 className="hover:text-[var(--color-blue)] transition-colors"
               >
-                <MessageCircle size={18} />
+                <MessageCircle size={22} className="md:w-[18px] md:h-[18px]" />
               </a>
             </div>
           </div>
 
-          {/* Coluna 4: Contato */}
+          {/* Coluna 4 */}
           <div className="space-y-6">
-            <h3 className="text-white text-[10px] font-bold uppercase tracking-[0.3em] opacity-50">
+            <h3 className="text-white text-xs md:text-[10px] font-bold uppercase tracking-[0.3em] opacity-50">
               Contato
             </h3>
 
-            <div className="flex flex-col gap-3 text-sm text-gray-400">
+            <div className="flex flex-col gap-3 text-base md:text-sm text-gray-400">
               <a href="mailto:genevievewebsite@gmail.com">
                 genevievewebsite@gmail.com
               </a>
@@ -155,10 +157,10 @@ export function Footer() {
 
         {/* Linha inferior */}
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-[11px] text-gray-500 uppercase tracking-widest">
+          <p className="text-sm md:text-[11px] text-gray-500 uppercase tracking-widest text-center md:text-left">
             © 2026 Genevieve. Todos os direitos reservados.
           </p>
-          <p className="text-[11px] text-gray-500 uppercase tracking-widest">
+          <p className="text-sm md:text-[11px] text-gray-500 uppercase tracking-widest text-center md:text-right">
             Criado por Genevieve · Para Você
           </p>
         </div>
