@@ -10,7 +10,7 @@ import { About } from "./pages/About";
 function App() {
   return (
     <BrowserRouter>
-      <ScrollToTop /> {/* 👈 AGORA SIM */}
+      <ScrollToTop />
       <Layout>
         <CTAFlutuante />
         <Routes>

@@ -114,7 +114,7 @@ export function About() {
                 },
                 {
                   name: "Jefferson",
-                  role: "Design",
+                  role: "Design e Desenvolvedor ",
                   image: Persona3,
                 },
               ].map((person) => (
