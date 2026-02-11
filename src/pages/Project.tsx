@@ -1,14 +1,21 @@
 import { useParams, Navigate } from "react-router-dom";
+import { useEffect } from "react";
 import { projects } from "../data/projetctDetail";
+import { setSEO } from "../lib/seo";
 
 export function Project() {
   const { slug } = useParams<{ slug: string }>();
+  const project = projects.find((p) => p.slug === slug);
+
+  useEffect(() => {
+    if (project) {
+      setSEO(`${project.title} | Genevieve`, project.description);
+    }
+  }, [project]);
 
   if (!slug) {
     return <Navigate to="/404" replace />;
   }
-
-  const project = projects.find((p) => p.slug === slug);
 
   if (!project) {
     return (
