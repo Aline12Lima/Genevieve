@@ -162,8 +162,8 @@ export function Nichos() {
           transition={{ duration: 0.8 }}
           className="text-center space-y-4 px-6"
         >
-          <h2 className="text-6xl md:text-3xl lg:text-5xl xl:text-6xl font-black text-gray-200 uppercase leading-none">
-            Criação de Sites para Setores <br /> que Exigem Performance
+          <h2 className=" mt-8 text-3xl md:text-3xl lg:text-5xl xl:text-6xl font-black text-gray-200 uppercase leading-none">
+            Criação de Sites para Setores que <br /> Exigem <br /> Performance
           </h2>
           <p className="text-xl md:text-2xl lg:text-5xl text-gray-300 font-light">
             Precisão, clareza e intenção.

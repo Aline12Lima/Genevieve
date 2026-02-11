@@ -43,7 +43,7 @@ export function Skills() {
 
         {/* COLUNA DIREITA — IMAGEM */}
         <div className="order-2 relative">
-          <span className="text-[120px] font-black text-black/5 absolute -top-20 -left-10 select-none hidden lg:block">
+          <span className="text-[24px] sm:text-[32px] lg:text-[50px] font-black text-black/5 absolute -top-20 -left-10 select-none hidden lg:block">
             ESSENCIAL
           </span>
 

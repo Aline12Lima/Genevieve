@@ -37,16 +37,33 @@ export function Hero() {
           />
         </motion.div>
 
-        {/* CONTEÚDO MOBILE/TABLET */}
-        <div className="relative z-30 flex flex-col justify-start pt-40  md:mt-0 md:pt-60 px-6 md:px-16">
-          {/* BLOCO SUPERIOR (WebSite + Lista) */}
-          <div className="flex justify-between items-start mb-6 md:mb-8">
-            {/* WebSite® */}
-            <p className="text-white text-sm sm:text-lg md:text-2xl font-medium tracking-tight">
+        {/* CONTEÚDO */}
+        <div className="relative z-30 flex flex-col justify-start pt-40 md:pt-60 px-6 md:px-16">
+          {/* WebSite® */}
+          <motion.div
+            style={{ opacity: h1Opacity, scale: h1Scale }}
+            className="mb-8 md:mb-0"
+          >
+            <p className="text-white text-xl sm:text-lg md:text-2xl font-medium tracking-tight">
               WebSite®
             </p>
+          </motion.div>
 
-            {/* Lista lateral */}
+          {/* Genevieve central */}
+          <motion.div
+            style={{ opacity: h1Opacity, scale: h1Scale }}
+            className="flex items-center justify-center"
+          >
+            <p className="font-beauty text-white text-[22vw] sm:text-[16vw] md:text-[15vw] leading-[0.8] tracking-tighter lowercase text-center">
+              Genevieve
+            </p>
+          </motion.div>
+
+          {/* Lista abaixo alinhada à direita */}
+          <motion.div
+            style={{ opacity: h1Opacity, scale: h1Scale }}
+            className="flex justify-end mt-38 sm:-mt-28 md:mt-0"
+          >
             <div className="flex flex-col text-right gap-1">
               {[
                 "Design",
@@ -57,22 +74,12 @@ export function Hero() {
               ].map((item) => (
                 <span
                   key={item}
-                  className="text-white text-[9px] sm:text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] opacity-90"
+                  className="text-white text-sm sm:text-sm md:text-xs font-bold uppercase tracking-[0.2em] opacity-90"
                 >
                   {item}
                 </span>
               ))}
             </div>
-          </div>
-
-          {/* GENEVIÈVE */}
-          <motion.div
-            style={{ opacity: h1Opacity, scale: h1Scale }}
-            className="flex items-center justify-center"
-          >
-            <p className="font-beauty text-white text-[18vw] sm:text-[16vw] md:text-[15vw] leading-[0.8] tracking-tighter lowercase text-center">
-              Genevieve
-            </p>
           </motion.div>
         </div>
       </div>

@@ -57,9 +57,9 @@ export function Contact() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="px-6"
+          className="px-6 max-w-5xl mx-auto text-center"
         >
-          <h2 className="text-6xl md:text-[10vw] font-bold tracking-[-0.05em] uppercase leading-none mb-12">
+          <h2 className="text-5xl md:text-[10vw] font-bold tracking-[-0.05em] uppercase leading-none mb-12">
             Vamos Trabalhar
             <br />
             <span
@@ -70,26 +70,114 @@ export function Contact() {
             </span>
           </h2>
 
-          <a
-            href="mailto:genevievewebsite@gmail.com"
-            className="text-xl md:text-2xl border-b border-[#00a3ff] pb-2 hover:text-[#00a3ff] transition-colors"
-          >
+          <a className="text-xl md:text-2xl border-b border-[#00a3ff] pb-2 hover:text-[#00a3ff] transition-colors">
             Mande um Olá →
           </a>
         </motion.div>
       </section>
+
+      {/* FORM */}
+      <motion.div
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: 0.2 }}
+        className="lg:col-span-7 bg-[#0a0a0a] p-8 md:p-12 border border-white/5"
+      >
+        <form onSubmit={handleSubmit} className="space-y-10">
+          {/* NOME - linha inteira */}
+          <div className="flex flex-col gap-2">
+            <label
+              htmlFor="name"
+              className="text-[10px] font-bold uppercase tracking-widest text-gray-500"
+            >
+              Nome
+            </label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              placeholder="Seu nome"
+              className="bg-transparent border-b border-white/10 py-2 outline-none focus:border-white transition-colors"
+              required
+            />
+          </div>
+
+          {/* TELEFONE + EMAIL */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            {/* TELEFONE */}
+            <div className="flex flex-col gap-2">
+              <label
+                htmlFor="phone"
+                className="text-[10px] font-bold uppercase tracking-widest text-gray-500"
+              >
+                Telefone / WhatsApp
+              </label>
+              <input
+                id="phone"
+                name="phone"
+                type="tel"
+                placeholder="(11) 99999-9999"
+                className="bg-transparent border-b border-white/10 py-2 outline-none focus:border-white transition-colors"
+                required
+              />
+            </div>
+
+            {/* EMAIL */}
+            <div className="flex flex-col gap-2">
+              <label
+                htmlFor="email"
+                className="text-[10px] font-bold uppercase tracking-widest text-gray-500"
+              >
+                E-mail
+              </label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="email@exemplo.com"
+                className="bg-transparent border-b border-white/10 py-2 outline-none focus:border-white transition-colors"
+                required
+              />
+            </div>
+          </div>
+
+          {/* MENSAGEM */}
+          <div className="flex flex-col gap-2">
+            <label
+              htmlFor="message"
+              className="text-[10px] font-bold uppercase tracking-widest text-gray-500"
+            >
+              Mensagem
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              rows={4}
+              placeholder="Como podemos ajudar?"
+              className="bg-transparent border-b border-white/10 py-2 outline-none focus:border-white transition-colors resize-none"
+              required
+            />
+          </div>
+
+          <button
+            type="submit"
+            disabled={isSubmitting || isSent}
+            className={`w-full py-5 font-black uppercase tracking-widest text-[12px] transition-colors
+              ${
+                isSent
+                  ? "bg-green-500 text-black"
+                  : "bg-white text-black hover:bg-gray-200"
+              }
+              ${isSubmitting ? "opacity-70 cursor-not-allowed" : ""}
+                `}
+          >
+            {isSent ? "Enviado ✓" : isSubmitting ? "Enviando..." : "Enviar"}
+          </button>
+        </form>
+      </motion.div>
       <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-20">
         {/* COLUNA ESQUERDA */}
         <div className="lg:col-span-5 space-y-12">
-          <motion.h1
-            initial={{ y: 30, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            className="text-[12vw] md:text-[6vw] font-black leading-none tracking-tighter uppercase"
-          >
-            Vamos <br />
-            <span className="text-transparent text-stroke">Conversar</span>
-          </motion.h1>
-
           <div className="space-y-8">
             <div>
               <h3 className="text-[10px] font-bold uppercase tracking-[0.3em] text-gray-500 mb-4">
@@ -129,106 +217,6 @@ export function Contact() {
             </div>
           </div>
         </div>
-
-        {/* FORM */}
-        <motion.div
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.2 }}
-          className="lg:col-span-7 bg-[#0a0a0a] p-8 md:p-12 border border-white/5"
-        >
-          <form onSubmit={handleSubmit} className="space-y-10">
-            {/* NOME - linha inteira */}
-            <div className="flex flex-col gap-2">
-              <label
-                htmlFor="name"
-                className="text-[10px] font-bold uppercase tracking-widest text-gray-500"
-              >
-                Nome
-              </label>
-              <input
-                id="name"
-                name="name"
-                type="text"
-                placeholder="Seu nome"
-                className="bg-transparent border-b border-white/10 py-2 outline-none focus:border-white transition-colors"
-                required
-              />
-            </div>
-
-            {/* TELEFONE + EMAIL */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-              {/* TELEFONE */}
-              <div className="flex flex-col gap-2">
-                <label
-                  htmlFor="phone"
-                  className="text-[10px] font-bold uppercase tracking-widest text-gray-500"
-                >
-                  Telefone / WhatsApp
-                </label>
-                <input
-                  id="phone"
-                  name="phone"
-                  type="tel"
-                  placeholder="(11) 99999-9999"
-                  className="bg-transparent border-b border-white/10 py-2 outline-none focus:border-white transition-colors"
-                  required
-                />
-              </div>
-
-              {/* EMAIL */}
-              <div className="flex flex-col gap-2">
-                <label
-                  htmlFor="email"
-                  className="text-[10px] font-bold uppercase tracking-widest text-gray-500"
-                >
-                  E-mail
-                </label>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  placeholder="email@exemplo.com"
-                  className="bg-transparent border-b border-white/10 py-2 outline-none focus:border-white transition-colors"
-                  required
-                />
-              </div>
-            </div>
-
-            {/* MENSAGEM */}
-            <div className="flex flex-col gap-2">
-              <label
-                htmlFor="message"
-                className="text-[10px] font-bold uppercase tracking-widest text-gray-500"
-              >
-                Mensagem
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                rows={4}
-                placeholder="Como podemos ajudar?"
-                className="bg-transparent border-b border-white/10 py-2 outline-none focus:border-white transition-colors resize-none"
-                required
-              />
-            </div>
-
-            <button
-              type="submit"
-              disabled={isSubmitting || isSent}
-              className={`w-full py-5 font-black uppercase tracking-widest text-[12px] transition-colors
-              ${
-                isSent
-                  ? "bg-green-500 text-black"
-                  : "bg-white text-black hover:bg-gray-200"
-              }
-              ${isSubmitting ? "opacity-70 cursor-not-allowed" : ""}
-                `}
-            >
-              {isSent ? "Enviado ✓" : isSubmitting ? "Enviando..." : "Enviar"}
-            </button>
-          </form>
-        </motion.div>
       </div>
     </div>
   );

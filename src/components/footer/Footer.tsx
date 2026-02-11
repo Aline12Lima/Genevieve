@@ -61,7 +61,6 @@ export function Footer() {
               Soluções de Landing Pages modernas, <br />
               pensadas para crescer.
               <br />
-              Portfólios, Cardápios e muito mais.
             </p>
           </div>
 
