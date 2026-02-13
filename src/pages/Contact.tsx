@@ -33,7 +33,7 @@ export function Contact() {
       diferencial: formData.get("diferencial"),
     };
 
-    const { error } = await supabase.from("briefing").insert([payload]);
+    const { error } = await supabase.from("contact").insert([payload]);
 
     if (error) {
       console.error(error);
