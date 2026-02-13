@@ -6,6 +6,8 @@ import {
   Search,
   Layout,
   MessageCircle,
+  Plus, // Adicionado para o ícone de X
+  CheckCircle2, // Adicionado para o ícone de sucesso
 } from "lucide-react";
 import { supabase } from "../../lib/supabase";
 
@@ -62,7 +64,7 @@ export function FormServices() {
     form.reset();
     setIsSent(true);
     setIsSubmitting(false);
-    setTimeout(() => setIsSent(false), 15000);
+    // Removido o setTimeout para que a mensagem não suma sozinha
   }
 
   return (
@@ -424,18 +426,31 @@ export function FormServices() {
             </div>
           </form>
         ) : (
-          <div className="bg-white p-12 rounded-[2rem] text-center shadow-2xl animate-in fade-in zoom-in">
-            <h3 className="text-2xl font-bold text-slate-900 mb-4">
+          <div className="relative bg-white p-12 rounded-[2rem] text-center shadow-2xl animate-in fade-in zoom-in">
+            {/* Botão X para fechar manualmente adicionado aqui */}
+            <button
+              onClick={() => setIsSent(false)}
+              className="absolute top-6 right-6 text-slate-400 hover:text-slate-900 transition-colors p-2"
+            >
+              <Plus size={24} className="rotate-45" />
+            </button>
+
+            {/* Ícone CheckCircle2 adicionado aqui para evitar visual torto */}
+            <div className="w-20 h-20 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-6">
+              <CheckCircle2 size={40} className="text-green-500" />
+            </div>
+
+            <h3 className="text-2xl font-bold text-slate-900 mb-4 uppercase tracking-tighter">
               Briefing enviado com sucesso!
             </h3>
-            <p className="text-slate-600 mb-8">
-              Por favor, envie seu logotipo pelo WhatsApp para darmos início ao
-              projeto.
+            <p className="text-slate-600 mb-8 max-w-sm mx-auto">
+              Sua solicitação estratégica foi salva. Agora, envie seu logotipo
+              pelo WhatsApp para agilizar o início do projeto.
             </p>
             <a
-              href="https://wa.me/SEUNUMERO?text=Olá Rafa! Briefing enviado com sucesso."
+              href="https://wa.me/5535997382410?text=Olá Rafa! Acabei de enviar o briefing estratégico e gostaria de dar andamento."
               target="_blank"
-              className="inline-flex items-center gap-3 bg-[#25D366] text-white px-10 py-4 rounded-full font-bold hover:shadow-lg transition-all"
+              className="inline-flex items-center gap-3 bg-[#25D366] text-white px-10 py-4 rounded-full font-bold hover:shadow-lg transition-all hover:scale-105"
             >
               <MessageCircle size={20} /> Enviar Logo via WhatsApp
             </a>
