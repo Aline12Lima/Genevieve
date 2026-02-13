@@ -48,18 +48,18 @@ export function Footer() {
           {/* Coluna 1 */}
           <div className="space-y-6">
             <h1 className="text-white text-3xl md:text-2xl font-black tracking-tighter uppercase leading-none">
-              GENE
               <span
                 style={{ WebkitTextStroke: "1px white" }}
                 className="text-transparent"
               >
-                VIEVE
+                Genevieve <br />
               </span>
-            </h1>
-
+              Website & Landing Pages
+            </h1>{" "}
+            Genevieve Website & Landing Pages
             <p className="text-gray-400 text-base md:text-sm leading-relaxed max-w-xs">
-              Soluções de Landing Pages modernas, <br />
-              pensadas para crescer.
+              Agência digital especializada <br />
+              em criação de sites estratégicos.
               <br />
             </p>
           </div>

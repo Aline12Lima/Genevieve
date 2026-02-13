@@ -32,7 +32,7 @@ export function Intro() {
               y: { duration: 0.6 },
               opacity: { delay: openDelay, duration: 0.1 },
             }}
-            className="text-white text-3xl md:text-5xl font-black tracking-tighter uppercase"
+            className="text-white text-center text-3xl md:text-5xl font-black tracking-tighter uppercase"
           >
             GENE
             <span
@@ -41,6 +41,8 @@ export function Intro() {
             >
               VIEVE
             </span>
+            <br />
+            Website & Landing Pages
           </motion.h1>
         </div>
       </motion.div>
