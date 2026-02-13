@@ -57,19 +57,25 @@ const Packages = () => {
   ];
 
   return (
-    <section className="py-16 px-6 max-w-7xl mx-auto">
-      <span className="text-black font-semibold tracking-wide  uppercase text-[24px]">
+    <section className="py-24 px-6  mx-auto bg-black text-center">
+      {/* Título com a mesma fonte e estilo do Hero */}
+      <h1 className="text-4xl md:text-5xl font-extrabold text-gray-200 mt-4 mb-16 leading-tight">
         Nossos Pacotes
-      </span>
-      <div className="grid md:grid-cols-3 gap-8 mb-20 ">
+      </h1>
+
+      <div className="grid md:grid-cols-3 gap-8 mb-20">
         {plans.map((plan, i) => (
           <div
             key={i}
-            className="bg-white p-8 rounded-2xl border border-slate-200 hover:border-blue-300 transition-all shadow-sm"
+            className="bg-white p-8 rounded-2xl border border-slate-200 hover:border-blue-300 transition-all shadow-sm flex flex-col text-left"
           >
             <div className="mb-4">{plan.icon}</div>
-            <h3 className="text-xl font-bold mb-4">{plan.title}</h3>
-            <ul className="space-y-3 mb-8">
+            <h3 className="text-xl font-bold mb-4 text-slate-900">
+              {plan.title}
+            </h3>
+
+            {/* ul com flex-grow para empurrar o botão para baixo */}
+            <ul className="space-y-3 mb-8 flex-grow">
               {plan.features.map((feat, idx) => (
                 <li
                   key={idx}
@@ -80,42 +86,40 @@ const Packages = () => {
                 </li>
               ))}
             </ul>
-            <button className="w-full py-3 bg-slate-900 text-white rounded-lg font-medium hover:bg-slate-800">
+
+            {/* mt-auto garante que todos os botões fiquem alinhados na mesma base */}
+            <button className="w-full mt-auto py-4 bg-slate-900 text-white rounded-xl font-bold hover:bg-[#00a3ff] transition-all active:scale-95">
               Solicitar Orçamento
             </button>
           </div>
         ))}
       </div>
 
-      {/* Manutenção - O diferencial de recorrência */}
-      <div className="bg-slate-50 border border-slate-200 rounded-3xl p-8 md:p-12 flex flex-col md:flex-row justify-between items-center gap-8">
+      {/* Manutenção Inteligente - Sem a linha superior */}
+      <div className="bg-[#0a0a0a] border border-white/5 rounded-3xl p-8 md:p-12 flex flex-col md:flex-row justify-between items-center gap-8 text-left">
         <div className="max-w-md">
           <div className="flex items-center gap-2 mb-2">
-            <Settings className="text-slate-400 w-5 h-5" />
-            <h4 className="font-bold text-xl uppercase tracking-wider">
+            <Settings className="text-[#00a3ff] w-5 h-5 animate-spin-slow" />
+            <h4 className="font-bold text-white text-xl uppercase tracking-wider">
               Manutenção Inteligente
             </h4>
           </div>
-          <p className="text-slate-600">
+          <p className="text-slate-400">
             Garanta suporte, segurança e atualizações constantes para o seu
-            ativo digital. Se você não tem tempo para atualizar suas informaçoes
-            semanais ou mensal, também ofereceços esse serviço, aqui cuidadmos
-            de tudo. Confira:
+            ativo digital. Cuidamos de tudo para que você foque no seu negócio.
           </p>
         </div>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full md:w-auto text-center">
           <div className="bg-white p-4 rounded-xl shadow-sm border border-slate-100">
-            <p className="text-xs text-slate-400 uppercase">
-              Mensalidade de manutenção
+            <p className="text-[10px] text-slate-500 uppercase font-bold">
+              Mensalidade
             </p>
-            <p className="font-bold text-slate-900 text-lg">
-              R$ 150,00 - R$ 300
-            </p>
+            <p className="font-bold text-slate-900 text-lg">R$ 150 - R$ 300</p>
           </div>
           <div className="bg-white p-4 rounded-xl shadow-sm border border-slate-100">
-            <p className="text-xs text-slate-400 uppercase">
-              {" "}
-              Manutenção Por Demanda
+            <p className="text-[10px] text-slate-500 uppercase font-bold">
+              Por Demanda
             </p>
             <p className="font-bold text-slate-900 text-lg">
               A partir de R$ 50
@@ -123,21 +127,21 @@ const Packages = () => {
           </div>
         </div>
       </div>
-      <div>
-        <div className="pt-6 border-t">
-          <p className="text-sm font-semibold mb-4 text-slate-400">
-            Formas de Pagamento Aceitas:
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <div className="flex items-center gap-2 text-slate-700 bg-slate-50 px-4 py-2 rounded-lg">
-              <Wallet className="w-4 h-4" /> Pix
-            </div>
-            <div className="flex items-center gap-2 text-slate-700 bg-slate-50 px-4 py-2 rounded-lg">
-              <CreditCard className="w-4 h-4" /> Cartão
-            </div>
-            <div className="flex items-center gap-2 text-slate-700 bg-slate-50 px-4 py-2 rounded-lg">
-              <Calendar className="w-4 h-4" /> Parcelamento
-            </div>
+
+      {/* Formas de Pagamento Centralizadas */}
+      <div className="mt-16  flex flex-col items-center">
+        <p className="text-sm font-semibold mb-6 text-slate-400 uppercase tracking-widest">
+          Formas de Pagamento Aceitas:
+        </p>
+        <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex items-center gap-2 text-slate-300 bg-white/5 px-6 py-3 rounded-full border border-white/5">
+            <Wallet className="w-4 h-4 text-[#00a3ff]" /> Pix
+          </div>
+          <div className="flex items-center gap-2 text-slate-300 bg-white/5 px-6 py-3 rounded-full border border-white/5">
+            <CreditCard className="w-4 h-4 text-[#00a3ff]" /> Cartão
+          </div>
+          <div className="flex items-center gap-2 text-slate-300 bg-white/5 px-6 py-3 rounded-full border border-white/5">
+            <Calendar className="w-4 h-4 text-[#00a3ff]" /> Parcelamento
           </div>
         </div>
       </div>
