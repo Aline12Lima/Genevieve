@@ -27,7 +27,8 @@ export function Contact() {
     const payload = {
       name: formData.get("empresa"), // Mapeia o valor do input empresa para a coluna name
       email: formData.get("email"), // Mapeia para a coluna email
-      message: formData.get("diferencial"), // Mapeia o texto da mensagem para a coluna message
+      message: formData.get("diferencial"),
+      phone: formData.get("telefone"), // Mapeia o texto da mensagem para a coluna message
     };
 
     // Verifique se o nome da tabela é "contacts" (com S no final) como aparece na sua imagem
