@@ -24,7 +24,7 @@ export function ProjectsGrid() {
           className="text-center space-y-4"
         >
           <h2 className="text-4xl md:text-5xl lg:text-8xl xl:text-6xl font-black uppercase leading-none">
-            Projetos de Criação de Sites e Landing Pages
+            Templates de Sites <br /> e Landing Pages
           </h2>
           <p className="text-xl md:text-2xl text-gray-400 font-light">
             Ideias transformadas em{" "}

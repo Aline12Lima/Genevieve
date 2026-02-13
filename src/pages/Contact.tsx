@@ -71,7 +71,7 @@ export function Contact() {
           </h2>
 
           <a className="text-xl md:text-2xl border-b border-[#00a3ff] pb-2 hover:text-[#00a3ff] transition-colors">
-            Mande um Olá →
+            Mande suas dúvidas neste formulário →
           </a>
         </motion.div>
       </section>
