@@ -2,7 +2,7 @@ const HeroServices = () => {
   return (
     <section className="py-20 px-6 text-center bg-black border-b border-slate-100">
       <div className="max-w-4xl mx-auto  mt-32">
-        <span className="text-white font-semibold tracking-wide uppercase text-sm">
+        <span className="text-[#00a3ff] font-semibold tracking-wide uppercase text-sm">
           Soluções Digitais
         </span>
         <h1 className="text-4xl md:text-5xl font-extrabold text-gray-200 mt-4 mb-6 leading-tight">
