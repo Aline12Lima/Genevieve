@@ -22,21 +22,19 @@ export function Contact() {
     const form = e.currentTarget;
     const formData = new FormData(form);
 
-    // Mapeamento mantido para sua tabela existente
+    // CORREÇÃO AQUI: As chaves devem ser EXATAMENTE 'name', 'email' e 'message'
+    // para bater com a tabela 'contacts' vista no seu print.
     const payload = {
-      empresa: formData.get("empresa"),
-      nicho: formData.get("nicho"),
-      publico_alvo: formData.get("publico_alvo"),
-      regiao: formData.get("regiao"),
-      como_vende: formData.get("como_vende"),
-      servicos_destaque: formData.get("servicos_destaque"),
-      diferencial: formData.get("diferencial"),
+      name: formData.get("empresa"), // Mapeia o valor do input empresa para a coluna name
+      email: formData.get("email"), // Mapeia para a coluna email
+      message: formData.get("diferencial"), // Mapeia o texto da mensagem para a coluna message
     };
 
-    const { error } = await supabase.from("contact").insert([payload]);
+    // Verifique se o nome da tabela é "contacts" (com S no final) como aparece na sua imagem
+    const { error } = await supabase.from("contacts").insert([payload]);
 
     if (error) {
-      console.error(error);
+      console.error("Erro ao inserir em contacts:", error);
       setIsSubmitting(false);
       return;
     }
