@@ -448,7 +448,7 @@ export function FormServices() {
               pelo WhatsApp para agilizar o início do projeto.
             </p>
             <a
-              href="https://wa.me/5535997382410?text=Olá Rafa! Acabei de enviar o briefing estratégico e gostaria de dar andamento."
+              href="https://wa.me/5535997382410?text=Olá! Acabei de enviar o briefing estratégico e gostaria de dar andamento no envio do Logo.. "
               target="_blank"
               className="inline-flex items-center gap-3 bg-[#25D366] text-white px-10 py-4 rounded-full font-bold hover:shadow-lg transition-all hover:scale-105"
             >
