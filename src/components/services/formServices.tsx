@@ -62,7 +62,7 @@ export function FormServices() {
     form.reset();
     setIsSent(true);
     setIsSubmitting(false);
-    setTimeout(() => setIsSent(false), 5000);
+    setTimeout(() => setIsSent(false), 15000);
   }
 
   return (
