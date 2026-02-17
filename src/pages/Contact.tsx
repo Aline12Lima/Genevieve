@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Check, ArrowUpRight } from "lucide-react";
 import { useState } from "react";
 import { supabase } from "../lib/supabase";
+import { trackEvent } from "../lib/metaPixel";
 
 const fadeInUp = {
   initial: { y: 40, opacity: 0 },
@@ -39,6 +40,11 @@ export function Contact() {
       setIsSubmitting(false);
       return;
     }
+    // 🔥 Evento Lead Meta Pixel (apenas uma vez)
+    trackEvent("Lead", {
+      value: 150,
+      currency: "BRL",
+    });
 
     form.reset();
     setIsSent(true);
