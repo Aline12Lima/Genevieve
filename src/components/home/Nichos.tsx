@@ -1,19 +1,19 @@
 import { motion } from "framer-motion";
 
-import imagefuture1 from "../../assets/nichos/Smile1.png";
-import imagefuture2 from "../../assets/nichos/Dentist.png";
-import imagefuture3 from "../../assets/nichos/skills.png";
-import imagefuture4 from "../../assets/nichos/Smile2.png";
+import imagefuture1 from "../../assets/nichos/JBHero.png";
+import imagefuture2 from "../../assets/nichos/JBSobre.png";
+import imagefuture3 from "../../assets/nichos/JBForm.png";
+import imagefuture4 from "../../assets/nichos/JBProjetos.png";
 
-import imagefuture5 from "../../assets/nichos/Consult1.png";
-import imagefuture6 from "../../assets/nichos/Consult2.png";
-import imagefuture7 from "../../assets/nichos/Consult3.png";
-import imagefuture8 from "../../assets/nichos/Consult4.png";
+import imagefuture5 from "../../assets/nichos/terapeutaHero.png";
+import imagefuture6 from "../../assets/nichos/nutri.png";
+import imagefuture7 from "../../assets/nichos/terapeutaServices.png";
+import imagefuture8 from "../../assets/nichos/terapeutaSobre.png";
 
-import imagefuture9 from "../../assets/nichos/rest1.png";
-import imagefuture10 from "../../assets/nichos/rest2.png";
-import imagefuture11 from "../../assets/nichos/rest3.png";
-import imagefuture12 from "../../assets/nichos/rest4.png";
+import imagefuture9 from "../../assets/nichos/salonHero.png";
+import imagefuture10 from "../../assets/nichos/SalonSection.png";
+import imagefuture11 from "../../assets/nichos/SalonSobre.png";
+import imagefuture12 from "../../assets/nichos/Saloninsta.png";
 
 type NichoProps = {
   title: string;
@@ -120,7 +120,7 @@ function NichoRow({
                       aria-label={`Ver template de ${title}`}
                       className="flex items-center gap-2 px-6 py-3 bg-white/20 backdrop-blur-md border border-white/40 rounded-lg text-white text-xs font-bold uppercase tracking-widest hover:bg-white/30 transition-all duration-300"
                     >
-                      Ver Template
+                      Ver Projeto
                       <svg
                         className="w-4 h-4"
                         fill="none"
@@ -171,33 +171,35 @@ export function Nichos() {
         </motion.div>
 
         <NichoRow
-          title="Saúde & Bem-estar"
-          subtitle="Clínicas • Hospitais • Consultórios"
-          description="Em saúde, confiança não é estética, é decisão. Criamos experiências digitais que tranquilizam antes mesmo do primeiro contato."
+          title="Construção Civil"
+          subtitle="Obras • Engenharia • Infraestrutura"
+          sectionBgColor="#141414"
+          description="Projetos sólidos começam com posicionamento sólido. Criamos websites que transmitem credibilidade, estrutura e capacidade técnica desde o primeiro clique."
           images={[imagefuture1, imagefuture2, imagefuture3, imagefuture4]}
-          icon="/icons/stethoscope.svg"
-          link="https://dentista-template.webflow.io/"
-        />
-
-        <NichoRow
-          title="Empresarial"
-          subtitle="Gestão • Administração • Corporativo"
-          description="No ambiente corporativo, clareza é poder. Criamos interfaces que organizam decisões e sustentam crescimento."
-          direction="right"
-          sectionBgColor="#F2F2F2"
-          iconBgColor="bg-[#00a3ff]"
-          images={[imagefuture5, imagefuture6, imagefuture7, imagefuture8]}
           icon="/icons/building-office.svg"
-          link="https://consut.webflow.io/services"
+          link="https://jb-construtech.vercel.app/"
         />
 
         <NichoRow
-          title="Gastronomia"
-          subtitle="Restaurantes • Cafés • Food Service"
-          description="Experiências que aguçam os sentidos antes mesmo do primeiro pedido"
+          title="Profissionais"
+          subtitle="Psicólogos • Dentistas • Nutricionistas"
+          description="Seu Portfólio precisa passar confiança e profissionalismo. Desenvolvemos experiências digitais que acolhem, informam e geram segurança antes mesmo do primeiro cliente."
+          direction="right"
+          sectionBgColor="#262727"
+          iconBgColor="bg-white"
+          images={[imagefuture5, imagefuture6, imagefuture7, imagefuture8]}
+          icon="/icons/id-card-lanyard.svg"
+          link="https://psi-angela.alinelima.dev/"
+        />
+
+        <NichoRow
+          title="Estética & Beleza"
+          subtitle="Salões • Clínicas Estéticas • Studios"
+          sectionBgColor="#1b1b1b"
+          description="Imagem é posicionamento. Criamos websites que elevam percepção de valor e transformam visitas em agendamentos."
           images={[imagefuture9, imagefuture10, imagefuture11, imagefuture12]}
-          icon="/icons/fork-knife.svg"
-          link="https://monkscrave.framer.website/about"
+          icon="/icons/brush.svg"
+          link="https://salon-x-nu.vercel.app/"
         />
       </div>
     </section>

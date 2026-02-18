@@ -5,18 +5,18 @@ import videoRH from "../assets/video/RH.mp4";
 import imgRH from "../assets/images2/RH.png";
 import videoCompany from "../assets/video/companyConsut.mp4";
 import imgCompany from "../assets/images2/Agevia.png";
-import videoAdvocacia from "../assets/video/advocacia.mp4";
-import imgAdvocacia from "../assets/images2/Advocacy.png";
-import videoTourism from "../assets/video/tourism.mp4";
-import imgTourism from "../assets/images2/Camelia.png";
+import videoAdvocacia from "../assets/video/artket.webm";
+import imgAdvocacia from "../assets/images2/arket.png";
+import videoTourism from "../assets/video/buils.webm";
+import imgTourism from "../assets/images2/builds.png";
 import videoSalon from "../assets/video/salon.mp4";
 import imgSalon from "../assets/images2/Avlon.png";
 import videoDentist from "../assets/video/dentist.mp4";
 import imgDentist from "../assets/images2/Dentist.png";
 import videoRestaurantPasta from "../assets/video/restaurantPasta.mp4";
 import imgPasta from "../assets/images2/Argiliano.png";
-import videoRestaurant1 from "../assets/video/restautant1.mp4";
-import imgRestaurant1 from "../assets/images2/EatPasta.png";
+import videoRestaurant1 from "../assets/video/1.mp4";
+import imgRestaurant1 from "../assets/images2/Countour.png";
 
 export type Project = {
   id: number;
@@ -87,43 +87,43 @@ export const projects: Project[] = [
 
   {
     id: 3,
-    slug: "advocacia-direito",
-    title: "Advocacia & Direito",
+    slug: "Arquitetura",
+    title: "Arket",
      mainImage: imgAdvocacia,
-    category: "Escritório de Advocacia",
+    category: "Escritório de Arquitetura",
     tags: ["Web", "Institucional"],
     description:
-      "Portal elegante para escritório de advocacia com área do cliente.",
+      "Página criativa e minimalista.",
     video: videoAdvocacia,
-      projectUrl: "https://advocacy-template.framer.website/about-us",
-    intro: "Autoridade e confiança no ambiente digital.",
+      projectUrl: "https://arket.webflow.io/",
+    intro: "Criatividade e confiança no ambiente.",
     heroVideo: videoAdvocacia,
     sections: [
       {
         id: "layout",
-        title: "Layout Judicial",
-        text: "Este projeto de website institucional para advocacia foi desenvolvido para reforçar credibilidade, autoridade e posicionamento jurídico. O layout sóbrio e elegante comunica confiança, enquanto a estrutura clara organiza áreas de atuação e diferenciais do escritório. A experiência do usuário conduz o visitante com segurança, valorizando conteúdo estratégico e facilitando o contato. O resultado é um site que fortalece a imagem do escritório e transforma presença digital em confiança e captação de clientes qualificados.",       },
+        title: "Layout Moderno",
+        text: "Este projeto de website institucional para escritório de arqiotetura foi elaborado para reforçar credibilidade, autoridade e confiança ao cliente. O layout sóbrio e elegante comunica confiança, enquanto a estrutura clara organiza áreas de atuação e diferenciais do escritório. A experiência do usuário conduz o visitante com segurança, valorizando conteúdo estratégico e facilitando o contato. O resultado é um site que fortalece a imagem do escritório e transforma presença digital em confiança e captação de clientes qualificados.",       },
     ],
   },
 
   {
     id: 4,
-    slug: "camelia-turismo",
-    title: "Camelia Turismo",
+    slug: "Construção de Prédios",
+    title: "Buildbes",
      mainImage: imgTourism,
-    category: "Agência de Viagens",
-    tags: ["Web", "E-commerce"],
+    category: "Serviços de Mão de Obra",
+    tags: ["Web", "Serviços"],
     description:
-      "Sistema de reservas e catálogo de destinos para agência de turismo.",
+      "Página para uma construtora empreiteira.",
     video: videoTourism,
-    projectUrl: "https://camelia-template.webflow.io/",
+    projectUrl: "https://buildbes.webflow.io/home/home-two",
     intro: "Experiência digital para destinos inesquecíveis.",
     heroVideo: videoTourism,
     sections: [
       {
         id: "overview",
         title: "Descrição ",
-        text: "  Este projeto de website para agência de turismo foi desenvolvido para transformar destinos em experiências desde o primeiro acesso.O layout visualmente envolvente valoriza imagens, vídeos e roteiros, criando conexão emocional com o visitante. A estrutura clara facilita a navegação entre destinos, serviços e informações, incentivando a descoberta e a decisão de compra. O resultado é uma presença digital que inspira viagens, fortalece a marca e converte interesse em reservas.",},
+        text: "  Este projeto de website para empreiteira, foi desenvolvido para transformar em novos contratos e parceirias desde o primeiro acesso.O layout visualmente envolvente valoriza imagens, vídeos e roteiros, criando conexão emocional com o visitante. A estrutura clara facilita a navegação entre serviços e projetos, clareza e informações, incentivando a descoberta e a decisão de nova parceria. O resultado é uma presença digital que inspira, fortalece a marca e converte interesse em clientes.",},
       ],
       
   },
@@ -191,21 +191,21 @@ export const projects: Project[] = [
 
   {
     id: 8,
-    slug: "grand-chef",
-    title: "Grand Chef",
+    slug: "Engenharia",
+    title: "Contour",
      mainImage: imgRestaurant1,
-    category: "Restaurante Fine Dining",
+    category: "Construção Civil",
     tags: ["Web", "Reservas"],
-    description: "Experiência digital premium com reservas e menu degustação.",
+    description: "Experiência digital",
     video: videoRestaurant1,
-    projectUrl: "https://heavenpalate.framer.website/",
+    projectUrl: "https://contour-128.webflow.io/",
     intro: "Alta gastronomia traduzida em design.",
     heroVideo: videoRestaurant1,
    sections: [
       {
         id: "overview",
         title: "Descrição ",
-        text: "  Website criado para posicionar um chef de alto nível como marca premium. O layout sofisticado destaca trajetória, pratos e experiências exclusivas. Cada detalhe reforça autoridade, excelência e identidade gastronômica. Uma presença digital que traduz talento em prestígio e oportunidades.",},
+        text: "  Website criado para escritório de engenharia de alto nível como marca premium. O layout sofisticado destaca trajetória, projetos e experiências exclusivas. Cada detalhe reforça autoridade, excelência e identidade. Uma presença digital que traduz talento em prestígio e oportunidades.",},
       ],
   },
 ];
