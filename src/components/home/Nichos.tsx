@@ -67,6 +67,7 @@ function NichoRow({
             >
               <img
                 src={icon}
+                loading="lazy"
                 alt="Site para empreiteiros, engenharia, arquitetos"
                 className="w-8 h-8"
               />
@@ -111,6 +112,7 @@ function NichoRow({
               <div className="relative w-full h-full rounded-2xl overflow-hidden bg-gray-900 shadow-2xl">
                 <img
                   src={img}
+                  loading="lazy"
                   alt={`${title} – Projeto site para construção civil  ${(index % images.length) + 1}`}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />

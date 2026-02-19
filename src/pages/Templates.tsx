@@ -71,28 +71,14 @@ export function Project() {
       {project.heroVideo && (
         <section className="w-full bg-[#111] py-10">
           <div className="w-full aspect-video md:h-[80vh] overflow-hidden bg-black">
-            <video
+            <iframe
               src={project.heroVideo}
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="metadata"
-              className="w-full h-full object-contain"
+              title={project.title}
+              className="w-full h-[500px] rounded-xl"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
             />
           </div>
-        </section>
-      )}
-
-      {/* SECTION 3: TEXTO FINAL */}
-      {project.sections?.length > 0 && (
-        <section className="max-w-4xl mx-auto px-6 py-32 text-center">
-          <h2 className="text-2xl md:text-4xl font-black uppercase mb-8">
-            {project.sections[0].title}
-          </h2>
-          <p className="text-gray-400 text-lg md:text-xl leading-loose">
-            {project.sections[0].text}
-          </p>
         </section>
       )}
     </main>

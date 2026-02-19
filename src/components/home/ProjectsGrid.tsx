@@ -69,6 +69,7 @@ function ProjectCard({ project }: ProjectCardProps) {
         <img
           src={project.mainImage}
           alt={project.title}
+          loading="lazy"
           className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
         />
 

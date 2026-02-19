@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import imageHero from "../../assets/images/woman-wearing-smart-glasses-futuristic-technology-digital-remix.jpg";
+import imageHero from "../../assets/images/woman-wearing-smart-glasses-futuristic-technology-digital-remix (1).jpg";
 
 export function Hero() {
   const container = useRef<HTMLElement | null>(null);

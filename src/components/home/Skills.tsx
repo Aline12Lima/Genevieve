@@ -50,6 +50,7 @@ export function Skills() {
           <div className="bg-white p-2 w-full max-w-md aspect-[3/4] overflow-hidden">
             <img
               src={imagembg}
+              loading="lazy"
               alt="Criação de sites e habilidades em performance digital"
               className="w-full h-full object-cover"
             />

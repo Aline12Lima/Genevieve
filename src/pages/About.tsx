@@ -170,6 +170,7 @@ export function About() {
               <div className="relative overflow-hidden rounded-[2.5rem] mb-8 bg-[#111]">
                 <img
                   src={person.image}
+                  loading="lazy"
                   alt={person.name}
                   /* Removido o 'grayscale' e 'group-hover:grayscale-0' */
                   className="w-full aspect-[3/4] object-cover grayscale transition-all duration-700 group-hover:scale-110"

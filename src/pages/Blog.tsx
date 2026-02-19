@@ -155,6 +155,7 @@ export function Blog() {
                 <div className="relative overflow-hidden rounded-[2rem] mb-8 bg-slate-200 aspect-[4/5]">
                   <img
                     src={post.image}
+                    loading="lazy"
                     alt={post.title}
                     className="w-full h-full object-cover  transition-all duration-700 group-hover:scale-110"
                   />
@@ -215,6 +216,7 @@ export function Blog() {
               <div className="overflow-y-auto h-full scrollbar-hide">
                 <img
                   src={selectedPost.image}
+                  loading="lazy"
                   className="w-full h-80 md:h-[450px] object-cover"
                   alt={selectedPost.title}
                 />
