@@ -19,8 +19,7 @@ export function Hero() {
   return (
     <section ref={container} className="relative h-[200vh] bg-black">
       <h1 className="sr-only">
-        Criação de Sites e Landing Pages Estratégicas para Clínicas,
-        Restaurantes e Empresas
+        Criação de Sites para Empresas da Construção Civil
       </h1>
 
       <div className="sticky top-0 h-screen w-full overflow-hidden">

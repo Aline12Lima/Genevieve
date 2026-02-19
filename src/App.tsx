@@ -8,6 +8,7 @@ import { FormServices } from "./components/services/formServices";
 import { ScrollToTop } from "./components/scrollTop/ScrollToTop";
 import { CTAFlutuante } from "./components/CTAflutuante/CTAFlutuante";
 import { About } from "./pages/About";
+import { Blog } from "./pages/Blog";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="services" element={<ServicesPage />} />
           <Route path="/briefing-exclusivo" element={<FormServices />} />
           <Route path="/projeto/:slug" element={<Project />} />{" "}
+          <Route path="/blog" element={<Blog />} />
           <Route path="/contato" element={<Contact />} />
         </Routes>
       </Layout>

@@ -119,8 +119,9 @@ export function Header() {
   const menuLinks = [
     { name: "Início", action: scrollToTop },
     { name: "Sobre", action: () => navigate("/about") },
-    { name: "Serviços", action: () => navigate("/services") }, // Use o navigate aqui!
-    { name: "Templates", action: () => scrollToSection("projects") },
+    { name: "Serviços", action: () => navigate("/services") },
+    { name: "Projetos", action: () => scrollToSection("nichos") },
+    { name: "Blog", action: () => navigate("/blog") }, // Chave { adicionada aqui
   ];
 
   return (

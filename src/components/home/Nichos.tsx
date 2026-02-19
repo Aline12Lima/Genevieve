@@ -65,7 +65,11 @@ function NichoRow({
             <div
               className={`w-14 h-14 rounded-2xl ${iconBgColor} flex items-center justify-center flex-shrink-0`}
             >
-              <img src={icon} alt="" className="w-8 h-8" />
+              <img
+                src={icon}
+                alt="Site para empreiteiros, engenharia, arquitetos"
+                className="w-8 h-8"
+              />
             </div>
             <p
               className={`text-lg md:text-xl font-light ${
@@ -107,7 +111,7 @@ function NichoRow({
               <div className="relative w-full h-full rounded-2xl overflow-hidden bg-gray-900 shadow-2xl">
                 <img
                   src={img}
-                  alt={`${title} – Projeto ${(index % images.length) + 1}`}
+                  alt={`${title} – Projeto site para construção civil  ${(index % images.length) + 1}`}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
 

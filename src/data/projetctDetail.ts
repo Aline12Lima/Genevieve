@@ -46,7 +46,7 @@ export const projects: Project[] = [
   {
     id: 1,
     slug: "rh-solutions",
-    title: "RH Solutions",
+    title: "RH Consultoria",
     mainImage: imgRH,
     category: "Consultoria de Recursos Humanos",
     tags: ["Web", "Branding"],
