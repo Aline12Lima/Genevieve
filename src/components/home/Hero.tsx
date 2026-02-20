@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import imageHero from "../../assets/images/woman-wearing-smart-glasses-futuristic-technology-digital-remix (1).jpg";
+import imageHero from "../../assets/images/woman-wearing-smart-glasses-futuristic-technology-digital-remix.webp";
 
 export function Hero() {
   const container = useRef<HTMLElement | null>(null);
@@ -32,6 +32,7 @@ export function Hero() {
           <img
             src={imageHero}
             alt="Criação de sites modernos e estratégicos"
+            fetchPriority="high"
             className="w-full h-full object-cover object-center mix-blend-lighten"
           />
         </motion.div>

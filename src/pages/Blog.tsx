@@ -22,7 +22,7 @@ const posts = [
     author: "Aline Lima",
     readTime: "8 min",
     image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop",
     content: `O Guia Definitivo para Transformar seu Site em uma Máquina de Vendas Local
 
 No setor de engenharia e construção, o site não é apenas uma vitrine; é uma ferramenta de filtragem e fechamento. Para dominar o mercado local, você precisa alinhar a conveniência do usuário com as exigências dos algoritmos de busca.
@@ -59,7 +59,7 @@ No mercado de alto padrão, o design não é sobre "ser bonito", é sobre transm
     author: "Jefferson",
     readTime: "6 min",
     image:
-      "https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=2400&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=800&auto=format&fit=crop",
     content: `A Paleta de Cores da Exclusividade
 
 As cores evocam emoções subconscientes que podem validar ou destruir o preço que você cobra.
@@ -93,7 +93,7 @@ Metadados e Organização: Nomeie seus arquivos de imagem com palavras-chave (ex
     readTime: "5 min",
     // Imagem com tema Instagram/Social Media
     image:
-      "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=2148&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=800&auto=format&fit=crop",
     content: `Como estudante de engenharia de software, você sabe: código eficiente é dinheiro no bolso. A performance técnica define o seu Custo por Aquisição (CPA).
 
     A Ciência da Retenção:

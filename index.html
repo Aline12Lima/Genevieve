@@ -26,6 +26,19 @@
   <meta property="og:url" content="https://genevieve.com.br/" />
   <meta property="og:image" content="https://genevieve.com.br/preview/og-image.png" />
 
+  
+</head>
+
+<body>
+
+  <!-- Meta Pixel (noscript deve ficar no body) -->
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=2295892514237881&ev=PageView&noscript=1" />
+  </noscript>
+
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-65XNK8F292"></script>
   <script>
@@ -34,7 +47,7 @@
     gtag('js', new Date());
     gtag('config', 'G-65XNK8F292');
   </script>
-
+  
   <!-- Meta Pixel -->
   <script>
     !function (f, b, e, v, n, t, s) {
@@ -60,30 +73,18 @@
     fbq('track', 'PageView');
   </script>
   <!-- End Meta Pixel -->
-
+  
   <!-- Schema Markup -->
   <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Genevieve",
-      "url": "https://genevieve.com.br",
-      "logo": "https://genevieve.com.br/favicon.ico"
-    }
-    </script>
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Genevieve",
+        "url": "https://genevieve.com.br",
+        "logo": "https://genevieve.com.br/favicon.ico"
+      }
+      </script>
 
-</head>
-
-<body>
-
-  <!-- Meta Pixel (noscript deve ficar no body) -->
-  <noscript>
-    <img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=2295892514237881&ev=PageView&noscript=1" />
-  </noscript>
-
-  <div id="root"></div>
-  <script type="module" src="/src/main.tsx"></script>
 
 </body>
 
