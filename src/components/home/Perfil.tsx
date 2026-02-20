@@ -41,8 +41,8 @@ export function Perfil() {
             <p className="text-lg md:text-xl leading-relaxed text-black/70 font-light">
               Nossa <span className="text-black font-medium">equipe</span> atua
               na intersecção entre performance técnica e estética editorial,
-              criando experiências digitais pensadas para marcas que precisam se
-              destacar, escalar e converter.
+              criando experiências digitais pensadas para empresas que precisam
+              se destacar, escalar e converter.
             </p>
 
             <button

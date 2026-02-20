@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import imagembg from "../../assets/images/skills.png";
+import imagembg from "../../assets/images/habilidades.jpg";
 
 const skills = [
   { name: "DESIGN WEB", level: "85%" },
@@ -14,7 +14,7 @@ export function Skills() {
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         {/* COLUNA ESQUERDA — TEXTO */}
         <div className="order-1 space-y-16">
-          <h2 className="font-beauty text-black text-6xl lg:text-7xl font-black tracking-tighter">
+          <h2 className="font-beauty text-black text-4xl lg:text-7xl font-black tracking-tighter">
             HABILIDADES
           </h2>
 

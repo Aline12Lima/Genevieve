@@ -10,10 +10,10 @@ import imagefuture6 from "../../assets/nichos/nutri.png";
 import imagefuture7 from "../../assets/nichos/terapeutaServices.png";
 import imagefuture8 from "../../assets/nichos/terapeutaSobre.png";
 
-import imagefuture9 from "../../assets/nichos/salonHero.png";
-import imagefuture10 from "../../assets/nichos/SalonSection.png";
-import imagefuture11 from "../../assets/nichos/SalonSobre.png";
-import imagefuture12 from "../../assets/nichos/Saloninsta.png";
+import imagefuture9 from "../../assets/nichos/contour1.png";
+import imagefuture10 from "../../assets/nichos/contour2.png";
+import imagefuture11 from "../../assets/nichos/contour3.png";
+import imagefuture12 from "../../assets/nichos/contour4.png";
 
 type NichoProps = {
   title: string;
@@ -178,7 +178,7 @@ export function Nichos() {
 
         <NichoRow
           title="Construção Civil"
-          subtitle="Obras • Engenharia • Infraestrutura"
+          subtitle="Projetos • Arquitetura • Desing"
           sectionBgColor="#141414"
           description="Projetos sólidos começam com posicionamento sólido. Criamos websites que transmitem credibilidade, estrutura e capacidade técnica desde o primeiro clique."
           images={[imagefuture1, imagefuture2, imagefuture3, imagefuture4]}
@@ -187,8 +187,17 @@ export function Nichos() {
         />
 
         <NichoRow
+          title=""
+          subtitle="Construtoras • Serviços • Empreiteiras"
+          sectionBgColor="#1b1b1b"
+          description=""
+          images={[imagefuture9, imagefuture10, imagefuture11, imagefuture12]}
+          icon="/icons/hard-hat.svg"
+          link="https://salon-x-nu.vercel.app/"
+        />
+        <NichoRow
           title="Profissionais"
-          subtitle="Psicólogos • Dentistas • Nutricionistas"
+          subtitle="Portfólios • Apresentação Pessoal"
           description="Seu Portfólio precisa passar confiança e profissionalismo. Desenvolvemos experiências digitais que acolhem, informam e geram segurança antes mesmo do primeiro cliente."
           direction="right"
           sectionBgColor="#262727"
@@ -196,16 +205,6 @@ export function Nichos() {
           images={[imagefuture5, imagefuture6, imagefuture7, imagefuture8]}
           icon="/icons/id-card-lanyard.svg"
           link="https://psi-angela.alinelima.dev/"
-        />
-
-        <NichoRow
-          title="Estética & Beleza"
-          subtitle="Salões • Clínicas Estéticas • Studios"
-          sectionBgColor="#1b1b1b"
-          description="Imagem é posicionamento. Criamos websites que elevam percepção de valor e transformam visitas em agendamentos."
-          images={[imagefuture9, imagefuture10, imagefuture11, imagefuture12]}
-          icon="/icons/brush.svg"
-          link="https://salon-x-nu.vercel.app/"
         />
       </div>
     </section>

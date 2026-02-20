@@ -113,16 +113,8 @@ const Packages = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full md:w-auto text-center">
           <div className="bg-white p-4 rounded-xl shadow-sm border border-slate-100">
             <p className="text-[10px] text-slate-500 uppercase font-bold">
-              Mensalidade
-            </p>
-            <p className="font-bold text-slate-900 text-lg">R$ 150 - R$ 300</p>
-          </div>
-          <div className="bg-white p-4 rounded-xl shadow-sm border border-slate-100">
-            <p className="text-[10px] text-slate-500 uppercase font-bold">
-              Por Demanda
-            </p>
-            <p className="font-bold text-slate-900 text-lg">
-              A partir de R$ 50
+              Realizamos monutenções, edições e implementações de iformações ao
+              seu site.
             </p>
           </div>
         </div>

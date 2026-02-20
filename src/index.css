@@ -25,3 +25,12 @@
     --cxolor-secondaary: #00a3ff;
     --color-blue: #00a3ff;
 }
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}

@@ -1,11 +1,11 @@
 import imgRH from "../assets/images2/RH.png";
 import imgCompany from "../assets/images2/Agevia.png";
-import imgAdvocacia from "../assets/images2/arket.png";
-import imgTourism from "../assets/images2/builds.png";
-import imgSalon from "../assets/images2/Avlon.png";
-import imgDentist from "../assets/images2/Dentist.png";
-import imgPasta from "../assets/images2/Argiliano.png";
-import imgRestaurant1 from "../assets/images2/Countour.png";
+import imgTerra from "../assets/images/maquina_escavadeira.jpg";
+import imgArquitetura from "../assets/images/estrututa_metalica.jpg";
+import imgPisos from "../assets/images/engenheiros.jpg";
+import imgEngenharia from "../assets/images/caminhao_agregados.jpg";
+import imgPerfil from "../assets/images/female-engineer-with-white-helmet-holding-project-plan-looks-happy.jpg";
+import imgServico from "../assets/images2/Countour.png";
 
 export type Project = {
   id: number;
@@ -36,7 +36,7 @@ export const projects: Project[] = [
     title: "RH Consultoria",
     mainImage: imgRH,
     category: "Consultoria de Recursos Humanos",
-    tags: ["Web", "Branding"],
+    tags: ["Web", "Construtoras"],
     description:
       "Plataforma digital moderna para gestão de talentos e recrutamento.",
     video: "https://www.youtube.com/embed/1rReOJFf0P8",
@@ -58,7 +58,7 @@ export const projects: Project[] = [
     title: "AGevia Consultoria",
     mainImage: imgCompany,
     category: "Consultoria Empresarial",
-    tags: ["Web", "Corporativo"],
+    tags: ["Web", "RH"],
     description:
       "Website institucional com dashboard de gestão para empresa de consultoria.",
     video: "https://www.youtube.com/embed/my3AEb_ELT4",
@@ -78,14 +78,14 @@ export const projects: Project[] = [
     id: 3,
     slug: "arquitetura",
     title: "Arket",
-    mainImage: imgAdvocacia,
+    mainImage: imgTerra,
     category: "Escritório de Arquitetura",
-    tags: ["Web", "Institucional"],
+    tags: ["Web", "Engenharia"],
     description: "Página criativa e minimalista.",
     video: "https://www.youtube.com/embed/OiwT4qXcQos",
     heroVideo: "https://www.youtube.com/embed/OiwT4qXcQos",
     projectUrl: "https://arket.webflow.io/",
-    intro: "Criatividade e confiança no ambiente.",
+    intro: "Criatividade e confiança no ambiente. Confira o video apresentativo do site:",
     sections: [
       {
         id: "layout",
@@ -99,14 +99,14 @@ export const projects: Project[] = [
     id: 4,
     slug: "construcao-predios",
     title: "Buildbes",
-    mainImage: imgTourism,
+    mainImage: imgArquitetura,
     category: "Serviços de Mão de Obra",
     tags: ["Web", "Serviços"],
     description: "Página para uma construtora empreiteira.",
     video: "https://www.youtube.com/embed/WwEswdBl1Dc",
     heroVideo: "https://www.youtube.com/embed/WwEswdBl1Dc",
     projectUrl: "https://buildbes.webflow.io/home/home-two",
-    intro: "Experiência digital para grandes construções.",
+    intro: "Experiência digital para grandes construções. Confira abaixo o video do site ou clique no link:",
     sections: [
       {
         id: "overview",
@@ -118,16 +118,16 @@ export const projects: Project[] = [
 
   {
     id: 5,
-    slug: "beleza-estilo",
-    title: "Beleza & Estilo",
-    mainImage: imgSalon,
-    category: "Salão de Beleza",
-    tags: ["Web", "Agendamento"],
-    description: "Plataforma de agendamento online com galeria de serviços.",
-    video: "https://www.youtube.com/embed/f7ZtOrPtfrE",
-    heroVideo: "https://www.youtube.com/embed/f7ZtOrPtfrE",
-    projectUrl: "https://avlon.webflow.io/home-two",
-    intro: "Estética, performance e conversão.",
+    slug: "Serviços",
+    title: "Empreiteira - Drenagem",
+    mainImage: imgPisos,
+    category: "Serviços",
+    tags: ["Web", "Empreiteira"],
+    description: "Seus serviços precisam ser vistos. ",
+    video: "https://www.youtube.com/embed/WwEswdBl1Dc",
+    heroVideo: "https://www.youtube.com/embed/WwEswdBl1Dc",
+    projectUrl: "https://www.danieljamesdrainage.com/",
+    intro: "Seja notado por novos clientes, não esconda sua empresa. Confira abaixo o video do site ou clique no link:",
     sections: [
       {
         id: "overview",
@@ -139,17 +139,17 @@ export const projects: Project[] = [
 
   {
     id: 6,
-    slug: "odonto-care",
-    title: "Odonto Care",
-    mainImage: imgDentist,
-    category: "Clínica Odontológica",
-    tags: ["Web", "Saúde"],
+    slug: "Terraplanagem",
+    title: "Terraplanagem",
+    mainImage: imgEngenharia,
+    category: "Serviços",
+    tags: ["Web", "Terraplanagem"],
     description:
       "Website médico com sistema de agendamento e prontuário digital.",
     video: "https://www.youtube.com/embed/vr3itvrkLtw",
-    heroVideo: "https://www.youtube.com/embed/vr3itvrkLtw",
+    heroVideo: "https://www.youtube.com/embed/WwEswdBl1Dc",
     projectUrl: "https://dentista-template.webflow.io/",
-    intro: "Tecnologia aplicada à saúde.",
+    intro: "Tecnologia aplicada à empresas.Confira abaixo o video do site ou clique no link:",
     sections: [
       {
         id: "overview",
@@ -161,16 +161,16 @@ export const projects: Project[] = [
 
   {
     id: 7,
-    slug: "pasta-italiana",
-    title: "Pasta Italiana",
-    mainImage: imgPasta,
-    category: "Restaurante",
-    tags: ["Web", "Cardápio Digital"],
-    description: "Cardápio digital interativo com sistema de pedidos online.",
+    slug: "Portfólio",
+    title: "Portfólio",
+    mainImage: imgPerfil,
+    category: "Perfil Profissional ",
+    tags: ["Web", "Portfolio"],
+    description: "Apresente seus serviços de forma profissional.",
     video: "https://www.youtube.com/embed/DdAnSEaaVd0",
-    heroVideo: "https://www.youtube.com/embed/DdAnSEaaVd0",
+    heroVideo: "https://www.youtube.com/embed/WwEswdBl1Dc",
     projectUrl: "https://artigiano-pasta.webflow.io/products",
-    intro: "Experiência gastronômica desde o primeiro clique.",
+    intro: "Experiência gastronômica desde o primeiro clique. Confira abaixo o video do site ou clique no link:",
     sections: [
       {
         id: "overview",
@@ -182,16 +182,16 @@ export const projects: Project[] = [
 
   {
     id: 8,
-    slug: "engenharia",
+    slug: "Engenharia",
     title: "Contour",
-    mainImage: imgRestaurant1,
+    mainImage: imgServico,
     category: "Construção Civil",
     tags: ["Web", "Institucional"],
     description: "Website premium para empresa de engenharia.",
     video: "https://www.youtube.com/embed/1rReOJFf0P8",
     heroVideo: "https://www.youtube.com/embed/1rReOJFf0P8",
-    projectUrl: "https://contour-128.webflow.io/",
-    intro: "Autoridade e excelência traduzidas em design.",
+    projectUrl: "https://noema-128.webflow.io/home-2",
+    intro: "Autoridade e excelência traduzidas em design.Confira abaixo o video do site ou clique no link:",
     sections: [
       {
         id: "overview",

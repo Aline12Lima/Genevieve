@@ -6,8 +6,7 @@ const HeroServices = () => {
           Soluções Digitais
         </span>
         <h1 className="text-4xl md:text-5xl font-extrabold text-gray-200 mt-4 mb-6 leading-tight">
-          Landing Pages Estratégicas para Negócios Locais que Querem Gerar
-          Clientes Todos os Dias
+          Pages Estratégicas para Negócios Querem Gerar Clientes
         </h1>
         <p className="text-lg text-slate-600 max-w-2xl mx-auto">
           Solicite seu orçamento preenchendo o formulário e logo entraremos em
