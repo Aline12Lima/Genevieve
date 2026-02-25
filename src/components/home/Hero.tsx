@@ -29,7 +29,7 @@ export function Hero() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 6000); // Troca a cada 6 segundos
+    }, 2000); // Troca a cada 6 segundos
     return () => clearInterval(timer);
   }, []);
 
@@ -47,7 +47,7 @@ export function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 2, ease: "easeInOut" }}
+              transition={{ duration: 1, ease: "easeInOut" }}
               className="absolute inset-0"
             >
               <motion.img

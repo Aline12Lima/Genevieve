@@ -1,85 +1,90 @@
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 export function Perfil() {
-  // Definição da animação com tipagem fixa para evitar erros no TS
+  const navigate = useNavigate(); // Essencial: dentro da função
+
   const fadeInUp = {
     initial: { opacity: 0, y: 30 },
     whileInView: { opacity: 1, y: 0 },
     viewport: { once: true, margin: "-100px" },
     transition: {
-      duration: 0.9,
-      ease: [0.215, 0.61, 0.355, 1] as const, // O 'as const' resolve o erro de Type mismatch
+      duration: 0.8,
+      ease: [0.215, 0.61, 0.355, 1] as const,
     },
   };
 
+  const etapas = [
+    {
+      num: "01",
+      titulo: "Diagnóstico",
+      desc: "Entendemos sua necessidade, objetivo da empresa, público, tipo de serviço e local de atuação.",
+    },
+    {
+      num: "02",
+      titulo: "Definição Visual",
+      desc: "Definimos layout, logo, estilos, cores, fotos e organização das informações do seu site.",
+    },
+    {
+      num: "03",
+      titulo: "Contrato e Início",
+      desc: "Sinal de 50% para início, com contrato assinado. Aceitamos Pix, crédito, débito e parcelamento.",
+    },
+    {
+      num: "04",
+      titulo: "Entrega e Suporte",
+      desc: "Site no ar após sua aprovação final, com 2 semanas de suporte técnico garantido.",
+    },
+  ];
+
   return (
-    <section className="relative bg-[#F2F2F2] py-24 md:py-20 px-6 md:px-16 text-black">
+    <section className="relative bg-[#F2F2F2] py-24 px-6 md:px-16 text-black">
       <div className="max-w-[1400px] mx-auto">
-        {/* Header da Seção - Linha 16 */}
-        <motion.div {...fadeInUp} className="mb-20">
-          <h2 className="text-[10px] uppercase tracking-[0.4em] text-black/40 font-bold">
-            Perfil
+        {/* Título */}
+        <motion.div {...fadeInUp} className="mb-16">
+          <h2 className="text-[10px] uppercase tracking-[0.4em] text-[#00a3ff] font-bold mb-4">
+            Processo de Trabalho
           </h2>
+          <h3 className="text-4xl md:text-6xl font-bold tracking-tighter">
+            Como funciona o nosso projeto?
+          </h3>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
-          {/* Título Grande à Esquerda - Linha 24 */}
-          <motion.div {...fadeInUp} className="lg:col-span-7">
-            <h3 className="font-beauty text-5xl md:text-[5.5vw] leading-[1.1] tracking-tighter">
-              Ajudamos marcas a <br />
-              <span className="text-[#00a3ff]">elevar o padrão</span> <br />
-              do mercado digital.
-            </h3>
-          </motion.div>
-
-          {/* Texto Descritivo à Direita */}
-          <motion.div
-            {...fadeInUp}
-            transition={{ ...fadeInUp.transition, delay: 0.2 }}
-            className="lg:col-span-4 lg:col-start-9 flex flex-col justify-end pb-4"
-          >
-            <p className="text-lg md:text-xl leading-relaxed text-black/70 font-light">
-              Nossa <span className="text-black font-medium">equipe</span> atua
-              na intersecção entre performance técnica e estética editorial,
-              criando experiências digitais pensadas para empresas que precisam
-              se destacar, escalar e converter.
-            </p>
-
-            <button
-              onClick={() => {
-                const el = document.getElementById("projects");
-                if (!el) return;
-
-                const headerOffset = 140;
-                const elementPosition = el.getBoundingClientRect().top;
-                const offsetPosition =
-                  elementPosition + window.pageYOffset - headerOffset;
-
-                window.scrollTo({
-                  top: offsetPosition,
-                  behavior: "smooth",
-                });
-              }}
-              className="
-                inline-flex items-center gap-2
-                mt-6
-                text-sm uppercase tracking-widest
-                font-semibold
-                text-[var(--color-blue)]
-                hover:text-black
-                transition-colors duration-300
-                 "
+        {/* Grid de Etapas */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {etapas.map((item, index) => (
+            <motion.div
+              key={index}
+              {...fadeInUp}
+              transition={{ ...fadeInUp.transition, delay: index * 0.1 }}
+              className="bg-white p-8 border-b-4 border-[#00a3ff] shadow-sm"
             >
-              Ver outros projetos
-              <span className="text-lg">→</span>
-            </button>
-          </motion.div>
+              <span className="text-[#00a3ff] font-bold text-sm block mb-4 opacity-50">
+                {item.num}
+              </span>
+              <h4 className="text-xl font-bold mb-3 uppercase tracking-tight">
+                {item.titulo}
+              </h4>
+              <p className="text-black/70 leading-relaxed text-sm">
+                {item.desc}
+              </p>
+            </motion.div>
+          ))}
         </div>
-      </div>
 
-      {/* Marca d'água decorativa */}
-      <div className="absolute top-0 right-0 p-10 opacity-[0.03] pointer-events-none">
-        <p className="font-beauty text-[10vw] leading-none italic">Genevieve</p>
+        {/* Botão de Ação */}
+        <motion.div
+          {...fadeInUp}
+          transition={{ delay: 0.5 }}
+          className="mt-16 flex justify-center"
+        >
+          <button
+            onClick={() => navigate("/contato")}
+            className="relative z-50 bg-black text-white px-10 py-5 text-[12px] font-bold uppercase tracking-widest hover:bg-[#00a3ff] transition-all transform hover:-translate-y-1 active:scale-95 shadow-lg cursor-pointer"
+          >
+            Iniciar meu orçamento →
+          </button>
+        </motion.div>
       </div>
     </section>
   );

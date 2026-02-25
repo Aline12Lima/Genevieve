@@ -5,15 +5,15 @@ import imagefuture2 from "../../assets/nichos/JBSobre.png";
 import imagefuture3 from "../../assets/nichos/JBForm.png";
 import imagefuture4 from "../../assets/nichos/JBProjetos.png";
 
-import imagefuture5 from "../../assets/nichos/terapeutaHero.png";
-import imagefuture6 from "../../assets/nichos/nutri.png";
-import imagefuture7 from "../../assets/nichos/terapeutaServices.png";
-import imagefuture8 from "../../assets/nichos/terapeutaSobre.png";
+import imagefuture5 from "../../assets/nichos/FFF1.png";
+import imagefuture6 from "../../assets/nichos/FFFProjetos.png";
+import imagefuture7 from "../../assets/nichos/FFabout.png";
+import imagefuture8 from "../../assets/nichos/FFservices.png";
 
-import imagefuture9 from "../../assets/nichos/contour1.png";
-import imagefuture10 from "../../assets/nichos/contour2.png";
-import imagefuture11 from "../../assets/nichos/contour3.png";
-import imagefuture12 from "../../assets/nichos/contour4.png";
+import imagefuture9 from "../../assets/nichos/ViniFooter.png";
+import imagefuture10 from "../../assets/nichos/viniObras.png";
+import imagefuture11 from "../../assets/nichos/ViniHero.png";
+import imagefuture12 from "../../assets/nichos/viniObras.png";
 
 type NichoProps = {
   title: string;
@@ -161,21 +161,6 @@ export function Nichos() {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#23007B]/5 to-transparent pointer-events-none" />
 
       <div className="relative space-y-16 md:space-y-24">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center space-y-4 px-6"
-        >
-          <h2 className=" mt-8 text-3xl md:text-3xl lg:text-5xl xl:text-6xl font-black text-gray-200 uppercase leading-none">
-            Criação de Sites para Setores que <br /> Exigem <br /> Performance
-          </h2>
-          <p className="text-xl md:text-2xl lg:text-5xl text-gray-300 font-light">
-            Precisão, clareza e intenção.
-          </p>
-        </motion.div>
-
         <NichoRow
           title="Construção Civil"
           subtitle="Projetos • Arquitetura • Desing"
@@ -188,12 +173,12 @@ export function Nichos() {
 
         <NichoRow
           title=""
-          subtitle="Construtoras • Serviços • Empreiteiras"
+          subtitle=" Consultorias • Serviços • Empreiteiras"
           sectionBgColor="#1b1b1b"
           description=""
           images={[imagefuture9, imagefuture10, imagefuture11, imagefuture12]}
           icon="/icons/hard-hat.svg"
-          link="https://salon-x-nu.vercel.app/"
+          link="https://vini-gesso.vercel.app/"
         />
         <NichoRow
           title="Profissionais"
@@ -204,7 +189,7 @@ export function Nichos() {
           iconBgColor="bg-white"
           images={[imagefuture5, imagefuture6, imagefuture7, imagefuture8]}
           icon="/icons/id-card-lanyard.svg"
-          link="https://psi-angela.alinelima.dev/"
+          link="https://fff-xi-orpin.vercel.app/"
         />
       </div>
     </section>
