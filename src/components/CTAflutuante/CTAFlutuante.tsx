@@ -12,8 +12,8 @@ export function CTAFlutuante() {
         z-[9999]
         px-8 py-4
         rounded-full
-        bg-white
-        text-black
+        bg-[#00a3ff]
+        text-white
         text-[12px]
         font-black
         uppercase

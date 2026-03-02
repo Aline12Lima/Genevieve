@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Instagram, Facebook, Linkedin } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
+import logo from "../../assets/GWhite.png";
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -124,6 +125,24 @@ export function Header() {
     { name: "Blog", action: () => navigate("/blog") }, // Chave { adicionada aqui
   ];
 
+  const socialLinks = [
+    {
+      name: "LinkedIn",
+      href: "https://www.linkedin.com/company/genevieve-website/?viewAsMember=true",
+      icon: Linkedin,
+    },
+    {
+      name: "Instagram",
+      href: "https://www.instagram.com/genevieve_website/",
+      icon: Instagram,
+    },
+    {
+      name: "Facebook",
+      href: "https://www.facebook.com/profile.php?id=61588397727758",
+      icon: Facebook,
+    },
+  ];
+
   return (
     <>
       <motion.header
@@ -143,7 +162,11 @@ export function Header() {
         }`}
       >
         {/* LOGO */}
-        <button onClick={scrollToTop} className="z-[101]">
+        <button
+          onClick={scrollToTop}
+          className="z-[101] flex items-center gap-1"
+        >
+          <img src={logo} alt="logo Genevieve" className="w-28 h-auto" />
           <h1
             className={`font-beauty text-[10vw] sm:text-[8vw] md:text-[5vw] lg:text-[3vw] leading-none tracking-tighter transition-colors duration-300 ${scrolledTextClass}`}
           >
@@ -152,15 +175,15 @@ export function Header() {
         </button>
 
         {/* NAV DESKTOP */}
-        <nav className="hidden lg:block absolute left-1/2 -translate-x-1/2 pointer-events-auto">
+        <nav className="hidden lg:block absolute lg:left-[56%] -translate-x-1/2 pointer-events-auto">
           <div
-            className={`flex items-center gap-8 px-8 py-2 bg-white/5 backdrop-blur-md border ${scrolledBorderClass} rounded-full`}
+            className={`flex items-center gap-2 px-8 py-2 bg-white/5 backdrop-blur-md border ${scrolledBorderClass} rounded-full`}
           >
             {menuLinks.map((link) => (
               <button
                 key={link.name}
                 onClick={link.action}
-                className={`text-[11px] font-bold uppercase tracking-[0.2em] ${scrolledTextClass} transition-colors`}
+                className={`cursor-pointer px-3 py-2 rounded-full text-[11px] font-bold uppercase tracking-[0.2em] ${scrolledTextClass} hover:bg-[#00a3ff] hover:text-white transition-all`}
               >
                 {link.name}
               </button>
@@ -168,7 +191,7 @@ export function Header() {
 
             <button
               onClick={() => navigate("/contato")}
-              className={`bg-white/10 hover:bg-[#00a3ff] px-6 py-2 rounded-full text-[11px] font-bold uppercase tracking-widest ${scrolledTextClass} transition-all border ${
+              className={`cursor-pointer bg-white/10 hover:bg-[#00a3ff] px-6 py-2 rounded-full text-[11px] font-bold uppercase tracking-widest ${scrolledTextClass} transition-all border ${
                 scrolled ? "border-gray-400/40" : "border-white/10"
               }`}
             >
@@ -176,6 +199,27 @@ export function Header() {
             </button>
           </div>
         </nav>
+
+        <div className="hidden lg:flex items-center gap-3 z-[101]">
+          {socialLinks.map((social) => {
+            const Icon = social.icon;
+
+            return (
+              <a
+                key={social.name}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={social.name}
+                className={`w-9 h-9 flex items-center justify-center rounded-full border transition-all ${scrolledTextClass} ${
+                  scrolled ? "border-gray-400/40" : "border-white/30"
+                } hover:bg-white/10`}
+              >
+                <Icon size={16} />
+              </a>
+            );
+          })}
+        </div>
 
         {/* MOBILE TOGGLE */}
         <button

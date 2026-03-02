@@ -57,7 +57,7 @@ export function Perfil() {
               key={index}
               {...fadeInUp}
               transition={{ ...fadeInUp.transition, delay: index * 0.1 }}
-              className="bg-white p-8 border-b-4 border-[#00a3ff] shadow-sm"
+              className="relative bg-white p-8 border-b-4 border-[#00a3ff] shadow-sm"
             >
               <span className="text-[#00a3ff] font-bold text-sm block mb-4 opacity-50">
                 {item.num}
@@ -68,6 +68,12 @@ export function Perfil() {
               <p className="text-black/70 leading-relaxed text-sm">
                 {item.desc}
               </p>
+
+              {index < etapas.length - 1 && (
+                <span className="hidden lg:flex absolute -right-6 top-1/2 -translate-y-1/2 text-3xl font-bold text-[#00a3ff]/70">
+                  &gt;
+                </span>
+              )}
             </motion.div>
           ))}
         </div>

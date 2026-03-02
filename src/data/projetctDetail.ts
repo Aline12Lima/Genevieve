@@ -3,7 +3,7 @@ import imgCompany from "../assets/images2/Agevia.png";
 import imgTerra from "../assets/images/maquina_escavadeira.jpg";
 import imgArquitetura from "../assets/images/estrututa_metalica.jpg";
 import imgPisos from "../assets/images/engenheiros.jpg";
-import imgEngenharia from "../assets/images/caminhao_agregados.jpg";
+import imgEngenharia from "../assets/images2/Countour.png";
 import imgPerfil from "../assets/images/female-engineer-with-white-helmet-holding-project-plan-looks-happy.jpg";
 import imgServico from "../assets/images2/Countour.png";
 
@@ -47,9 +47,9 @@ export const projects: Project[] = [
       {
         id: "overview",
         title: "Descrição",
-        text: "Texto aqui..."
-      }
-    ]
+        text: "Texto aqui...",
+      },
+    ],
   },
 
   {
@@ -69,9 +69,9 @@ export const projects: Project[] = [
       {
         id: "layout",
         title: "Layout Corporativo",
-        text: "O projeto Consultoria Administrativa Agevia foca em clareza, profissionalismo e conversão..."
-      }
-    ]
+        text: "O projeto Consultoria Administrativa Agevia foca em clareza, profissionalismo e conversão...",
+      },
+    ],
   },
 
   {
@@ -85,14 +85,15 @@ export const projects: Project[] = [
     video: "https://www.youtube.com/embed/OiwT4qXcQos",
     heroVideo: "https://www.youtube.com/embed/OiwT4qXcQos",
     projectUrl: "https://arket.webflow.io/",
-    intro: "Criatividade e confiança no ambiente. Confira o video apresentativo do site:",
+    intro:
+      "Criatividade e confiança no ambiente. Confira o video apresentativo do site:",
     sections: [
       {
         id: "layout",
         title: "Layout Moderno",
-        text: "Projeto desenvolvido para reforçar credibilidade e confiança..."
-      }
-    ]
+        text: "Projeto desenvolvido para reforçar credibilidade e confiança...",
+      },
+    ],
   },
 
   {
@@ -106,14 +107,15 @@ export const projects: Project[] = [
     video: "https://www.youtube.com/embed/WwEswdBl1Dc",
     heroVideo: "https://www.youtube.com/embed/WwEswdBl1Dc",
     projectUrl: "https://buildbes.webflow.io/home/home-two",
-    intro: "Experiência digital para grandes construções. Confira abaixo o video do site ou clique no link:",
+    intro:
+      "Experiência digital para grandes construções. Confira abaixo o video do site ou clique no link:",
     sections: [
       {
         id: "overview",
         title: "Descrição",
-        text: "Website desenvolvido para transformar visitas em novos contratos..."
-      }
-    ]
+        text: "Website desenvolvido para transformar visitas em novos contratos...",
+      },
+    ],
   },
 
   {
@@ -127,36 +129,38 @@ export const projects: Project[] = [
     video: "https://www.youtube.com/embed/WwEswdBl1Dc",
     heroVideo: "https://www.youtube.com/embed/WwEswdBl1Dc",
     projectUrl: "https://www.danieljamesdrainage.com/",
-    intro: "Seja notado por novos clientes, não esconda sua empresa. Confira abaixo o video do site ou clique no link:",
+    intro:
+      "Seja notado por novos clientes, não esconda sua empresa. Confira abaixo o video do site ou clique no link:",
     sections: [
       {
         id: "overview",
         title: "Descrição",
-        text: "Website desenvolvido para valorizar a marca e aumentar conversões."
-      }
-    ]
+        text: "Website desenvolvido para valorizar a marca e aumentar conversões.",
+      },
+    ],
   },
 
   {
     id: 6,
-    slug: "Terraplanagem",
-    title: "Terraplanagem",
+    slug: "Gesso e Drywall ",
+    title: "Gesso e Drywall - Gesso  Vini",
     mainImage: imgEngenharia,
     category: "Serviços",
-    tags: ["Web", "Terraplanagem"],
+    tags: ["Website", "Gesso e Drywall"],
     description:
       "Website médico com sistema de agendamento e prontuário digital.",
     video: "https://www.youtube.com/embed/vr3itvrkLtw",
     heroVideo: "https://www.youtube.com/embed/WwEswdBl1Dc",
-    projectUrl: "https://dentista-template.webflow.io/",
-    intro: "Tecnologia aplicada à empresas.Confira abaixo o video do site ou clique no link:",
+    projectUrl: "https://vini-gesso.vercel.app/",
+    intro:
+      "Tecnologia aplicada à empresas.Confira abaixo o video do site ou clique no link:",
     sections: [
       {
         id: "overview",
         title: "Descrição",
-        text: "Website focado em confiança, clareza e conversão."
-      }
-    ]
+        text: "Website focado em confiança, clareza e conversão.",
+      },
+    ],
   },
 
   {
@@ -169,15 +173,16 @@ export const projects: Project[] = [
     description: "Apresente seus serviços de forma profissional.",
     video: "https://www.youtube.com/embed/DdAnSEaaVd0",
     heroVideo: "https://www.youtube.com/embed/WwEswdBl1Dc",
-    projectUrl: "https://artigiano-pasta.webflow.io/products",
-    intro: "Experiência gastronômica desde o primeiro clique. Confira abaixo o video do site ou clique no link:",
+    projectUrl: "https://fff-xi-orpin.vercel.app/",
+    intro:
+      "Experiência gastronômica desde o primeiro clique. Confira abaixo o video do site ou clique no link:",
     sections: [
       {
         id: "overview",
         title: "Descrição",
-        text: "Website que transforma sabor em desejo e visitas em reservas."
-      }
-    ]
+        text: "Website que transforma sabor em desejo e visitas em reservas.",
+      },
+    ],
   },
 
   {
@@ -191,13 +196,14 @@ export const projects: Project[] = [
     video: "https://www.youtube.com/embed/1rReOJFf0P8",
     heroVideo: "https://www.youtube.com/embed/1rReOJFf0P8",
     projectUrl: "https://noema-128.webflow.io/home-2",
-    intro: "Autoridade e excelência traduzidas em design.Confira abaixo o video do site ou clique no link:",
+    intro:
+      "Autoridade e excelência traduzidas em design.Confira abaixo o video do site ou clique no link:",
     sections: [
       {
         id: "overview",
         title: "Descrição",
-        text: "Presença digital sofisticada para posicionamento premium."
-      }
-    ]
-  }
+        text: "Presença digital sofisticada para posicionamento premium.",
+      },
+    ],
+  },
 ];

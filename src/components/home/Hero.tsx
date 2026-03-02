@@ -7,8 +7,8 @@ import {
 import { useRef, useState, useEffect } from "react";
 
 // Importações das imagens
-import imageHero1 from "../../assets/images/caminhao_agregados.jpg";
-import imageHero2 from "../../assets/images/maquina_escavadeira.jpg";
+import imageHero1 from "../../assets/images2/mulher_office.jpg";
+import imageHero2 from "../../assets/images2/avanço.jpeg";
 import imageHero3 from "../../assets/images/estrututa_metalica.jpg";
 
 const slides = [imageHero1, imageHero2, imageHero3];
@@ -22,21 +22,21 @@ export function Hero() {
     offset: ["start start", "end end"],
   });
 
-  const scale = useTransform(scrollYProgress, [0, 0.4], [1, 1.1]);
+  const scale = useTransform(scrollYProgress, [0, 0.8], [1, 1.1]);
   const contentOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
 
   // Lógica para trocar as imagens de fundo lentamente
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 2000); // Troca a cada 6 segundos
+    }, 8000); // Troca a cada 6 segundos
     return () => clearInterval(timer);
   }, []);
 
   return (
     <section
       ref={container}
-      className="relative h-[120vh] bg-black overflow-hidden"
+      className="relative h-[110vh] bg-black overflow-hidden"
     >
       <div className="sticky top-0 h-screen w-full">
         {/* CARROSSEL DE FUNDO (BACKGROUND SLIDESHOW) */}
@@ -61,24 +61,27 @@ export function Hero() {
           </AnimatePresence>
 
           {/* GRADIENTE SOBREPOSTO - Para destacar o texto conforme a referência */}
-          <div className="absolute inset-0 z-20 bg-gradient-to-r from-black via-black/40 to-transparent" />
+          <div className="absolute inset-0 z-20  via-black/40 to-transparent" />
           <div className="absolute inset-0 z-20 bg-gradient-to-b from-transparen via-transparent to-black/60" />
         </div>
 
         {/* CONTEÚDO PRINCIPAL - Alinhado conforme o print */}
-        <div className="relative z-30 flex flex-col justify-center h-full px-6 md:px-16 lg:px-24 max-w-[1440px] mx-auto">
-          <motion.div style={{ opacity: contentOpacity }} className="max-w-4xl">
-            <h1 className="text-white text-2xl md:text-2xl lg:text-4xl font-bold tracking-tight uppercase leading-[0.9] mb-4">
-              Agência de <br />
+        <div className="relative z-30 flex flex-col justify-start h-full px-6 md:px-16 lg:px-24 pt-28 md:pt-36 lg:pt-44 max-w-[1440px] mx-auto">
+          <motion.div
+            style={{ opacity: contentOpacity }}
+            className="relative mt-8 md:mt-0 max-w-3xl lg:max-w-3xl bg-white/50 backdrop-blur-sm border border-white/30 rounded-2xl p-6 md:p-8 lg:p-6"
+          >
+            <div className="pointer-events-none absolute -inset-4 -z-10 rounded-3xl bg-white/20 blur-3xl" />
+            <h1 className="text-[#00a3ff] text-3xl md:text-3xl lg:text-6xl font-bold tracking-tight uppercase leading-[0.9] mb-4">
               Websites <br />
-              Para <span className="text-[#00a3ff]">Construção Civil</span>
+              Para <span className="text-[#0e0f0f]">Construção Civil</span>
             </h1>
 
             {/* Linha decorativa dourada */}
-            <div className="w-32 h-1.5 bg-[#00a3ff] mb-10" />
+            <div className="w-32 h-1.5 bg-[#ffffff] mb-10" />
 
-            <p className="text-white text-lg md:text-xl leading-relaxed mb-12 max-w-2xl font-light opacity-95">
-              Fazemos parceria com empresas de construção em todo o Brasil para
+            <p className="text-gray-900 text-lg md:text-xl leading-relaxed mb-12 max-w-2xl font-light opacity-95">
+              Atendemos empresas de construção civil em todo o Brasil para
               melhorar sua presença digital, oferecendo experiências visual,
               gestão de redes sociais e websites de alta performance.
             </p>
@@ -95,7 +98,7 @@ export function Hero() {
 
               <a
                 href="#nichos"
-                className="border-2 border-white/80 text-white px-10 py-4 font-bold uppercase text-[12px] tracking-widest hover:bg-white hover:text-black transition-all transform hover:-translate-y-1 text-center"
+                className="border-2 border-white/80 text-gray-900  px-10 py-4 font-bold uppercase text-[12px] tracking-widest hover:bg-white hover:text-black transition-all transform hover:-translate-y-1 text-center"
               >
                 Explore os nossos serviços
               </a>
