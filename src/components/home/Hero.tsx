@@ -91,7 +91,7 @@ export function Hero() {
             <div className="flex flex-wrap gap-5">
               <a
                 href="/contato"
-                className="bg-[#00a3ff]  text-white px-10 py-4 font-bold uppercase text-[12px] tracking-widest hover:bg-[black] transition-all transform hover:-translate-y-1 text-center"
+                className="hidden md:inline-flex bg-[#00a3ff] text-white px-10 py-4 font-bold uppercase text-[12px] tracking-widest hover:bg-[black] transition-all transform hover:-translate-y-1 text-center"
               >
                 Contate-nos
               </a>
