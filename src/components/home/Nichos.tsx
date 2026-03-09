@@ -91,6 +91,33 @@ function NichoRow({
         </p>
       </div>
 
+      {link && (
+        <div className="px-6 md:px-12 lg:px-16 md:hidden">
+          <a
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Ver site de ${title || subtitle}`}
+            className="inline-flex items-center gap-2 px-5 py-3 bg-white/20 backdrop-blur-md border border-white/40 rounded-lg text-white text-xs font-bold uppercase tracking-widest hover:bg-white/30 transition-all duration-300"
+          >
+            Ver Site
+            <svg
+              className="w-4 h-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </a>
+        </div>
+      )}
+
       {/* Carrossel */}
       <div className="relative w-full overflow-hidden py-4">
         <motion.div

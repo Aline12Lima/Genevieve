@@ -62,10 +62,9 @@ function ProjectCard({ project }: ProjectCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.6 }}
-      className="group relative block"
+      className="group relative block w-full max-w-[420px] mx-auto md:max-w-full"
     >
-      <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-gray-900 border border-white/10 mb-12">
-        {/* Imagem */}
+      <div className="relative aspect-[14/10] overflow-hidden rounded-2xl bg-gray-900 border border-white/10 mb-12">
         <img
           src={project.mainImage}
           alt={project.title}
@@ -82,7 +81,7 @@ function ProjectCard({ project }: ProjectCardProps) {
             {project.tags.map((tag) => (
               <span
                 key={tag}
-                className="px-3 py-1 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-xs font-semibold uppercase tracking-wider"
+                className="px-3 py-1 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-xs font-semibold uppercase tracking-wider text-black"
               >
                 {tag}
               </span>

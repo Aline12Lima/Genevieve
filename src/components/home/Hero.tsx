@@ -7,9 +7,9 @@ import {
 import { useRef, useState, useEffect } from "react";
 
 // Importações das imagens
-import imageHero1 from "../../assets/images2/mulher_office.jpg";
-import imageHero2 from "../../assets/images2/avanço.jpeg";
-import imageHero3 from "../../assets/images/estrututa_metalica.jpg";
+import imageHero1 from "../../assets/images/estrututa_metalica.jpg";
+import imageHero2 from "../../assets/images/equipe.jpg";
+import imageHero3 from "../../assets/images/caminhao_agregados.jpg";
 
 const slides = [imageHero1, imageHero2, imageHero3];
 

@@ -3,9 +3,9 @@ import { Plus, Zap } from "lucide-react";
 import { useState, useEffect } from "react";
 
 // Imports de imagens de obras (Pilares)
-import imgPilar1 from "../assets/images2/pilar1.jpeg";
-import imgPilar from "../assets/images2/pilares.jpeg";
-import imgPilar3 from "../assets/images2/avanço.jpeg";
+import imgPilar1 from "../assets/images/caminhao_agregados.jpg";
+import imgPilar from "../assets/images/caminhao_agregados.jpg";
+import imgPilar3 from "../assets/images/caminhao_agregados.jpg";
 
 // Imports dos colaboradores (apenas para a seção do Time abaixo)
 import Persona1 from "../assets/images/Aline.jpg";

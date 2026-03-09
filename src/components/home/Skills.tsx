@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import imagembg from "../../assets/images/habilidades.jpg";
+import imagembg from "../../assets/dataImagens/build/0.png";
 
 const skills = [
   { name: "DESIGN WEB", level: "85%" },
