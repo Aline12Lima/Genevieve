@@ -9,6 +9,7 @@ import { ScrollToTop } from "./components/scrollTop/ScrollToTop";
 import { CTAFlutuante } from "./components/CTAflutuante/CTAFlutuante";
 import { About } from "./pages/About";
 import { Blog } from "./pages/Blog";
+import { FormClientes } from "./pages/Contratos";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/projeto/:slug" element={<Project />} />{" "}
           <Route path="/blog" element={<Blog />} />
           <Route path="/contato" element={<Contact />} />
+          <Route path="/contratos" element={<FormClientes />} />
         </Routes>
       </Layout>
     </BrowserRouter>
