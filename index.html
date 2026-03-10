@@ -4,12 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="apple-touch-icon" href="/favicon.ico" />
 
-    <!-- SEO -->
+    <meta
+      name="facebook-domain-verification"
+      content="v2vuqc783dp4nkx1crhmf7ssdq82ky"
+    />
+
     <title>Criação de Sites para Construção Civil | Genevieve</title>
 
     <meta
@@ -19,7 +22,6 @@
 
     <link rel="canonical" href="https://genevieve.com.br/" />
 
-    <!-- Open Graph -->
     <meta
       property="og:title"
       content="Criação de Sites para Construção Civil | Genevieve"
@@ -37,7 +39,6 @@
   </head>
 
   <body>
-    <!-- Meta Pixel (noscript deve ficar no body) -->
     <noscript>
       <img
         height="1"
@@ -49,11 +50,11 @@
 
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+
     <script>
       window.addEventListener("load", function () {
-        // Só carrega os scripts após 3 segundos ou quando o usuário interagir
         setTimeout(function () {
-          // 1. Google Analytics
+          // 1. Google Analytics (Mantido para seu SEO e análise orgânica)
           var gtagScript = document.createElement("script");
           gtagScript.async = true;
           gtagScript.src =
@@ -67,37 +68,8 @@
           gtag("js", new Date());
           gtag("config", "G-65XNK8F292");
 
-          // 2. Meta Pixel
-          !(function (f, b, e, v, n, t, s) {
-            if (f.fbq) return;
-            n = f.fbq = function () {
-              n.callMethod
-                ? n.callMethod.apply(n, arguments)
-                : n.queue.push(arguments);
-            };
-            if (!f._fbq) f._fbq = n;
-            n.push = n;
-            n.loaded = !0;
-            n.version = "2.0";
-            n.queue = [];
-            t = b.createElement(e);
-            t.async = !0;
-            t.src = v;
-            s = b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t, s);
-          })(
-            window,
-            document,
-            "script",
-            "https://connect.facebook.net/en_US/fbevents.js",
-          );
-          fbq("init", "2295892514237881");
-          fbq("track", "PageView");
-
-          console.log(
-            "Scripts de marketing carregados com atraso para performance.",
-          );
-        }, 3500); // 3.5 segundos de atraso
+          console.log("Google Analytics carregado com sucesso.");
+        }, 3500);
       });
     </script>
   </body>
