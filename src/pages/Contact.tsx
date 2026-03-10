@@ -88,13 +88,18 @@ export function Contact() {
                 <p className="text-gray-500 text-[10px] uppercase font-bold tracking-widest mb-2">
                   WhatsApp
                 </p>
-                <div className="flex items-center gap-3 text-2xl font-medium group-hover:text-[#00a3ff] transition-colors">
-                  +55 35 997382410{" "}
+                <a
+                  href="https://wa.me/5535997382410"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 text-2xl font-medium group-hover:text-[#00a3ff] transition-colors"
+                >
+                  35997382410{" "}
                   <ArrowUpRight
                     size={20}
                     className="opacity-0 group-hover:opacity-100 transition-all"
                   />
-                </div>
+                </a>
               </div>
 
               <div className="pt-8">
