@@ -153,13 +153,8 @@ export function Header() {
           delay: 1.6,
           ease: [0.76, 0, 0.24, 1],
         }}
-        className={`fixed top-0 left-0 w-full z-[9999] flex items-center justify-between px-6 md:px-16 transition-all duration-500 ${
-          isOpen
-            ? "mt-0 py-6"
-            : scrolled
-              ? "mt-2 py-2 bg-transparent border-white/5"
-              : "mt-4 lg:mt-6 py-6 bg-transparent"
-        }`}
+        className={`fixed top-0 left-0 w-full z-[9999] flex items-center justify-between px-6 md:px-16 transition-all duration-500 bg-black`}
+        style={{}}
       >
         {/* LOGO */}
         <button

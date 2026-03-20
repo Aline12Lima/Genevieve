@@ -1,111 +1,108 @@
-import {
-  motion,
-  AnimatePresence,
-  useScroll,
-  useTransform,
-} from "framer-motion";
-import { useRef, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
-// Importações das imagens
-import imageHero1 from "../../assets/images/estrututa_metalica.jpg";
-import imageHero2 from "../../assets/images/equipe.jpg";
-import imageHero3 from "../../assets/images/caminhao_agregados.jpg";
+// Importações
+import card1 from "../../assets/PROMO/Agenda.jpg";
+import card3 from "../../assets/PROMO/symary.jpg";
+import card4 from "../../assets/PROMO/Cover.jpg";
 
-const slides = [imageHero1, imageHero2, imageHero3];
+const slides = [card1, card3, card4];
 
 export function Hero() {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const container = useRef<HTMLElement | null>(null);
+  const [current, setCurrent] = useState(0);
 
-  const { scrollYProgress } = useScroll({
-    target: container,
-    offset: ["start start", "end end"],
-  });
+  const nextSlide = () => {
+    setCurrent((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
+  };
 
-  const scale = useTransform(scrollYProgress, [0, 0.8], [1, 1.1]);
-  const contentOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
+  const prevSlide = () => {
+    setCurrent((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
+  };
 
-  // Lógica para trocar as imagens de fundo lentamente
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 8000); // Troca a cada 6 segundos
+    const time = current === slides.length - 1 ? 12000 : 6000;
+    const timer = setInterval(nextSlide, time);
     return () => clearInterval(timer);
-  }, []);
+  }, [current]);
 
   return (
-    <section
-      ref={container}
-      className="relative h-[110vh] bg-black overflow-hidden"
-    >
-      <div className="sticky top-0 h-screen w-full">
-        {/* CARROSSEL DE FUNDO (BACKGROUND SLIDESHOW) */}
-        <div className="absolute inset-0 z-10">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentSlide}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 1, ease: "easeInOut" }}
-              className="absolute inset-0"
-            >
-              <motion.img
-                style={{ scale }}
-                src={slides[currentSlide]}
-                alt="Marketing para Construção"
-                fetchPriority="high"
-                className="w-full h-full object-cover object-center"
-              />
-            </motion.div>
-          </AnimatePresence>
-
-          {/* GRADIENTE SOBREPOSTO - Para destacar o texto conforme a referência */}
-          <div className="absolute inset-0 z-20  via-black/40 to-transparent" />
-          <div className="absolute inset-0 z-20 bg-gradient-to-b from-transparen via-transparent to-black/60" />
-        </div>
-
-        {/* CONTEÚDO PRINCIPAL - Alinhado conforme o print */}
-        <div className="relative z-30 flex flex-col justify-start h-full px-6 md:px-16 lg:px-24 pt-28 md:pt-36 lg:pt-44 max-w-[1440px] mx-auto">
+    <section className="relative w-full h-auto md:h-[600px] lg:h-[700px] bg-zinc-950 overflow-hidden pt-8 pb-10 md:pb-0">
+      <div className="relative w-full h-full flex items-center justify-center">
+        <AnimatePresence mode="wait">
           <motion.div
-            style={{ opacity: contentOpacity }}
-            className="relative mt-8 md:mt-0 max-w-3xl lg:max-w-3xl bg-white/50 backdrop-blur-sm border border-white/30 rounded-2xl p-6 md:p-8 lg:p-6"
+            key={current}
+            initial={{ opacity: 0, scale: 0.98 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 1.02 }}
+            transition={{ duration: 0.5 }}
+            className="relative w-full h-full flex items-center justify-center px-2 md:px-0 mt-0 md:mt-0 lg:mt-0"
           >
-            <div className="pointer-events-none absolute -inset-4 -z-10 rounded-3xl bg-white/20 blur-3xl" />
-            <h1 className="text-[#00a3ff] text-3xl md:text-3xl lg:text-6xl font-bold tracking-tight uppercase leading-[0.9] mb-4">
-              Websites <br />
-              Para <span className="text-[#0e0f0f]">Construção Civil</span>
-            </h1>
+            {/* MOBILE: object-contain (Garante que NÃO CORTE a arte)
+               DESKTOP: object-fill ou contain dependendo da sua preferência de preenchimento
+            */}
+            <img
+              src={slides[current]}
+              className="w-full h-auto max-h-[450px] md:w-3/4 md:h-3/4 md:max-h-none object-contain md:object-fill cursor-pointer md:rounded-xl md:shadow-2xl"
+              alt={`Banner Marketing ${current + 1}`}
+            />
 
-            {/* Linha decorativa dourada */}
-            <div className="w-32 h-1.5 bg-[#ffffff] mb-10" />
-
-            <p className="text-gray-900 text-lg md:text-xl leading-relaxed mb-12 max-w-2xl font-light opacity-95">
-              Atendemos empresas de construção civil em todo o Brasil para
-              melhorar sua presença digital, oferecendo experiências visual,
-              gestão de redes sociais e websites de alta performance.
-            </p>
-
-            {/* BOTÕES */}
-
-            <div className="flex flex-wrap gap-5">
-              <a
-                href="/contato"
-                className="hidden md:inline-flex bg-[#00a3ff] text-white px-10 py-4 font-bold uppercase text-[12px] tracking-widest hover:bg-[black] transition-all transform hover:-translate-y-1 text-center"
+            {/* BOTÃO ADQUIRA: Posicionado para não cobrir o centro da arte no mobile */}
+            {current === slides.length - 1 && (
+              <button
+                className="absolute left-8 bottom-64 md:left-1/4 md:bottom-48 lg:left-1/4 lg:bottom-48 z-30 bg-[#00a3ff] text-white px-6 py-3 rounded-full font-bold text-lg shadow-lg hover:bg-[#007acc] transition-all animate-pulse-slow"
+                onClick={() => (window.location.href = "/contato")}
               >
-                Contate-nos
-              </a>
-
-              <a
-                href="#nichos"
-                className="border-2 border-white/80 text-gray-900  px-10 py-4 font-bold uppercase text-[12px] tracking-widest hover:bg-white hover:text-black transition-all transform hover:-translate-y-1 text-center"
-              >
-                Explore os nossos serviços
-              </a>
-            </div>
+                Adquira seu site agora
+              </button>
+            )}
           </motion.div>
-        </div>
+        </AnimatePresence>
       </div>
+
+      {/* Setas de Navegação */}
+      <button
+        onClick={prevSlide}
+        className="absolute left-1 md:left-4 top-1/2 -translate-y-1/2 z-20 bg-black/40 text-white p-1 md:p-2 rounded-full backdrop-blur-sm"
+      >
+        <ChevronLeft className="w-5 h-5 md:w-8 md:h-8" />
+      </button>
+
+      <button
+        onClick={nextSlide}
+        className="absolute right-1 md:right-4 top-1/2 -translate-y-1/2 z-20 bg-black/40 text-white p-1 md:p-2 rounded-full backdrop-blur-sm"
+      >
+        <ChevronRight className="w-5 h-5 md:w-8 md:h-8" />
+      </button>
+
+      {/* Dots (Indicadores) */}
+      <div className="absolute bottom-2 md:bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-1.5">
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrent(index)}
+            className={`h-1 md:h-2 transition-all duration-300 rounded-full ${
+              current === index
+                ? "bg-[#00a3ff] w-5 md:w-12"
+                : "bg-white/20 w-1.5 md:w-2"
+            }`}
+          />
+        ))}
+      </div>
+
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
+        .animate-pulse-slow {
+          animation: pulse-slow 3s infinite;
+        }
+        @keyframes pulse-slow {
+          0%, 100% { transform: scale(1); box-shadow: 0 0 0px rgba(0,163,255,0); }
+          50% { transform: scale(1.05); box-shadow: 0 0 20px rgba(0,163,255,0.4); }
+        }
+      `,
+        }}
+      />
     </section>
   );
 }
