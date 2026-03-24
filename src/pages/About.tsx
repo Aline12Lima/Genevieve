@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import {
   Plus,
   ShieldCheck,
@@ -9,18 +9,26 @@ import {
   TrendingUp,
 } from "lucide-react";
 
-// Imports de Imagens (Ajuste os caminhos conforme sua pasta)
+// Imports de Imagens
 import fotoAline from "../assets/images/Aline.jpg";
 import imgDesign from "../assets/images/habilidades.jpg";
-import imgDev from "../assets/images/Aline.jpg"; // Exemplo para o time
-import imgAdmin from "../assets/images/ju.png"; // Placeholder
-import imgLucas from "../assets/images/Jeff.jpg"; // Placeholder
+import imgDev from "../assets/images/Aline.jpg";
+import imgAdmin from "../assets/images/ju.png";
+import imgLucas from "../assets/images/Jeff.jpg";
 
-const fadeInUp = {
+// CORREÇÃO AQUI: O objeto Variants contém APENAS os estados
+const fadeInUpVariants: Variants = {
   initial: { y: 40, opacity: 0 },
   whileInView: { y: 0, opacity: 1 },
+};
+
+// CORREÇÃO AQUI: Criamos um objeto de props para espalhar no componente
+const fadeInUpProps = {
+  variants: fadeInUpVariants,
+  initial: "initial",
+  whileInView: "whileInView",
   viewport: { once: true },
-  transition: { duration: 0.7, ease: "easeOut" },
+  transition: { duration: 0.7, ease: "easeOut" as any }, // 'as any' para garantir o build
 };
 
 export function About() {
@@ -45,7 +53,11 @@ export function About() {
       {/* 1. HERO & PILARES */}
       <section className="pt-44 pb-24 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
-          <motion.div {...fadeInUp} className="mb-20 text-center lg:text-left">
+          {/* USANDO OS PROPS CORRIGIDOS */}
+          <motion.div
+            {...fadeInUpProps}
+            className="mb-20 text-center lg:text-left"
+          >
             <span className="flex items-center justify-center lg:justify-start gap-2 text-[#00a3ff] font-bold uppercase tracking-[0.4em] text-[10px] mb-6">
               <Plus size={12} /> Nossos Valores
             </span>
@@ -56,7 +68,6 @@ export function About() {
               </span>
             </h1>
 
-            {/* Grid de Pilares */}
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
               {pilares.map((p, i) => (
                 <motion.div
@@ -84,7 +95,7 @@ export function About() {
       <section className="py-12 bg-white text-black">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
-            <motion.div {...fadeInUp} className="relative">
+            <motion.div {...fadeInUpProps} className="relative">
               <div className="absolute -top-10 -left-10 w-40 h-40 bg-[#00a3ff]/10 rounded-full blur-3xl" />
               <img
                 src={fotoAline}
@@ -101,7 +112,10 @@ export function About() {
               </div>
             </motion.div>
 
-            <motion.div {...fadeInUp} transition={{ delay: 0.2 }}>
+            <motion.div
+              {...fadeInUpProps}
+              transition={{ ...fadeInUpProps.transition, delay: 0.2 } as any}
+            >
               <h2 className="text-[#00a3ff] font-mono text-[10px] tracking-[0.5em] uppercase mb-6 font-bold">
                 A História
               </h2>
@@ -118,19 +132,16 @@ export function About() {
                   organização de projetos e a pressão por resultados dentro de
                   obras.
                 </p>
-
                 <p>
                   Foi ali que entendi um problema claro: muitas empresas
                   excelentes perdem oportunidades todos os dias por não terem
                   uma presença digital estratégica.
                 </p>
-
                 <p>
                   Hoje, transformo essa experiência em soluções digitais que
                   ajudam empresas de obras a serem encontradas, gerar contatos e
                   fechar mais contratos.
                 </p>
-
                 <p className="font-bold text-black italic">
                   Não crio apenas sites. Construo presença, posicionamento e
                   resultado.
@@ -146,14 +157,14 @@ export function About() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-24">
             <motion.h2
-              {...fadeInUp}
+              {...fadeInUpProps}
               className="text-[#00a3ff] font-mono text-[10px] tracking-[0.5em] uppercase mb-4 font-bold"
             >
               Expertise Técnica
             </motion.h2>
             <motion.h3
-              {...fadeInUp}
-              transition={{ delay: 0.1 }}
+              {...fadeInUpProps}
+              transition={{ ...fadeInUpProps.transition, delay: 0.1 } as any}
               className="text-5xl md:text-7xl font-black uppercase tracking-tighter"
             >
               Nosso Time
@@ -164,8 +175,10 @@ export function About() {
             {time.map((member, i) => (
               <motion.div
                 key={member.name}
-                {...fadeInUp}
-                transition={{ delay: i * 0.1 }}
+                {...fadeInUpProps}
+                transition={
+                  { ...fadeInUpProps.transition, delay: i * 0.1 } as any
+                }
                 className="group"
               >
                 <div className="relative overflow-hidden rounded-2xl mb-6 aspect-[3/4] bg-zinc-900">
