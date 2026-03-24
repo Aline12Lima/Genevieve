@@ -1,24 +1,26 @@
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import ReactPixel from "react-facebook-pixel";
 
+// Layouts e Componentes Globais
 import { Layout } from "./layouts/MainLayout";
-import { Home } from "./pages/Home";
-import { Project } from "./pages/Templates";
-import { Contact } from "./pages/Contact";
-import { ServicesPage } from "./pages/Services";
-import { FormServices } from "./components/services/formServices";
 import { ScrollToTop } from "./components/scrollTop/ScrollToTop";
 import { CTAFlutuante } from "./components/CTAflutuante/CTAFlutuante";
+
+// Páginas
+import { Home } from "./pages/Home";
 import { About } from "./pages/About";
+import { ServicesPage } from "./pages/Services";
+import { ProjectsList } from "./pages/ProjectsList";
+
 import { Blog } from "./pages/Blog";
+import { Contact } from "./pages/Contact";
 import { FormClientes } from "./pages/Contratos";
 
-import ReactPixel from "react-facebook-pixel";
 function PixelTrafficTracker() {
   const location = useLocation();
 
   useEffect(() => {
-    // Inicializa apenas uma vez
     ReactPixel.init("2295892514237881", undefined, {
       autoConfig: true,
       debug: false,
@@ -26,12 +28,12 @@ function PixelTrafficTracker() {
   }, []);
 
   useEffect(() => {
-    // Dispara PageView toda vez que a URL mudar
     ReactPixel.pageView();
   }, [location]);
 
   return null;
 }
+
 function App() {
   return (
     <BrowserRouter>
@@ -42,9 +44,16 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="services" element={<ServicesPage />} />
-          <Route path="/briefing-exclusivo" element={<FormServices />} />
-          <Route path="/projeto/:slug" element={<Project />} />{" "}
+          <Route path="/services" element={<ServicesPage />} />
+
+          {/* Rota da Galeria (Onde aparecem todos os cards) */}
+          <Route path="/projects" element={<ProjectsList />} />
+
+          {/* Rota do Detalhe (Onde entra o Parallax) */}
+
+          {/* Fallback para /templates caso alguém digite direto */}
+          <Route path="/templates" element={<ProjectsList />} />
+
           <Route path="/blog" element={<Blog />} />
           <Route path="/contato" element={<Contact />} />
           <Route path="/contratos" element={<FormClientes />} />

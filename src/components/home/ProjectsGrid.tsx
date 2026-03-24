@@ -1,114 +1,100 @@
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { MapPin, Globe2 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
-import { projects } from "../../data/projetctDetail";
-import type { Project } from "../../data/projetctDetail";
-
-// ✅ Forma correta de animar Link
-const MotionLink = motion(Link);
+import imgBrasil from "../../assets/map/3907.jpg";
 
 export function ProjectsGrid() {
-  return (
-    <section
-      id="projects"
-      className="relative bg-black text-white py-16 md:py-0 overflow-hidden scroll-mt-12"
-    >
-      {/* Header */}
-      <div className="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16 mb-16">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center space-y-4"
-        >
-          <h2 className="text-4xl md:text-5xl lg:text-8xl xl:text-6xl font-black uppercase leading-none">
-            Templates de Sites <br /> e Landing Pages
-          </h2>
-          <p className="text-xl md:text-2xl text-gray-400 font-light">
-            Ideias transformadas em{" "}
-            <span className="text-[var(--color-blue)] font-bold">
-              sucessos criativos
-            </span>
-          </p>
-        </motion.div>
-      </div>
+  const navigate = useNavigate();
+  const slides = [imgBrasil, imgBrasil, imgBrasil, imgBrasil];
 
-      {/* Grid */}
-      <div className="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12">
-          {projects.map((project) => (
-            <ProjectCard
-              key={`${project.id}-${project.slug}`}
-              project={project}
-            />
-          ))}
+  return (
+    <section className="relative w-full overflow-hidden bg-white">
+      <div className="flex flex-col lg:flex-row min-h-[600px] lg:h-[80vh]">
+        {/* LADO ESQUERDO: CARROSSEL INFINITO */}
+        <div className="relative w-full lg:w-1/2 h-[400px] lg:h-full bg-zinc-200 overflow-hidden">
+          <motion.div
+            className="flex h-full"
+            style={{ width: "400%" }}
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{
+              duration: 20,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+          >
+            {slides.map((img, index) => (
+              <div key={index} className="relative w-1/4 h-full flex-shrink-0">
+                <img
+                  src={img}
+                  alt="Atendimento Brasil e Portugal"
+                  className="w-full h-full object-cover grayscale-[0.3] hover:grayscale-0 transition-all duration-700"
+                />
+                <div className="absolute inset-0 bg-black/20" />
+              </div>
+            ))}
+          </motion.div>
+
+          {/* Badges de Localização */}
+          <div className="absolute bottom-8 left-8 z-20 flex gap-2">
+            <div className="bg-white text-black px-4 py-1.5 rounded-sm text-[9px] font-black uppercase tracking-[0.2em] shadow-xl">
+              Focus: Brasil
+            </div>
+          </div>
+        </div>
+
+        {/* LADO DIREITO: CONTEÚDO */}
+        <div className="w-full lg:w-1/2 bg-[#0a0a0b] px-6 md:px-12 py-16 lg:py-0 flex items-center border-l border-white/5">
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="max-w-xl p-6 md:p-10 lg:p-12"
+          >
+            <div className="inline-flex items-center gap-2 mb-6 text-[#00a3ff] font-mono text-[10px] tracking-[0.3em] uppercase">
+              <Globe2 className="w-3 h-3" />
+              Presença Internacional
+            </div>
+
+            <h3 className="text-3xl md:text-4xl font-black text-white tracking-tighter leading-[0.9] uppercase mb-8">
+              Sua empresa <br />
+              <span className="text-[#00a3ff] italic font-light">
+                sem fronteiras.
+              </span>
+            </h3>
+
+            <p className="text-zinc-400 text-lg leading-relaxed mb-10">
+              Com foco total no mercado do{" "}
+              <span className="text-white font-bold">Brasil</span>, expandimos
+              nossa expertise também para{" "}
+              <span className="text-zinc-300">Portugal</span>, entregando
+              soluções de alta performance para construção civil.
+            </p>
+
+            <div className="grid grid-cols-1 gap-4 mb-12">
+              <div className="flex items-center gap-4 p-4 bg-white/5 border border-white/10 rounded-lg group hover:border-[#00a3ff]/50 transition-colors">
+                <MapPin className="w-5 h-5 text-[#00a3ff]" />
+                <span className="text-zinc-300 text-sm font-semibold uppercase tracking-wider">
+                  Projetos em todo o território nacional
+                </span>
+              </div>
+              <div className="flex items-center gap-4 p-4 bg-white/5 border border-white/10 rounded-lg group hover:border-[#00a3ff]/50 transition-colors">
+                <Globe2 className="w-5 h-5 text-[#00a3ff]" />
+                <span className="text-zinc-300 text-sm font-semibold uppercase tracking-wider">
+                  Suporte global via WhatsApp
+                </span>
+              </div>
+            </div>
+
+            <button
+              onClick={() => navigate("/contato")}
+              className="group relative px-10 py-5 bg-[#00a3ff] text-white font-black uppercase text-[11px] tracking-[0.2em] hover:bg-white hover:text-black transition-all duration-300 shadow-[0_0_30px_rgba(0,163,255,0.3)]"
+            >
+              Falar com um Especialista
+            </button>
+          </motion.div>
         </div>
       </div>
     </section>
-  );
-}
-
-interface ProjectCardProps {
-  project: Project;
-}
-
-function ProjectCard({ project }: ProjectCardProps) {
-  return (
-    <MotionLink
-      to={`/projeto/${project.slug}`}
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.6 }}
-      className="group relative block w-full max-w-[420px] mx-auto md:max-w-full"
-    >
-      <div className="relative aspect-[14/10] overflow-hidden rounded-2xl bg-gray-900 border border-white/10 mb-12">
-        <img
-          src={project.mainImage}
-          alt={project.title}
-          loading="lazy"
-          className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-        />
-
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
-
-        <div className="absolute inset-0 p-6 flex flex-col justify-between">
-          {/* Tags */}
-          <div className="flex gap-2 flex-wrap">
-            {project.tags.map((tag) => (
-              <span
-                key={tag}
-                className="px-3 py-1 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-xs font-semibold uppercase tracking-wider text-black"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-
-          {/* Conteúdo */}
-          <div className="space-y-2">
-            <div className="inline-flex items-center justify-center w-12 h-12 bg-white/10 backdrop-blur-md border border-white/30 rounded-full mb-4 group-hover:bg-[#00a3ff] group-hover:border-[#23007B] transition-all duration-300">
-              <ArrowUpRight className="w-6 h-6 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 text-white" />
-            </div>
-
-            <p className="text-xs uppercase tracking-wider text-gray-400 font-bold">
-              {project.category}
-            </p>
-            <h3 className="text-2xl md:text-3xl font-black uppercase leading-tight">
-              {project.title}
-            </h3>
-            <p className="text-sm text-gray-300 leading-relaxed line-clamp-2">
-              {project.description}
-            </p>
-          </div>
-        </div>
-
-        {/* Ring hover */}
-        <div className="absolute inset-0 rounded-2xl ring-2 ring-transparent group-hover:ring-[#23007B] transition-all duration-300" />
-      </div>
-    </MotionLink>
   );
 }

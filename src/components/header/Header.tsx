@@ -1,275 +1,136 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Instagram, Facebook, Linkedin } from "lucide-react";
+import { Menu, X, Instagram } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 import logo from "../../assets/GWhite.png";
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [isDarkBg, setIsDarkBg] = useState(true);
-
   const navigate = useNavigate();
   const location = useLocation();
 
-  const scrolledTextClass = scrolled
-    ? "text-gray-400"
-    : isDarkBg
-      ? "text-white"
-      : "text-gray-300";
-
-  const scrolledBorderClass = scrolled
-    ? "border-gray-400/40"
-    : "border-white/50";
-
-  /* ===================== SCROLL HEADER ===================== */
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  /* ===================== OBSERVER BG ===================== */
-  useEffect(() => {
-    let sectionObserver: IntersectionObserver | null = null;
-
-    const observeSections = () => {
-      sectionObserver = new IntersectionObserver(
-        (entries) => {
-          let mostVisibleSection: Element | null = null;
-          let maxRatio = 0;
-
-          entries.forEach((entry) => {
-            if (entry.intersectionRatio > maxRatio) {
-              maxRatio = entry.intersectionRatio;
-              mostVisibleSection = entry.target;
-            }
-          });
-
-          if (mostVisibleSection) {
-            const styles = window.getComputedStyle(mostVisibleSection);
-            const bgColor = styles.backgroundColor;
-            const rgbMatch = bgColor.match(/\d+/g);
-
-            if (rgbMatch) {
-              const brightness =
-                (parseInt(rgbMatch[0]) +
-                  parseInt(rgbMatch[1]) +
-                  parseInt(rgbMatch[2])) /
-                3;
-
-              setIsDarkBg(brightness < 180);
-            }
-          }
-        },
-        {
-          threshold: [0, 0.25, 0.5, 0.75, 1],
-        },
-      );
-    };
-
-    const timer = setTimeout(observeSections, 100);
-
-    return () => {
-      clearTimeout(timer);
-      sectionObserver?.disconnect();
-    };
-  }, []);
-
-  /* ===================== LOCK BODY ===================== */
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "unset";
   }, [isOpen]);
 
-  /* ===================== HELPERS ===================== */
-  function scrollToTop() {
+  const scrollToTop = () => {
     if (location.pathname !== "/") {
       navigate("/");
-      setTimeout(() => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }, 300);
+      setTimeout(() => window.scrollTo({ top: 0, behavior: "smooth" }), 100);
     } else {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
-  }
+  };
 
-  function scrollToSection(id: string) {
-    const scroll = () => {
-      const el = document.getElementById(id);
-      if (!el) return;
-
-      const headerOffset = 140; // altura do header fixo
-      const elementPosition = el.getBoundingClientRect().top;
-      const offsetPosition =
-        elementPosition + window.pageYOffset - headerOffset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
-    };
-
-    if (location.pathname !== "/") {
-      navigate("/");
-      setTimeout(scroll, 400);
-    } else {
-      scroll();
-    }
-  }
-
+  // No seu arquivo Header.tsx
   const menuLinks = [
     { name: "Início", action: scrollToTop },
     { name: "Sobre", action: () => navigate("/about") },
     { name: "Serviços", action: () => navigate("/services") },
-    { name: "Projetos", action: () => scrollToSection("nichos") },
-    { name: "Blog", action: () => navigate("/blog") }, // Chave { adicionada aqui
+    { name: "Projetos", action: () => navigate("/projects") }, // Mude de /templates para /projetos
+    { name: "Blog", action: () => navigate("/blog") },
   ];
-
-  const socialLinks = [
-    {
-      name: "LinkedIn",
-      href: "https://www.linkedin.com/company/genevieve-website/?viewAsMember=true",
-      icon: Linkedin,
-    },
-    {
-      name: "Instagram",
-      href: "https://www.instagram.com/genevieve_website/",
-      icon: Instagram,
-    },
-    {
-      name: "Facebook",
-      href: "https://www.facebook.com/profile.php?id=61588397727758",
-      icon: Facebook,
-    },
-  ];
-
   return (
     <>
       <motion.header
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{
-          duration: 0.8,
-          delay: 1.6,
-          ease: [0.76, 0, 0.24, 1],
-        }}
-        className={`fixed top-0 left-0 w-full z-[9999] flex items-center justify-between px-6 md:px-16 transition-all duration-500 bg-black`}
-        style={{}}
+        transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
+        className={`fixed top-0 left-0 w-full z-[9999] flex items-center justify-between px-6 md:px-16 transition-all duration-500 
+          ${scrolled ? "bg-black/90 backdrop-blur-lg py-4 shadow-2xl" : "bg-transparent py-8"}`}
       >
-        {/* LOGO */}
         <button
           onClick={scrollToTop}
-          className="z-[101] flex items-center gap-1"
+          className="z-[101] flex items-center gap-2 group"
         >
-          <img src={logo} alt="logo Genevieve" className="w-28 h-auto" />
-          <h1
-            className={`font-beauty text-[10vw] sm:text-[8vw] md:text-[5vw] lg:text-[3vw] leading-none tracking-tighter transition-colors duration-300 ${scrolledTextClass}`}
-          >
+          <img
+            src={logo}
+            alt="logo Genevieve"
+            className="w-16 md:w-20 h-auto transition-transform group-hover:scale-105"
+          />
+          <h1 className="font-beauty text-3xl md:text-4xl text-white leading-none tracking-tighter">
             Genevieve
           </h1>
         </button>
 
-        {/* NAV DESKTOP */}
-        <nav className="hidden lg:block absolute lg:left-[56%] -translate-x-1/2 pointer-events-auto">
-          <div
-            className={`flex items-center gap-2 px-8 py-2 bg-white/5 backdrop-blur-md border ${scrolledBorderClass} rounded-full`}
-          >
+        <nav className="hidden lg:block absolute left-1/2 -translate-x-1/2">
+          <div className="flex items-center gap-1 px-6 py-2 bg-white/5 border border-white/10 rounded-full backdrop-blur-sm">
             {menuLinks.map((link) => (
               <button
                 key={link.name}
                 onClick={link.action}
-                className={`cursor-pointer px-3 py-2 rounded-full text-[11px] font-bold uppercase tracking-[0.2em] ${scrolledTextClass} hover:bg-[#00a3ff] hover:text-white transition-all`}
+                className="px-4 py-2 rounded-full text-[10px] font-black uppercase tracking-[0.2em] text-gray-300 hover:text-white hover:bg-[#00a3ff] transition-all duration-300"
               >
                 {link.name}
               </button>
             ))}
-
-            <button
-              onClick={() => navigate("/contato")}
-              className={`cursor-pointer bg-white/10 hover:bg-[#00a3ff] px-6 py-2 rounded-full text-[11px] font-bold uppercase tracking-widest ${scrolledTextClass} transition-all border ${
-                scrolled ? "border-gray-400/40" : "border-white/10"
-              }`}
-            >
-              Contato
-            </button>
           </div>
         </nav>
 
-        <div className="hidden lg:flex items-center gap-3 z-[101]">
-          {socialLinks.map((social) => {
-            const Icon = social.icon;
-
-            return (
-              <a
-                key={social.name}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={social.name}
-                className={`w-9 h-9 flex items-center justify-center rounded-full border transition-all ${scrolledTextClass} ${
-                  scrolled ? "border-gray-400/40" : "border-white/30"
-                } hover:bg-white/10`}
-              >
-                <Icon size={16} />
-              </a>
-            );
-          })}
+        <div className="hidden lg:flex items-center gap-2">
+          <button
+            onClick={() => navigate("/contato")}
+            className="bg-[#00a3ff] hover:bg-white hover:text-black px-8 py-3 rounded-full text-[10px] font-black uppercase tracking-widest text-white transition-all shadow-lg shadow-[#00a3ff]/20"
+          >
+            Contato
+          </button>
+          <a
+            href="https://www.instagram.com/genevieve_website/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center bg-white text-[#00a3ff] hover:bg-[#00a3ff] hover:text-white rounded-full p-2 transition-colors shadow-lg shadow-[#00a3ff]/20"
+            aria-label="Instagram Genevieve Website"
+          >
+            <Instagram size={22} />
+          </a>
         </div>
 
-        {/* MOBILE TOGGLE */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className={`lg:hidden relative p-2 z-[101] transition-colors duration-300 ${scrolledTextClass}`}
+          className="lg:hidden text-white p-2 z-[101]"
         >
           {isOpen ? <X size={32} /> : <Menu size={28} />}
         </button>
       </motion.header>
 
-      {/* MOBILE OVERLAY */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/95 backdrop-blur-2xl z-[90] flex flex-col items-center justify-start pt-[30vh] gap-8"
+            initial={{ opacity: 0, x: "100%" }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: "100%" }}
+            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+            className="fixed inset-0 bg-black z-[90] flex flex-col items-center justify-center gap-8"
           >
             {menuLinks.map((link) => (
-              <motion.button
+              <button
                 key={link.name}
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
                 onClick={() => {
                   link.action();
                   setIsOpen(false);
                 }}
-                className="text-5xl font-beauty text-white  hover:text-[#23007B] transition-colors"
+                className="text-5xl font-beauty text-white hover:text-[#00a3ff] transition-colors"
               >
                 {link.name}
-              </motion.button>
+              </button>
             ))}
-
-            <button
-              onClick={() => {
-                setIsOpen(false);
-                navigate("/contato");
-              }}
-              className={`
-              bg-white/10
-              hover:bg-[#00a3ff]
-              px-6 py-2
-              rounded-full
-              text-[11px]
-              font-bold
-              uppercase
-              tracking-widest
-              ${scrolledTextClass}
-              transition-all
-              border ${scrolled ? "border-gray-400/40" : "border-white/10"}
-            `}
+            {/* Instagram Icon Only Mobile Menu */}
+            <a
+              href="https://www.instagram.com/genevieve_website/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-8 flex items-center justify-center bg-white text-[#00a3ff] hover:bg-[#00a3ff] hover:text-white rounded-full p-3 transition-colors shadow-lg shadow-[#00a3ff]/20"
+              aria-label="Instagram Genevieve Website"
             >
-              Contato
-            </button>
+              <Instagram size={32} />
+            </a>
           </motion.div>
         )}
       </AnimatePresence>

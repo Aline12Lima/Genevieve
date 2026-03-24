@@ -16,170 +16,97 @@ export function Footer() {
     }
   }
 
-  function scrollToSection(id: string) {
-    const scroll = () => {
-      const el = document.getElementById(id);
-      if (!el) return;
-
-      const headerOffset = 140;
-      const elementPosition = el.getBoundingClientRect().top;
-      const offsetPosition =
-        elementPosition + window.pageYOffset - headerOffset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
-    };
-
-    if (location.pathname !== "/") {
-      navigate("/");
-      setTimeout(scroll, 400);
-    } else {
-      scroll();
-    }
-  }
-
   return (
     <footer className="w-full bg-[#0a0a0a] border-t border-white/[0.05] pt-16 pb-10 px-6 md:px-12 font-sans">
-      <div className="max-w-7xl mx-auto flex flex-col items-center text-center">
-        {/* Grid principal centralizado */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-14 mb-16 w-full justify-items-center">
-          {/* Coluna 1: Logo & Descrição */}
-          <div className="flex flex-col items-center space-y-6">
-            <span className="text-white text-3xl md:text-2xl font-black tracking-tighter uppercase leading-none">
-              <span
-                style={{ WebkitTextStroke: "1px white" }}
-                className="text-transparent"
-              >
-                Genevieve <br />
+      <div className="max-w-7xl mx-auto">
+        {/* Grid Principal: 1 coluna no mobile, 3 colunas no desktop */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-0 items-center mb-16">
+          {/* LADO ESQUERDO: Genevieve */}
+          <div className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-4">
+            <button onClick={scrollToTop} className="group">
+              <span className="text-white text-2xl font-black tracking-tighter uppercase leading-none block">
+                <span
+                  style={{ WebkitTextStroke: "1px white" }}
+                  className="text-transparent"
+                >
+                  Genevieve
+                </span>
+                <br />
+                Website & Landing Pages
               </span>
-              Website & Landing Pages
-            </span>
-            <h1 className="text-gray-400 text-base md:text-sm leading-relaxed max-w-xs mt-4">
+            </button>
+            <p className="text-gray-500 text-xs uppercase tracking-widest leading-relaxed max-w-[250px]">
               Criação de Sites Estratégicos para Construção Civil e Engenharia
-            </h1>
+            </p>
           </div>
 
-          {/* Coluna 2: Navegação */}
+          {/* CENTRO: Redes Sociais */}
           <div className="flex flex-col items-center space-y-6">
-            <h3 className="text-white text-xs md:text-[10px] font-bold uppercase tracking-[0.3em] opacity-50">
-              Navegação
+            <h3 className="text-white text-[10px] font-bold uppercase tracking-[0.3em] opacity-40">
+              Social
             </h3>
-
-            <ul className="flex flex-col gap-4 text-base md:text-sm text-gray-400 items-center">
-              <li>
-                <button
-                  onClick={scrollToTop}
-                  className="hover:text-[#00a3ff] transition-colors"
-                >
-                  Início
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => navigate("/about")}
-                  className="hover:text-[#00a3ff] transition-colors"
-                >
-                  Sobre
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => navigate("/services")}
-                  className="hover:text-[#00a3ff] transition-colors"
-                >
-                  Serviços
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => scrollToSection("nichos")}
-                  className="hover:text-[#00a3ff] transition-colors"
-                >
-                  Projetos
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => navigate("/blog")}
-                  className="hover:text-[#00a3ff] transition-colors"
-                >
-                  Blog
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => navigate("/contato")}
-                  className="hover:text-[#00a3ff] transition-colors font-bold"
-                >
-                  Contato
-                </button>
-              </li>
-            </ul>
-          </div>
-
-          {/* Coluna 3: Redes Sociais */}
-          <div className="flex flex-col items-center space-y-6">
-            <h3 className="text-white text-xs md:text-[10px] font-bold uppercase tracking-[0.3em] opacity-50">
-              Redes Sociais
-            </h3>
-            <div className="flex gap-6 text-white/80">
+            <div className="flex gap-8 text-white/70">
               <a
                 href="https://www.linkedin.com/company/genevieve-website/"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="LinkedIn Genevieve Website"
-                className="hover:text-[#00a3ff] transition-colors"
+                aria-label="LinkedIn"
+                className="hover:text-[#00a3ff] transition-all duration-300 hover:scale-110"
               >
-                <Linkedin size={22} className="md:w-[18px] md:h-[18px]" />
+                <Linkedin size={20} />
               </a>
               <a
                 href="https://www.instagram.com/genevieve_website/"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Instagram Genevieve Website"
-                className="hover:text-[#00a3ff] transition-colors"
+                aria-label="Instagram"
+                className="hover:text-[#00a3ff] transition-all duration-300 hover:scale-110"
               >
-                <Instagram size={22} className="md:w-[18px] md:h-[18px]" />
+                <Instagram size={20} />
               </a>
               <a
                 href="https://wa.me/5535997382410"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="WhatsApp Genevieve Website"
-                className="hover:text-[#00a3ff] transition-colors"
+                aria-label="WhatsApp"
+                className="hover:text-[#00a3ff] transition-all duration-300 hover:scale-110"
               >
-                <MessageCircle size={22} className="md:w-[18px] md:h-[18px]" />
+                <MessageCircle size={20} />
               </a>
             </div>
           </div>
 
-          {/* Coluna 4: Contato Direto */}
-          <div className="flex flex-col items-center space-y-6 text-gray-400 text-base md:text-sm">
-            <h3 className="text-white text-xs md:text-[10px] font-bold uppercase tracking-[0.3em] opacity-50">
+          {/* LADO DIREITO: Contato */}
+          <div className="flex flex-col items-center lg:items-end text-center lg:text-right space-y-4">
+            <h3 className="text-white text-[10px] font-bold uppercase tracking-[0.3em] opacity-40">
               Contato
             </h3>
-            <a
-              href="mailto:genevievewebsite@gmail.com"
-              className="hover:text-[#00a3ff] transition-colors"
-            >
-              genevievewebsite@gmail.com
-            </a>
-            <a
-              href="tel:+5535997382410"
-              className="hover:text-[#00a3ff] transition-colors"
-            >
-              +55 35 99738-2410
-            </a>
-            <span>Brasil</span>
+            <div className="flex flex-col gap-2">
+              <a
+                href="mailto:genevievewebsite@gmail.com"
+                className="text-gray-400 hover:text-white text-sm transition-colors duration-300"
+              >
+                genevievewebsite@gmail.com
+              </a>
+              <a
+                href="https://wa.me/5535997382410?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20da%20Genevieve."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-white text-sm transition-colors duration-300"
+              >
+                +55 35 99738-2410
+              </a>
+            </div>
+            <span className="text-zinc-600 text-[10px] font-mono uppercase">
+              Brasil & Portugal
+            </span>
           </div>
         </div>
 
         {/* Linha inferior centralizada */}
-        <div className="border-t border-white/10 pt-8 w-full flex flex-col items-center gap-4 text-[11px] text-gray-500 uppercase tracking-widest">
+        <div className="border-t border-white/5 pt-8 w-full flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] text-zinc-600 uppercase tracking-[0.2em]">
           <p>© 2026 Genevieve. Todos os direitos reservados.</p>
-          <p>Feito por Aline Lima · Tech Lead</p>
+          <p className="opacity-70">Feito por Aline Lima · Tech Lead</p>
         </div>
       </div>
     </footer>

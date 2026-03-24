@@ -1,127 +1,139 @@
-import { motion, AnimatePresence } from "framer-motion";
-import { Plus, Zap } from "lucide-react";
-import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import {
+  Plus,
+  ShieldCheck,
+  Heart,
+  Star,
+  Users,
+  Award,
+  TrendingUp,
+} from "lucide-react";
 
-// Imports de imagens de obras (Pilares)
-import imgPilar1 from "../assets/images/caminhao_agregados.jpg";
-import imgPilar from "../assets/images/caminhao_agregados.jpg";
-import imgPilar3 from "../assets/images/caminhao_agregados.jpg";
-
-// Imports dos colaboradores (apenas para a seção do Time abaixo)
-import Persona1 from "../assets/images/Aline.jpg";
-import Persona2 from "../assets/images/ju.png";
-import Persona3 from "../assets/images/Jeff.jpg";
-
-// Array restrito apenas às imagens de obras para o background
-const pilaresSlides = [imgPilar1, imgPilar, imgPilar3];
+// Imports de Imagens (Ajuste os caminhos conforme sua pasta)
+import fotoAline from "../assets/images/Aline.jpg";
+import imgDesign from "../assets/images/habilidades.jpg";
+import imgDev from "../assets/images/Aline.jpg"; // Exemplo para o time
+import imgAdmin from "../assets/images/ju.png"; // Placeholder
+import imgLucas from "../assets/images/Jeff.jpg"; // Placeholder
 
 const fadeInUp = {
-  initial: { y: 60, opacity: 0 },
+  initial: { y: 40, opacity: 0 },
   whileInView: { y: 0, opacity: 1 },
   viewport: { once: true },
-  transition: {
-    duration: 0.8,
-    ease: [0.16, 1, 0.3, 1] as const,
-  },
+  transition: { duration: 0.7, ease: "easeOut" },
 };
 
 export function About() {
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const pilares = [
+    { title: "Dedicação", icon: <Star className="w-5 h-5" /> },
+    { title: "Família", icon: <Heart className="w-5 h-5" /> },
+    { title: "Honestidade", icon: <ShieldCheck className="w-5 h-5" /> },
+    { title: "Respeito", icon: <Users className="w-5 h-5" /> },
+    { title: "Qualidade", icon: <Award className="w-5 h-5" /> },
+    { title: "Resultado", icon: <TrendingUp className="w-5 h-5" /> },
+  ];
 
-  // Lógica de troca das imagens de fundo da seção
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % pilaresSlides.length);
-    }, 6000);
-    return () => clearInterval(timer);
-  }, []);
+  const time = [
+    { name: "Lucas", role: "Design & UX", image: imgDesign },
+    { name: "Juliane", role: "Gestão & Processos", image: imgAdmin },
+    { name: "Aline", role: "Desenvolvimento ", image: imgDev },
+    { name: "Jefferson", role: "Automação & IA", image: imgLucas },
+  ];
 
   return (
-    <div className="bg-black text-white selection:bg-[#00a3ff] selection:text-white font-sans overflow-x-hidden">
-      {/* ===================== HEADER HERO ===================== */}
-      <section className="relative pt-40 pb-20 px-6 md:px-12 border-b border-white/5">
-        <div className="max-w-[1440px] mx-auto">
-          <motion.span
-            {...fadeInUp}
-            className="flex justify-center items-center gap-2 text-[#00a3ff] font-bold uppercase tracking-[0.3em] text-[10px] mb-10"
-          >
-            <Plus size={12} /> Sobre Nós
-          </motion.span>
+    <div className="bg-[#0a0a0b] text-white selection:bg-[#00a3ff] font-sans">
+      {/* 1. HERO & PILARES */}
+      <section className="pt-44 pb-24 px-6 md:px-12">
+        <div className="max-w-7xl mx-auto">
+          <motion.div {...fadeInUp} className="mb-20 text-center lg:text-left">
+            <span className="flex items-center justify-center lg:justify-start gap-2 text-[#00a3ff] font-bold uppercase tracking-[0.4em] text-[10px] mb-6">
+              <Plus size={12} /> Nossos Valores
+            </span>
+            <h1 className="text-5xl md:text-8xl font-black uppercase tracking-tighter leading-[0.85] mb-12">
+              Construídos sobre <br />
+              <span className="text-gray-600 italic font-light">
+                fundações sólidas.
+              </span>
+            </h1>
 
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <motion.div {...fadeInUp} className="text-center md:text-left">
-              <h1 className="text-[8vw] md:text-[5vw] font-bold leading-[0.85] tracking-tighter uppercase">
-                Engenharia de Software <br />
-                com DNA de{" "}
-                <span className="text-[#00a3ff] font-beauty lowercase font-light">
-                  Canteiro de Obras
-                </span>
-              </h1>
-            </motion.div>
-
-            <motion.p
-              {...fadeInUp}
-              transition={{ delay: 0.2 }}
-              className="text-xl md:text-2xl text-gray-400 font-light leading-relaxed text-center md:text-left"
-            >
-              Não somos apenas uma agência de marketing; somos parceiros que
-              entendem o ritmo, a pressão e a entrega de uma obra de grande
-              escala. Nosso trabalho é transformar essa sua excelência
-              operacional em autoridade.
-            </motion.p>
-          </div>
-        </div>
-      </section>
-
-      {/* ===================== ESTATÍSTICAS COM BACKGROUND DINÂMICO ===================== */}
-      <section className="relative py-20 md:py-32 overflow-hidden">
-        {/* BACKGROUND SLIDESHOW (Apenas as 3 imagens de obras) */}
-        <div className="absolute inset-0 z-0">
-          <AnimatePresence mode="wait">
-            <motion.img
-              key={currentSlide}
-              src={pilaresSlides[currentSlide]}
-              initial={{ opacity: 0, scale: 1.1 }}
-              animate={{ opacity: 0.3, scale: 1 }} // Opacidade baixa para não brigar com o conteúdo
-              exit={{ opacity: 0 }}
-              transition={{ duration: 2 }}
-              className="w-full h-full object-cover"
-            />
-          </AnimatePresence>
-          {/* Overlay escuro para garantir contraste */}
-          <div className="absolute inset-0 bg-black/10" />
-        </div>
-
-        {/* CONTEÚDO DA SEÇÃO */}
-        <div className="relative z-10 max-w-[1200px] mx-auto px-6 md:px-12">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            <div className="text-center md:text-left">
-              <h4 className="text-white text-3xl md:text-4xl font-black tracking-tighter mb-4 uppercase leading-tight">
-                Falamos a linguagem tanto dos canteiros quanto das reuniões
-                executivas.
-              </h4>
-              <p className="text-[#00a3ff] text-xs font-bold tracking-[0.3em] uppercase opacity-80">
-                Foco em Resultado
-              </p>
+            {/* Grid de Pilares */}
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+              {pilares.map((p, i) => (
+                <motion.div
+                  key={p.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.1 }}
+                  viewport={{ once: true }}
+                  className="bg-white/5 border border-white/10 p-8 rounded-2xl flex flex-col items-center gap-4 hover:bg-[#00a3ff] hover:border-[#00a3ff] transition-all duration-500 group"
+                >
+                  <div className="text-[#00a3ff] group-hover:text-white transition-colors">
+                    {p.icon}
+                  </div>
+                  <span className="text-[10px] font-black uppercase tracking-widest text-zinc-400 group-hover:text-white">
+                    {p.title}
+                  </span>
+                </motion.div>
+              ))}
             </div>
+          </motion.div>
+        </div>
+      </section>
 
-            {/* CARD AZUL SÓLIDO (Como você solicitou) */}
-            <motion.div
-              {...fadeInUp}
-              className="bg-white/30 p-10 md:p-14 rounded-[3rem] text-black flex flex-col items-center text-center justify-center min-h-[400px] gap-8 shadow-2xl shadow-[#00a3ff]/20 mx-auto w-full max-w-[420px]"
-            >
-              <div className="w-20 h-20 bg-black/10 rounded-full flex items-center justify-center backdrop-blur-sm border border-black/5">
-                <Zap size={44} fill="black" strokeWidth={1} />
+      {/* 2. A FUNDADORA */}
+      <section className="py-12 bg-white text-black">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <div className="grid lg:grid-cols-2 gap-20 items-center">
+            <motion.div {...fadeInUp} className="relative">
+              <div className="absolute -top-10 -left-10 w-40 h-40 bg-[#00a3ff]/10 rounded-full blur-3xl" />
+              <img
+                src={fotoAline}
+                alt="Aline Lima"
+                className="relative z-10 w-full aspect-[4/5] object-cover rounded-3xl shadow-2xl grayscale hover:grayscale-0 transition-all duration-1000"
+              />
+              <div className="absolute bottom-8 left-8 z-20 bg-black text-white p-6 rounded-2xl">
+                <p className="font-mono text-[10px] uppercase tracking-widest text-[#00a3ff] mb-1">
+                  Fundadora
+                </p>
+                <p className="font-black text-2xl uppercase tracking-tighter">
+                  Aline Lima
+                </p>
               </div>
+            </motion.div>
 
-              <div className="space-y-4">
-                <h3 className="text-2xl font-bold tracking-tighter leading-tight uppercase">
-                  Pronto para levar sua marca para o próximo nível?
-                </h3>
-                <div className="w-12 h-[2px] bg-black/20 rounded-full mx-auto" />
-                <p className="text-white text-sm font-black uppercase tracking-[0.2em]">
-                  Te acompanharemos deste os primeiros pilares até seus
-                  objetivos
+            <motion.div {...fadeInUp} transition={{ delay: 0.2 }}>
+              <h2 className="text-[#00a3ff] font-mono text-[10px] tracking-[0.5em] uppercase mb-6 font-bold">
+                A História
+              </h2>
+              <h3 className="text-4xl md:text-3xl font-black uppercase tracking-tighter leading-[0.9] mb-8">
+                A Genevieve nasceu no canteiro de obras <br />
+                <span className="text-[#df731b] italic font-light">
+                  e evoluiu para o Software.
+                </span>
+              </h3>
+
+              <div className="space-y-6 text-lg text-zinc-600 leading-relaxed">
+                <p>
+                  Antes de criar sites, vivi a rotina real: medições,
+                  organização de projetos e a pressão por resultados dentro de
+                  obras.
+                </p>
+
+                <p>
+                  Foi ali que entendi um problema claro: muitas empresas
+                  excelentes perdem oportunidades todos os dias por não terem
+                  uma presença digital estratégica.
+                </p>
+
+                <p>
+                  Hoje, transformo essa experiência em soluções digitais que
+                  ajudam empresas de obras a serem encontradas, gerar contatos e
+                  fechar mais contratos.
+                </p>
+
+                <p className="font-bold text-black italic">
+                  Não crio apenas sites. Construo presença, posicionamento e
+                  resultado.
                 </p>
               </div>
             </motion.div>
@@ -129,58 +141,52 @@ export function About() {
         </div>
       </section>
 
-      {/* ===================== O TIME ===================== */}
-      <section className="py-24 md:py-40 px-6 md:px-12 max-w-[1440px] mx-auto">
-        <div className="text-center mb-24">
-          <motion.span
-            {...fadeInUp}
-            className="text-[#00a3ff] font-bold uppercase tracking-[0.4em] text-[10px]"
-          >
-            Quem faz acontecer
-          </motion.span>
-          <motion.h2
-            {...fadeInUp}
-            transition={{ delay: 0.1 }}
-            className="text-5xl md:text-7xl font-bold tracking-tighter uppercase mt-4"
-          >
-            Nosso Time
-          </motion.h2>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-10">
-          {[
-            {
-              name: "Juliane Lima",
-              role: "Comercial & Estratégia",
-              image: Persona2,
-            },
-            { name: "Aline Lima", role: "Tech Lead", image: Persona1 },
-            { name: "Jefferson", role: "Design & Dev", image: Persona3 },
-          ].map((person, index) => (
-            <motion.div
-              key={person.name}
+      {/* 3. O TIME */}
+      <section className="py-32 px-6 md:px-12 bg-[#0a0a0b]">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-24">
+            <motion.h2
               {...fadeInUp}
-              transition={{ delay: index * 0.2 }}
-              className="group max-w-[350px] mx-auto w-full"
+              className="text-[#00a3ff] font-mono text-[10px] tracking-[0.5em] uppercase mb-4 font-bold"
             >
-              <div className="relative overflow-hidden rounded-[2.5rem] mb-8 bg-[#111]">
-                <img
-                  src={person.image}
-                  loading="lazy"
-                  alt={person.name}
-                  className="w-full aspect-[3/4] object-cover grayscale "
-                />
-              </div>
-              <div className="text-center">
-                <p className="text-[#00a3ff] text-[10px] font-black uppercase tracking-[0.2em] mb-2">
-                  {person.role}
-                </p>
-                <h4 className="text-3xl font-bold tracking-tight uppercase">
-                  {person.name}
-                </h4>
-              </div>
-            </motion.div>
-          ))}
+              Expertise Técnica
+            </motion.h2>
+            <motion.h3
+              {...fadeInUp}
+              transition={{ delay: 0.1 }}
+              className="text-5xl md:text-7xl font-black uppercase tracking-tighter"
+            >
+              Nosso Time
+            </motion.h3>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {time.map((member, i) => (
+              <motion.div
+                key={member.name}
+                {...fadeInUp}
+                transition={{ delay: i * 0.1 }}
+                className="group"
+              >
+                <div className="relative overflow-hidden rounded-2xl mb-6 aspect-[3/4] bg-zinc-900">
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                </div>
+                <div className="text-center lg:text-left px-2">
+                  <p className="text-[#00a3ff] text-[10px] font-black uppercase tracking-[0.2em] mb-1">
+                    {member.role}
+                  </p>
+                  <h4 className="text-2xl font-bold tracking-tight uppercase text-white">
+                    {member.name}
+                  </h4>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
     </div>

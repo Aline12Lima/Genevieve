@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus, ArrowUpRight, X, Clock, User, Instagram } from "lucide-react";
 import { useState, useEffect } from "react";
-
+import image from "../assets/PROMO/symary.jpg";
 const fadeInUp = {
   initial: { y: 60, opacity: 0 },
   whileInView: { y: 0, opacity: 1 },
@@ -13,6 +13,37 @@ const fadeInUp = {
 };
 
 const posts = [
+  {
+    id: 4,
+    category: "Social Media",
+    title:
+      "O Novo Padrão de Consumo: Por que o Instagram é a sua Vitrine de Ouro no Brasil",
+    date: "24 Mar, 2026",
+    author: "Juliane Lima",
+    readTime: "5 min",
+    image: image,
+    content: `No cenário atual do mercado brasileiro, a pergunta não é mais "se" sua empresa deve estar nas redes sociais, mas "como" ela está sendo apresentada lá. O Instagram deixou de ser uma rede de fotos de momentos para se tornar o principal ponto de contato e validação entre marca e cliente.
+
+  1. A Primeira Impressão agora é Digital
+  Antes de fechar um contrato de engenharia ou contratar um software, o cliente brasileiro faz o "check-up" no Instagram. O Feed é o seu Portfólio: se o seu perfil está desatualizado ou mal estruturado, você perde a venda antes mesmo do primeiro "olá". Prova Social em Tempo Real: Stories e destaques bem organizados funcionam como depoimentos vivos da sua capacidade técnica.
+
+  2. Algoritmo como Vendedor 24h
+  Diferente de um site estático, o Instagram trabalha ativamente para você. Através de Reels e conteúdos estratégicos, sua marca alcança pessoas que nem sabiam que precisavam do seu serviço. No Brasil, o consumo de vídeo curto é um dos maiores do mundo — ignorar isso é deixar dinheiro na mesa.
+
+  3. Humanização Gera Confiança
+  Em setores técnicos como Engenharia e Tecnologia, a barreira da confiança é alta. As redes sociais permitem que você mostre os bastidores, a equipe e os processos. "Pessoas compram de pessoas. Mostrar o rosto por trás do código ou do projeto de engenharia humaniza a marca e acelera o fechamento de negócios."
+
+  4. O Funil de Vendas do Século XXI
+  O fluxo mudou. O cliente te descobre no Instagram, valida sua autoridade pelos conteúdos e clica no link da Bio para converter. Se essa "vitrine de ouro" estiver embaçada, o funil quebra.
+
+  Dicas Práticas para sua Vitrine:
+  - Bio Estratégica: O que você faz e qual problema você resolve?
+  - Destaques de Projetos: Organize seus melhores trabalhos de forma clara.
+  - Constância Visual: Mantenha o padrão estético da sua marca (as cores da Genevieve, por exemplo).
+
+  Conclusão:
+  Ter uma rede social ativa não é sobre "likes", é sobre presença de mercado. No Brasil, quem não é visto no Instagram, simplesmente não existe para uma fatia enorme do público pagante.`,
+  },
   {
     id: 1,
     category: "Estratégia",

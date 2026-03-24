@@ -1,223 +1,156 @@
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+import {
+  HardHat,
+  MapPin,
+  MousePointer2,
+  MessageSquareMore,
+  BarChart3,
+  LayoutGrid,
+} from "lucide-react";
 
-import imagefuture1 from "../../assets/nichos/JBHero.png";
-import imagefuture2 from "../../assets/nichos/JBSobre.png";
-import imagefuture3 from "../../assets/nichos/JBForm.png";
-import imagefuture4 from "../../assets/nichos/JBProjetos.png";
-
-import imagefuture5 from "../../assets/nichos/FFF1.png";
-import imagefuture6 from "../../assets/nichos/FFFProjetos.png";
-import imagefuture7 from "../../assets/nichos/FFabout.png";
-import imagefuture8 from "../../assets/nichos/FFservices.png";
-
-import imagefuture9 from "../../assets/nichos/ViniFooter.png";
-import imagefuture10 from "../../assets/nichos/viniObras.png";
-import imagefuture11 from "../../assets/nichos/ViniHero.png";
-import imagefuture12 from "../../assets/nichos/viniObras.png";
-
-type NichoProps = {
-  title: string;
-  subtitle: string;
-  description: string;
-  images: string[];
-  direction?: "left" | "right";
-  icon: string;
-  iconBgColor?: string;
-  sectionBgColor?: string;
-  link?: string;
-};
-
-function NichoRow({
-  title,
-  subtitle,
-  description,
-  images,
-  direction = "left",
-  icon,
-  iconBgColor = "bg-white",
-  sectionBgColor = "transparent",
-  link,
-}: NichoProps) {
-  const isLeft = direction === "left";
-  const duplicatedImages = [...images, ...images];
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.8 }}
-      className="space-y-8 overflow-hidden py-12"
-      style={{ backgroundColor: sectionBgColor }}
-    >
-      {/* Header do Nicho */}
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 px-6 md:px-12 lg:px-16">
-        <div>
-          <h3
-            className={`text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight ${
-              sectionBgColor === "#F2F2F2" ? "text-black" : "text-[#F2F2F2]"
-            }`}
-          >
-            {title}
-          </h3>
-
-          <div className="flex items-center gap-3 mt-2">
-            <div
-              className={`w-14 h-14 rounded-2xl ${iconBgColor} flex items-center justify-center flex-shrink-0`}
-            >
-              <img
-                src={icon}
-                loading="lazy"
-                alt="Site para empreiteiros, engenharia, arquitetos"
-                className="w-8 h-8"
-              />
-            </div>
-            <p
-              className={`text-lg md:text-xl font-light ${
-                sectionBgColor === "#F2F2F2" ? "text-black" : "text-gray-300"
-              }`}
-            >
-              {subtitle}
-            </p>
-          </div>
-        </div>
-
-        <p
-          className={`max-w-md text-sm md:text-base leading-relaxed md:text-right ${
-            sectionBgColor === "#F2F2F2" ? "text-black" : "text-gray-300"
-          }`}
-        >
-          {description}
-        </p>
-      </div>
-
-      {link && (
-        <div className="px-6 md:px-12 lg:px-16 md:hidden">
-          <a
-            href={link}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`Ver site de ${title || subtitle}`}
-            className="inline-flex items-center gap-2 px-5 py-3 bg-white/20 backdrop-blur-md border border-white/40 rounded-lg text-white text-xs font-bold uppercase tracking-widest hover:bg-white/30 transition-all duration-300"
-          >
-            Ver Site
-            <svg
-              className="w-4 h-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
-          </a>
-        </div>
-      )}
-
-      {/* Carrossel */}
-      <div className="relative w-full overflow-hidden py-4">
-        <motion.div
-          className="flex gap-6 md:gap-8 w-max"
-          animate={{
-            x: isLeft ? ["0%", "-50%"] : ["-50%", "0%"],
-          }}
-          transition={{
-            repeat: Infinity,
-            duration: 35,
-            ease: "linear",
-          }}
-        >
-          {duplicatedImages.map((img, index) => (
-            <div
-              key={`${img}-${index}`}
-              className="relative flex-shrink-0 w-[420px] md:w-[400px] lg:w-[550px] aspect-[14/10] group"
-            >
-              <div className="relative w-full h-full rounded-2xl overflow-hidden bg-gray-900 shadow-2xl">
-                <img
-                  src={img}
-                  loading="lazy"
-                  alt={`${title} – Projeto site para construção civil  ${(index % images.length) + 1}`}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-
-                {link && (
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40">
-                    <a
-                      href={link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`Ver template de ${title}`}
-                      className="flex items-center gap-2 px-6 py-3 bg-white/20 backdrop-blur-md border border-white/40 rounded-lg text-white text-xs font-bold uppercase tracking-widest hover:bg-white/30 transition-all duration-300"
-                    >
-                      Ver Projeto
-                      <svg
-                        className="w-4 h-4"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M9 5l7 7-7 7"
-                        />
-                      </svg>
-                    </a>
-                  </div>
-                )}
-              </div>
-            </div>
-          ))}
-        </motion.div>
-      </div>
-    </motion.div>
-  );
-}
+import service1 from "../../assets/servicos/sites.png";
+import service2 from "../../assets/servicos/bucharest-romania-july-30th-2024-young-man-clicks-facebook-page-bookmark.jpg"; // Usei um placeholder pois o link anterior era longo
+import service3 from "../../assets/servicos/843sitessites.jpg";
+import service4 from "../../assets/servicos/robot-with-phone.jpg";
+import service5 from "../../assets/servicos/social-media-marketing-concept-marketing-with-applications.jpg";
+import service6 from "../../assets/servicos/closeup-hands-using-computer-laptop-with-screen-showing-analysis-data.jpg";
 
 export function Nichos() {
+  const navigate = useNavigate();
+
+  const servicos = [
+    {
+      id: 1,
+      title: "Sites que geram clientes",
+      sub: "Presença Digital",
+      desc: "Criamos sites que transformam visitantes em pedidos de orçamento e novos contratos.",
+      icon: <HardHat className="w-5 h-5" />,
+      img: service1,
+    },
+    {
+      id: 2,
+      title: "Apareça no Google",
+      sub: "SEO & Google Maps",
+      desc: "Seja encontrado por quem já está procurando serviços de obras na sua região.",
+      icon: <MapPin className="w-5 h-5" />,
+      img: service2,
+    },
+    {
+      id: 3,
+      title: "Identidade Visual",
+      sub: "Logo & Marca",
+      desc: "Design estratégico para transmitir confiança e profissionalismo, destacando seus diferenciais no mercado de obras.",
+      icon: <MousePointer2 className="w-5 h-5" />,
+      img: service3,
+    },
+    {
+      id: 4,
+      title: "Atendimento automático",
+      sub: "WhatsApp",
+      desc: "Responda clientes na hora certa e não perca oportunidades por demora.",
+      icon: <MessageSquareMore className="w-5 h-5" />,
+      img: service4,
+    },
+    {
+      id: 5,
+      title: "Anúncios que trazem clientes",
+      sub: "Google & Meta",
+      desc: "Atraia pessoas prontas para contratar seus serviços todos os dias.",
+      icon: <BarChart3 className="w-5 h-5" />,
+      img: service5,
+    },
+    {
+      id: 6,
+      title: "Automação de planilhas",
+      sub: "Orçamentos & Dados",
+      desc: "Formulários que preenchem planilhas automaticamente, organizando orçamentos.",
+      icon: <LayoutGrid className="w-5 h-5" />,
+      img: service6,
+    },
+  ];
+
   return (
-    <section
-      id="nichos"
-      className="relative bg-black text-gray-200 py-4 md:py-32 lg:py-40 overflow-hidden"
-    >
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#23007B]/5 to-transparent pointer-events-none" />
+    <section className="bg-white py-24 px-4 md:px-8" id="nichos">
+      <div className="max-w-7xl mx-auto">
+        {/* Header da Seção */}
+        <div className="text-center mb-20">
+          <motion.h3
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            className="text-[#00a3ff] uppercase tracking-[0.4em] text-[10px] font-bold mb-4"
+          >
+            Soluções para empresas de obras
+          </motion.h3>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-4xl md:text-6xl font-black text-gray-900 uppercase tracking-tighter leading-[0.9]"
+          >
+            Sua empresa precisa de mais clientes? <br />
+            <span className="text-[#ca9f1b] font-light italic">
+              Nosso trabalho é trazer eles.
+            </span>
+          </motion.h2>
+        </div>
 
-      <div className="relative space-y-16 md:space-y-24">
-        <NichoRow
-          title="Construção Civil"
-          subtitle="Projetos • Arquitetura • Desing"
-          sectionBgColor="#141414"
-          description="Projetos sólidos começam com posicionamento sólido. Criamos websites que transmitem credibilidade, estrutura e capacidade técnica desde o primeiro clique."
-          images={[imagefuture1, imagefuture2, imagefuture3, imagefuture4]}
-          icon="/icons/building-office.svg"
-          link="https://jb-construtech.vercel.app/"
-        />
+        {/* Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {servicos.map((s, i) => (
+            <motion.div
+              key={s.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.05 }}
+              whileHover={{ y: -8 }}
+              className="bg-[#c7d9eb] flex flex-col h-full group transition-all duration-300 rounded-xl overflow-hidden border border-gray-100 hover:border-[#00a3ff]/30 hover:shadow-[0_20px_40px_rgba(0,0,0,0.05)]"
+            >
+              {/* Imagem */}
+              <div className="relative overflow-hidden h-60">
+                <img
+                  src={s.img}
+                  alt={s.title}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                {/* Overlay sutil para melhorar leitura do ícone */}
+                <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors" />
 
-        <NichoRow
-          title=""
-          subtitle=" Consultorias • Serviços • Empreiteiras"
-          sectionBgColor="#1b1b1b"
-          description=""
-          images={[imagefuture9, imagefuture10, imagefuture11, imagefuture12]}
-          icon="/icons/hard-hat.svg"
-          link="https://vini-gesso.vercel.app/"
-        />
-        <NichoRow
-          title="Profissionais"
-          subtitle="Portfólios • Apresentação Pessoal"
-          description="Seu Portfólio precisa passar confiança e profissionalismo. Desenvolvemos experiências digitais que acolhem, informam e geram segurança antes mesmo do primeiro cliente."
-          direction="right"
-          sectionBgColor="#262727"
-          iconBgColor="bg-white"
-          images={[imagefuture5, imagefuture6, imagefuture7, imagefuture8]}
-          icon="/icons/id-card-lanyard.svg"
-          link="https://fff-xi-orpin.vercel.app/"
-        />
+                <div className="absolute top-5 right-5 bg-white p-3 text-[#00a3ff] shadow-lg rounded-lg z-10 transition-transform group-hover:scale-110">
+                  {s.icon}
+                </div>
+              </div>
+
+              {/* Conteúdo */}
+              <div className="p-8 flex flex-col flex-grow">
+                <span
+                  className={
+                    "text-[10px] font-mono uppercase tracking-widest mb-2 font-bold group-hover:text-[#00a3ff] transition-colors " +
+                    (s.sub === "Orçamentos & Dados"
+                      ? "text-zinc-700"
+                      : "text-zinc-400")
+                  }
+                >
+                  {s.sub}
+                </span>
+                <h4 className="text-xl font-bold text-gray-900 mb-4 uppercase tracking-tight">
+                  {s.title}
+                </h4>
+                <p className="text-gray-500 leading-relaxed mb-8 flex-grow text-sm">
+                  {s.desc}
+                </p>
+
+                <button
+                  onClick={() => navigate("/services")}
+                  className="inline-flex items-center justify-center bg-white text-black border border-gray-200 font-bold py-4 px-8 w-full text-[10px] uppercase tracking-widest hover:bg-black hover:text-white hover:border-black transition-all duration-300 rounded-lg"
+                >
+                  Saber mais
+                </button>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
