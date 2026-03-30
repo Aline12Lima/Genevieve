@@ -131,6 +131,16 @@ export function Header() {
             >
               <Instagram size={32} />
             </a>
+            {/* Botão Contato Mobile */}
+            <button
+              onClick={() => {
+                navigate("/contato");
+                setIsOpen(false);
+              }}
+              className="mt-4 px-8 py-3 rounded-full text-[12px] font-black uppercase tracking-widest bg-[#00a3ff] text-white hover:bg-white hover:text-black transition-all shadow-lg shadow-[#00a3ff]/20"
+            >
+              Contato
+            </button>
           </motion.div>
         )}
       </AnimatePresence>
