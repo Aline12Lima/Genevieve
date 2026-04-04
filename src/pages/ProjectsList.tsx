@@ -2,52 +2,7 @@ import { useEffect } from "react";
 import { setSEO } from "../lib/seo";
 import { Plus, ExternalLink } from "lucide-react";
 
-// Importações das imagens
-import build0 from "../assets/dataImagens/capas/1.png";
-import build1 from "../assets/dataImagens/capas/2.png";
-import build2 from "../assets/dataImagens/capas/3.png";
-import constructor1 from "../assets/dataImagens/capas/4.png";
-import constructor2 from "../assets/dataImagens/capas/5.png";
-import constructor3 from "../assets/dataImagens/capas/6.png";
-
-const projects = [
-  {
-    title: "Construtech JB",
-    category: "Engenharia",
-    image: build0,
-    link: "https://jb-construtech.vercel.app/",
-  },
-  {
-    title: "Vini Gesso",
-    category: "Gesso & Drywall",
-    image: build1,
-    link: "https://vini-gesso.vercel.app/",
-  },
-  {
-    title: "Eng.  Mayra",
-    category: "Cursos e Consultoria",
-    image: build2,
-    link: "https://www.engmayra.com.br/",
-  },
-  {
-    title: "WM Topografia",
-    category: "Topografia",
-    image: constructor1,
-    link: "https://wmtopografiaegeo.com.br/",
-  },
-  {
-    title: "FF Fundações",
-    category: "Fundações",
-    image: constructor2,
-    link: "https://fff-xi-orpin.vercel.app/",
-  },
-  {
-    title: "Psi Angela",
-    category: "Outros Projetos",
-    image: constructor3,
-    link: "https://psi-angela.alinelima.dev/",
-  },
-];
+import { projects } from "../data/projects";
 
 export function ProjectsList() {
   useEffect(() => {

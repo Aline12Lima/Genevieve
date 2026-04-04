@@ -2,7 +2,7 @@ import { motion, type Variants } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import {
   CheckCircle2,
-  HardHat,
+  Flower2,
   Building2,
   PenTool,
   Briefcase,
@@ -46,8 +46,8 @@ export function Perfil() {
     },
     {
       titulo: "Especialistas",
-      lista: "Elétrica, Hidráulica, Pintura e Reformas",
-      icon: <HardHat className="w-5 h-5" />,
+      lista: "Salões de Beleza, Estética e Profissionais Liberais",
+      icon: <Flower2 className="w-5 h-5" />,
     },
     {
       titulo: "Profissionais",
@@ -116,11 +116,15 @@ export function Perfil() {
               variants={itemVariants}
               className="text-4xl md:text-5xl font-black text-white mb-10 tracking-tighter leading-[1.1] uppercase"
             >
-              Especialistas em <br />
+              Especialistas em{" "}
               <span className="text-gray-500 italic font-light">
-                obras e engenharia.
+                Sites Empreendedores
               </span>
             </motion.h3>
+
+            <h3 className="text-[#00a3ff] font-mono text-[11px] tracking-[0.4em] uppercase mb-4 font-black">
+              Para quem Trabalhamos?
+            </h3>
 
             <div className="grid gap-4">
               {grupos.map((grupo, i) => (
@@ -155,7 +159,7 @@ export function Perfil() {
             className="lg:col-span-7 bg-zinc-900/20 p-8 md:p-14 rounded-2xl border border-white/0.05 backdrop-blur-sm relative"
           >
             <h2 className="text-[#00a3ff] font-mono text-[11px] tracking-[0.4em] uppercase mb-12 font-black">
-              Como trabalhamos
+              Como trabalhamos ?
             </h2>
 
             <div className="space-y-12 relative">

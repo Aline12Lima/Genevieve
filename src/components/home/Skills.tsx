@@ -65,11 +65,11 @@ export function Skills() {
               <h3 className="text-5xl lg:text-7xl font-black text-black leading-[0.85] tracking-tighter uppercase mb-8">
                 A Genevieve nasceu <br /> no{" "}
                 <span className="text-[#00a3ff] italic font-light">
-                  canteiro.
+                  no mundo de Obras.
                 </span>
               </h3>
               <p className="text-zinc-600 text-xl leading-relaxed max-w-lg mb-10">
-                Antes de criar sites, vivi a rotina real de obras. Hoje,
+                Antes de criar sites, vivi a rotina real em construtoras . Hoje,
                 transformo essa vivência em ferramentas que geram contratos
                 reais.
               </p>

@@ -1,128 +1,161 @@
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
 
-// IMAGENS DESKTOP
-import desk1 from "../../assets/PROMO/Agenda.jpg";
-import desk2 from "../../assets/PROMO/symary.jpg";
-import desk3 from "../../assets/PROMO/Cover.jpg";
-
-// IMAGENS MOBILE
-import mob1 from "../../assets/PROMO/PROMOMOBILE/1.png";
-import mob2 from "../../assets/PROMO/PROMOMOBILE/2.png";
-import mob3 from "../../assets/PROMO/PROMOMOBILE/3.png";
-
-const slidesDesktop = [desk1, desk2, desk3];
-const slidesMobile = [mob1, mob2, mob3];
+import { projects } from "../../data/projects";
 
 export function Hero() {
+  const readyProjects = useMemo(() => projects.slice(0, 3), []);
   const [current, setCurrent] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
 
-  // Detecta se é mobile para trocar o array de imagens
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
-
-  const nextSlide = () => {
-    const slides = isMobile ? slidesMobile : slidesDesktop;
-    setCurrent((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
-  };
-
-  const prevSlide = () => {
-    const slides = isMobile ? slidesMobile : slidesDesktop;
-    setCurrent((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
-  };
+  const nextSlide = () =>
+    setCurrent((prev) => (prev === readyProjects.length - 1 ? 0 : prev + 1));
+  const prevSlide = () =>
+    setCurrent((prev) => (prev === 0 ? readyProjects.length - 1 : prev - 1));
 
   useEffect(() => {
-    const slides = isMobile ? slidesMobile : slidesDesktop;
-    const time = current === slides.length - 1 ? 12000 : 6000;
-    const timer = setInterval(nextSlide, time);
-    return () => clearInterval(timer);
-  }, [current, isMobile]);
+    const length = readyProjects.length;
+    const timer = window.setInterval(() => {
+      setCurrent((prev) => (prev === length - 1 ? 0 : prev + 1));
+    }, 7000);
+    return () => window.clearInterval(timer);
+  }, [readyProjects.length]);
 
-  const currentSlides = isMobile ? slidesMobile : slidesDesktop;
+  const activeProject = readyProjects[current];
 
   return (
-    <section className="relative w-full h-[550px] md:h-[600px] lg:h-[700px] bg-zinc-950 overflow-hidden pt-24 md:pt-16">
-      <div className="relative w-full h-full flex items-center justify-center">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={`${current}-${isMobile}`}
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -20 }}
-            transition={{ duration: 0.5 }}
-            className="relative w-full h-full flex items-center justify-center px-4 md:px-0"
-          >
-            {/* Desktop: Mantém w-3/4 e object-fill (Primeira versão)
-              Mobile: w-full e h-[90%] com object-contain (Para as novas artes 1.png, etc)
-            */}
-            <img
-              src={currentSlides[current]}
-              className="w-full h-[90%] md:w-3/4 md:h-3/4 object-contain md:object-fill cursor-pointer md:rounded-xl md:shadow-2xl"
-              alt={`Promoção ${current + 1}`}
+    <section className="relative w-full h-[100vh] min-h-[650px] bg-zinc-950 overflow-hidden flex items-center">
+      {/* --- Estrutura Fixa (Background) --- */}
+      <div className="absolute inset-0 z-0 grid md:grid-cols-12 w-full h-full">
+        {/* Lado Esquerdo Fixo (Vazio para o texto) */}
+        <div className="hidden md:block md:col-span-5 bg-zinc-950" />
+
+        {/* Lado Direito: Área do Carrossel de Imagens */}
+        <div className="relative col-span-12 md:col-span-7 h-full w-full overflow-hidden">
+          <AnimatePresence mode="wait">
+            <motion.img
+              key={activeProject.link} // Chave única para engatilhar a animação
+              src={activeProject.image}
+              alt={activeProject.title}
+              initial={{ opacity: 0, scale: 1.1 }}
+              animate={{ opacity: 0.6, scale: 1 }} // Opacidade para contraste do texto
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.8, ease: "easeInOut" }}
+              className="absolute top-52 md:-top-28 left-[-32px] right-0 bottom-auto w-full h-[60%] md:bottom-0 md:h-[calc(100%+3rem)] object-cover object-top object-left"
             />
+          </AnimatePresence>
 
-            {/* BOTÃO ADQUIRA: Ajustado para as duas versões */}
-            {current === currentSlides.length - 1 && (
+          {/* Overlay de gradiente para suavizar a transição entre o fundo fixo e a imagem */}
+          <div className="absolute inset-0 bg-gradient-to-r from-zinc-950 via-transparent to-transparent md:from-zinc-950 md:via-zinc-950/20" />
+        </div>
+      </div>
+
+      {/* --- Conteúdo Sobreposto (Z-index alto) --- */}
+      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full h-full flex items-center">
+        <div className="grid md:grid-cols-12 gap-12 w-full items-center">
+          {/* Lado Esquerdo: Textos FIXOS (Sem efeito de carrossel) */}
+          <div className="col-span-12 md:col-span-5 flex flex-col gap-4 md:gap-5 pt-0 md:pt-0">
+            {/* H1 Hero Principal Fixo */}
+            <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-blue-500">
+              Seu novo site em 5 dias
+            </h2>
+
+            {/* Texto H1 Secundário Fixo */}
+            <h1 className="text-3xl md:text-5xl font-black uppercase tracking-tighter leading-[0.95] text-white">
+              Empresa <br /> com um site bem feito <br />
+              <span className="text-zinc-500 italic font-light">
+                se torna grande.
+              </span>
+            </h1>
+
+            {/* CTAs */}
+            <div className="flex items-center gap-2 mt-8">
               <button
-                className="hidden md:block absolute bottom-58 left-58 z-30 bg-[#00a3ff] text-white px-8 py-4 rounded-full font-bold text-lg shadow-2xl hover:bg-[#007acc] transition-all animate-pulse-slow"
-                onClick={() => (window.location.href = "/contato")}
+                type="button"
+                className="flex items-center justify-center px-5 py-2.5 bg-blue-600 rounded-xl text-white font-black uppercase tracking-tight text-xs md:text-sm hover:bg-blue-500 transition-all hover:scale-105 active:scale-95 shadow-[0_0_30px_rgba(37,99,235,0.4)]"
               >
-                Adquira seu site agora
+                Quero meu site assim
               </button>
-            )}
-          </motion.div>
-        </AnimatePresence>
-      </div>
 
-      {/* Navegação */}
-      <button
-        onClick={prevSlide}
-        className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-20 bg-black/20 hover:bg-black/60 text-white p-1.5 md:p-2 rounded-full backdrop-blur-sm"
-      >
-        <ChevronLeft className="w-6 h-6 md:w-8 md:h-8" />
-      </button>
+              {/* Desktop: botão do site ao lado do CTA */}
+              <div className="hidden md:block overflow-hidden rounded-full">
+                <AnimatePresence mode="wait">
+                  <motion.a
+                    key={activeProject.link}
+                    href={activeProject.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    initial={{ y: 10, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    exit={{ y: -10, opacity: 0 }}
+                    transition={{ duration: 0.35 }}
+                    className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest bg-white text-black px-4 py-2 shadow-xl hover:bg-blue-500 hover:text-white transition-colors"
+                  >
+                    Ver site pronto <ExternalLink size={12} />
+                  </motion.a>
+                </AnimatePresence>
+              </div>
+            </div>
+          </div>
 
-      <button
-        onClick={nextSlide}
-        className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-20 bg-black/20 hover:bg-black/60 text-white p-1.5 md:p-2 rounded-full backdrop-blur-sm"
-      >
-        <ChevronRight className="w-6 h-6 md:w-8 md:h-8" />
-      </button>
+          {/* Lado Direito: Área das Imagens e Botões Fixos/Dinâmicos */}
+          <div className="col-span-12 md:col-span-7 relative h-[300px] md:h-[500px] w-full">
+            {/* BOTÃO DINÂMICO: 'Ver site' - Muda com a imagem, sobreposto */}
+            <div className="absolute bottom-6 right-38 md:hidden z-20 overflow-hidden rounded-full">
+              <AnimatePresence mode="wait">
+                <motion.a
+                  key={activeProject.link} // Reanima quando o link muda
+                  href={activeProject.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ y: -20, opacity: 0 }}
+                  transition={{ duration: 0.4, delay: 0.1 }}
+                  className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest bg-white text-black px-4 py-2 shadow-xl hover:bg-blue-500 hover:text-white transition-colors"
+                >
+                  Ver site pronto <ExternalLink size={12} />
+                </motion.a>
+              </AnimatePresence>
+            </div>
+          </div>
+        </div>
 
-      {/* Dots */}
-      <div className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2">
-        {currentSlides.map((_, index) => (
+        {/* Desktop: navegação centralizada do carrossel */}
+        <div className="hidden md:flex absolute bottom-10 left-1/2 -translate-x-1/2 z-20 items-center gap-4">
           <button
-            key={index}
-            onClick={() => setCurrent(index)}
-            className={`h-1.5 md:h-2 transition-all duration-300 rounded-full ${
-              current === index
-                ? "bg-[#00a3ff] w-6 md:w-12"
-                : "bg-white/30 w-1.5 md:w-2"
-            }`}
-          />
-        ))}
-      </div>
+            type="button"
+            onClick={prevSlide}
+            aria-label="Projeto anterior"
+            className="text-white/50 hover:text-white bg-white/5 p-2 rounded-full backdrop-blur-sm transition-all"
+          >
+            <ChevronLeft size={20} />
+          </button>
 
-      <style
-        dangerouslySetInnerHTML={{
-          __html: `
-        .animate-pulse-slow {
-          animation: pulse-slow 2.5s infinite;
-        }
-        @keyframes pulse-slow {
-          0%, 100% { opacity: 1; transform: scale(1); }
-          50% { opacity: 0.8; transform: scale(0.98); }
-        }
-      `,
-        }}
-      />
+          <div className="flex gap-2">
+            {readyProjects.map((_, index) => (
+              <button
+                key={index}
+                type="button"
+                onClick={() => setCurrent(index)}
+                aria-label={`Ir para o projeto ${index + 1}`}
+                className={`h-1.5 transition-all duration-300 rounded-full ${
+                  current === index ? "bg-blue-500 w-8" : "bg-white/20 w-3"
+                }`}
+              />
+            ))}
+          </div>
+
+          <button
+            type="button"
+            onClick={nextSlide}
+            aria-label="Próximo projeto"
+            className="text-white/50 hover:text-white bg-white/5 p-2 rounded-full backdrop-blur-sm transition-all"
+          >
+            <ChevronRight size={20} />
+          </button>
+        </div>
+      </div>
     </section>
   );
 }
