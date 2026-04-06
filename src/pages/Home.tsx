@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useEffect } from "react";
 import { Hero } from "../components/home/Hero";
 import { Perfil } from "../components/home/Perfil";
@@ -31,12 +32,22 @@ export function Home() {
   }, []);
 
   return (
-    <main className="relative">
-      <Hero />
-      <Perfil />
-      <Nichos />
-      <ProjectsGrid />
-      <Skills />
-    </main>
+    <>
+      <Helmet>
+        <title>Genevieve | Criação de Landing Pages de Alta Conversão </title>
+        <meta
+          name="description"
+          content="Desenvolvemos Landing Pages profissionais e sites estratégicos para empresas de engenharia, saúde e advocacia. Transforme visitantes em clientes com design moderno"
+        />
+      </Helmet>
+
+      <main className="relative">
+        <Hero />
+        <Perfil />
+        <Nichos />
+        <ProjectsGrid />
+        <Skills />
+      </main>
+    </>
   );
 }

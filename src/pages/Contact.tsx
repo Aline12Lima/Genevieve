@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { Check, ArrowUpRight } from "lucide-react";
 import { useState } from "react";
@@ -53,186 +54,196 @@ export function Contact() {
   }
 
   return (
-    <div className="bg-black text-white selection:bg-[#00a3ff] selection:text-white pt-40 pb-20">
-      <section className="max-w-[1440px] mx-auto px-6 md:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
-          {/* LADO ESQUERDO: INFOS (ESTILO AGENTIX) */}
-          <motion.div {...fadeInUp} className="space-y-12">
-            <div>
-              <span className="flex items-center gap-2 text-[#00a3ff] font-bold uppercase tracking-[0.3em] text-[10px] mb-6">
-                <Check size={12} /> Contato Directo
-              </span>
-              <h1 className="text-6xl md:text-8xl font-bold tracking-tighter uppercase leading-[0.9]">
-                Vamos <br />{" "}
-                <span className="text-[#00a3ff] font-beauty lowercase font-light">
-                  Conversar
+    <>
+      <Helmet>
+        <title>Solicite um Orçamento | Genevieve - Landing Pages</title>
+        <meta
+          name="description"
+          content="Pronto para profissionalizar sua presença online? Entre em contato com a Genevieve e receba uma consultoria para o desenvolvimento do seu novo site."
+        />
+      </Helmet>
+
+      <div className="bg-black text-white selection:bg-[#00a3ff] selection:text-white pt-40 pb-20">
+        <section className="max-w-[1440px] mx-auto px-6 md:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
+            {/* LADO ESQUERDO: INFOS (ESTILO AGENTIX) */}
+            <motion.div {...fadeInUp} className="space-y-12">
+              <div>
+                <span className="flex items-center gap-2 text-[#00a3ff] font-bold uppercase tracking-[0.3em] text-[10px] mb-6">
+                  <Check size={12} /> Contato Directo
                 </span>
-              </h1>
-            </div>
+                <h1 className="text-6xl md:text-8xl font-bold tracking-tighter uppercase leading-[0.9]">
+                  Vamos <br />{" "}
+                  <span className="text-[#00a3ff] font-beauty lowercase font-light">
+                    Conversar
+                  </span>
+                </h1>
+              </div>
 
-            <div className="space-y-8">
-              <div className="group cursor-pointer">
-                <p className="text-gray-500 text-[10px] uppercase font-bold tracking-widest mb-2">
-                  E-mail
-                </p>
-                <div className="flex items-center gap-3 text-2xl font-medium group-hover:text-[#00a3ff] transition-colors">
-                  genevievewebsite@gmail.com{" "}
-                  <ArrowUpRight
-                    size={20}
-                    className="opacity-0 group-hover:opacity-100 transition-all"
-                  />
+              <div className="space-y-8">
+                <div className="group cursor-pointer">
+                  <p className="text-gray-500 text-[10px] uppercase font-bold tracking-widest mb-2">
+                    E-mail
+                  </p>
+                  <div className="flex items-center gap-3 text-2xl font-medium group-hover:text-[#00a3ff] transition-colors">
+                    genevievewebsite@gmail.com{" "}
+                    <ArrowUpRight
+                      size={20}
+                      className="opacity-0 group-hover:opacity-100 transition-all"
+                    />
+                  </div>
+                </div>
+
+                <div className="group cursor-pointer">
+                  <p className="text-gray-500 text-[10px] uppercase font-bold tracking-widest mb-2">
+                    WhatsApp
+                  </p>
+                  <a
+                    href="https://wa.me/5535997382410"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 text-2xl font-medium group-hover:text-[#00a3ff] transition-colors"
+                  >
+                    35997382410{" "}
+                    <ArrowUpRight
+                      size={20}
+                      className="opacity-0 group-hover:opacity-100 transition-all"
+                    />
+                  </a>
+                </div>
+
+                <div className="pt-8">
+                  <p className="text-gray-500 text-[10px] uppercase font-bold tracking-widest mb-6">
+                    Redes Sociais
+                  </p>
+                  <div className="flex gap-6">
+                    {["Instagram", "LinkedIn"].map((social) => (
+                      <a
+                        key={social}
+                        href="#"
+                        className="text-sm font-bold uppercase tracking-wider hover:text-[#00a3ff] transition-colors"
+                      >
+                        {social}
+                      </a>
+                    ))}
+                  </div>
                 </div>
               </div>
+            </motion.div>
 
-              <div className="group cursor-pointer">
-                <p className="text-gray-500 text-[10px] uppercase font-bold tracking-widest mb-2">
-                  WhatsApp
-                </p>
-                <a
-                  href="https://wa.me/5535997382410"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-2xl font-medium group-hover:text-[#00a3ff] transition-colors"
-                >
-                  35997382410{" "}
-                  <ArrowUpRight
-                    size={20}
-                    className="opacity-0 group-hover:opacity-100 transition-all"
-                  />
-                </a>
-              </div>
+            {/* LADO DIREITO: FORMULÁRIO (CLEAN & PREMIUM) */}
+            <motion.div
+              {...fadeInUp}
+              transition={{ delay: 0.2 }}
+              className="bg-[#0a0a0a] border border-white/5 p-8 md:p-12 rounded-[2.5rem]"
+            >
+              {!isSent ? (
+                <form onSubmit={handleSubmit} className="space-y-8">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <label className="text-[10px] font-bold uppercase tracking-widest text-gray-500">
+                        Seu Nome / Empresa
+                      </label>
+                      <input
+                        name="empresa"
+                        type="text"
+                        required
+                        className="w-full bg-transparent border-b border-white/10 py-4 outline-none focus:border-[#00a3ff] transition-colors"
+                        placeholder="Ex: João Silva"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-[10px] font-bold uppercase tracking-widest text-gray-500">
+                        Nicho do Negócio
+                      </label>
+                      <input
+                        name="nicho"
+                        type="text"
+                        className="w-full bg-transparent border-b border-white/10 py-4 outline-none focus:border-[#00a3ff] transition-colors"
+                        placeholder="Ex: Clínica, Advocacia..."
+                      />
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div className="space-y-2">
+                      <label className="text-[10px] font-bold uppercase tracking-widest text-gray-500">
+                        E-mail Corporativo
+                      </label>
+                      <input
+                        name="email"
+                        type="email"
+                        required
+                        className="w-full bg-transparent border-b border-white/10 py-3 outline-none focus:border-[#00a3ff] transition-colors placeholder:text-gray-800"
+                        placeholder="seu@email.com"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-[10px] font-bold uppercase tracking-widest text-gray-500">
+                        WhatsApp
+                      </label>
+                      <input
+                        name="telefone"
+                        type="tel"
+                        required
+                        className="w-full bg-transparent border-b border-white/10 py-3 outline-none focus:border-[#00a3ff] transition-colors placeholder:text-gray-800"
+                        placeholder="(00) 00000-0000"
+                      />
+                    </div>
+                  </div>
 
-              <div className="pt-8">
-                <p className="text-gray-500 text-[10px] uppercase font-bold tracking-widest mb-6">
-                  Redes Sociais
-                </p>
-                <div className="flex gap-6">
-                  {["Instagram", "LinkedIn"].map((social) => (
-                    <a
-                      key={social}
-                      href="#"
-                      className="text-sm font-bold uppercase tracking-wider hover:text-[#00a3ff] transition-colors"
-                    >
-                      {social}
-                    </a>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* LADO DIREITO: FORMULÁRIO (CLEAN & PREMIUM) */}
-          <motion.div
-            {...fadeInUp}
-            transition={{ delay: 0.2 }}
-            className="bg-[#0a0a0a] border border-white/5 p-8 md:p-12 rounded-[2.5rem]"
-          >
-            {!isSent ? (
-              <form onSubmit={handleSubmit} className="space-y-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label className="text-[10px] font-bold uppercase tracking-widest text-gray-500">
-                      Seu Nome / Empresa
+                      Sua Mensagem / Dúvida
                     </label>
-                    <input
-                      name="empresa"
-                      type="text"
+                    <textarea
+                      name="diferencial"
                       required
-                      className="w-full bg-transparent border-b border-white/10 py-4 outline-none focus:border-[#00a3ff] transition-colors"
-                      placeholder="Ex: João Silva"
+                      className="w-full bg-transparent border-b border-white/10 py-4 outline-none focus:border-[#00a3ff] transition-colors h-32 resize-none"
+                      placeholder="Como podemos te ajudar hoje?"
                     />
                   </div>
-                  <div className="space-y-2">
-                    <label className="text-[10px] font-bold uppercase tracking-widest text-gray-500">
-                      Nicho do Negócio
-                    </label>
-                    <input
-                      name="nicho"
-                      type="text"
-                      className="w-full bg-transparent border-b border-white/10 py-4 outline-none focus:border-[#00a3ff] transition-colors"
-                      placeholder="Ex: Clínica, Advocacia..."
-                    />
-                  </div>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <div className="space-y-2">
-                    <label className="text-[10px] font-bold uppercase tracking-widest text-gray-500">
-                      E-mail Corporativo
-                    </label>
-                    <input
-                      name="email"
-                      type="email"
-                      required
-                      className="w-full bg-transparent border-b border-white/10 py-3 outline-none focus:border-[#00a3ff] transition-colors placeholder:text-gray-800"
-                      placeholder="seu@email.com"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-[10px] font-bold uppercase tracking-widest text-gray-500">
-                      WhatsApp
-                    </label>
-                    <input
-                      name="telefone"
-                      type="tel"
-                      required
-                      className="w-full bg-transparent border-b border-white/10 py-3 outline-none focus:border-[#00a3ff] transition-colors placeholder:text-gray-800"
-                      placeholder="(00) 00000-0000"
-                    />
-                  </div>
-                </div>
 
-                <div className="space-y-2">
-                  <label className="text-[10px] font-bold uppercase tracking-widest text-gray-500">
-                    Sua Mensagem / Dúvida
-                  </label>
-                  <textarea
-                    name="diferencial"
-                    required
-                    className="w-full bg-transparent border-b border-white/10 py-4 outline-none focus:border-[#00a3ff] transition-colors h-32 resize-none"
-                    placeholder="Como podemos te ajudar hoje?"
+                  {/* Inputs invisíveis para manter compatibilidade com sua tabela caso queira enviar campos vazios */}
+                  <input
+                    type="hidden"
+                    name="publico_alvo"
+                    value="Contato Direto"
                   />
-                </div>
-
-                {/* Inputs invisíveis para manter compatibilidade com sua tabela caso queira enviar campos vazios */}
-                <input
-                  type="hidden"
-                  name="publico_alvo"
-                  value="Contato Direto"
-                />
-                <input
-                  type="hidden"
-                  name="servicos_destaque"
-                  value="Dúvida Geral"
-                />
-
-                <button
-                  disabled={isSubmitting}
-                  type="submit"
-                  className="w-full md:w-auto px-12 py-5 bg-white text-black rounded-full font-bold flex items-center justify-center gap-3 hover:bg-[#00a3ff] hover:text-white transition-all duration-500 group"
-                >
-                  {isSubmitting ? "Enviando..." : "Enviar Mensagem"}
-                  <ArrowUpRight
-                    size={18}
-                    className="group-hover:rotate-45 transition-transform"
+                  <input
+                    type="hidden"
+                    name="servicos_destaque"
+                    value="Dúvida Geral"
                   />
-                </button>
-              </form>
-            ) : (
-              <div className="h-full flex flex-col items-center justify-center text-center py-20 animate-in fade-in zoom-in">
-                <div className="w-20 h-20 bg-[#00a3ff]/10 rounded-full flex items-center justify-center mb-6">
-                  <Check className="text-[#00a3ff]" size={40} />
+
+                  <button
+                    disabled={isSubmitting}
+                    type="submit"
+                    className="w-full md:w-auto px-12 py-5 bg-white text-black rounded-full font-bold flex items-center justify-center gap-3 hover:bg-[#00a3ff] hover:text-white transition-all duration-500 group"
+                  >
+                    {isSubmitting ? "Enviando..." : "Enviar Mensagem"}
+                    <ArrowUpRight
+                      size={18}
+                      className="group-hover:rotate-45 transition-transform"
+                    />
+                  </button>
+                </form>
+              ) : (
+                <div className="h-full flex flex-col items-center justify-center text-center py-20 animate-in fade-in zoom-in">
+                  <div className="w-20 h-20 bg-[#00a3ff]/10 rounded-full flex items-center justify-center mb-6">
+                    <Check className="text-[#00a3ff]" size={40} />
+                  </div>
+                  <h3 className="text-3xl font-bold mb-2 uppercase">
+                    Mensagem Recebida
+                  </h3>
+                  <p className="text-gray-500">
+                    Em breve entraremos em contato com você.
+                  </p>
                 </div>
-                <h3 className="text-3xl font-bold mb-2 uppercase">
-                  Mensagem Recebida
-                </h3>
-                <p className="text-gray-500">
-                  Em breve entraremos em contato com você.
-                </p>
-              </div>
-            )}
-          </motion.div>
-        </div>
-      </section>
-    </div>
+              )}
+            </motion.div>
+          </div>
+        </section>
+      </div>
+    </>
   );
 }

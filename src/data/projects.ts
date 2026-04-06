@@ -15,37 +15,37 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    title: "Construtech JB",
+    title: "Site Construtora JB",
     category: "Engenharia",
     image: build0,
     link: "https://jb-construtech.vercel.app/",
   },
   {
-    title: "Vini Gesso",
+    title: "Portfólio Empreiteira de  Gesso",
     category: "Gesso & Drywall",
     image: build1,
     link: "https://vini-gesso.vercel.app/",
   },
   {
-    title: "Eng.  Mayra",
+    title: " Site para Engenheira",
     category: "Cursos e Consultoria",
     image: build2,
     link: "https://www.engmayra.com.br/",
   },
   {
-    title: "WM Topografia",
+    title: "Site para Empresa de  Topografia",
     category: "Topografia",
     image: constructor1,
     link: "https://wmtopografiaegeo.com.br/",
   },
   {
-    title: "FF Fundações",
+    title: " Site para Empresa de Fundações",
     category: "Fundações",
     image: constructor2,
     link: "https://fff-xi-orpin.vercel.app/",
   },
   {
-    title: "Psi Angela",
+    title: "Site para Psicóloga",
     category: "Outros Projetos",
     image: constructor3,
     link: "https://psi-angela.alinelima.dev/",

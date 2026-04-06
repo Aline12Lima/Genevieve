@@ -4,7 +4,6 @@ import {
   HardHat,
   MapPin,
   MousePointer2,
-  MessageSquareMore,
   BarChart3,
   LayoutGrid,
 } from "lucide-react";
@@ -12,7 +11,6 @@ import {
 import service1 from "../../assets/servicos/sites.png";
 import service2 from "../../assets/servicos/bucharest-romania-july-30th-2024-young-man-clicks-facebook-page-bookmark.jpg"; // Usei um placeholder pois o link anterior era longo
 import service3 from "../../assets/servicos/843sitessites.jpg";
-import service4 from "../../assets/servicos/robot-with-phone.jpg";
 import service5 from "../../assets/servicos/social-media-marketing-concept-marketing-with-applications.jpg";
 import service6 from "../../assets/servicos/closeup-hands-using-computer-laptop-with-screen-showing-analysis-data.jpg";
 
@@ -44,25 +42,18 @@ export function Nichos() {
       icon: <MousePointer2 className="w-5 h-5" />,
       img: service3,
     },
-    {
-      id: 4,
-      title: "Atendimento automático",
-      sub: "WhatsApp",
-      desc: "Responda clientes na hora certa e não perca oportunidades por demora.",
-      icon: <MessageSquareMore className="w-5 h-5" />,
-      img: service4,
-    },
+
     {
       id: 5,
       title: "Anúncios que trazem clientes",
-      sub: "Google & Meta",
+      sub: "Google & Meta Instagram Ads",
       desc: "Atraia pessoas prontas para contratar seus serviços todos os dias.",
       icon: <BarChart3 className="w-5 h-5" />,
       img: service5,
     },
     {
       id: 6,
-      title: "Automação de planilhas",
+      title: "Planilhas Automaticas",
       sub: "Orçamentos & Dados",
       desc: "Formulários que preenchem planilhas automaticamente, organizando orçamentos.",
       icon: <LayoutGrid className="w-5 h-5" />,
