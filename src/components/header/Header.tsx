@@ -107,7 +107,7 @@ export function Header() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed inset-0 bg-black z-[90] flex flex-col items-center justify-center gap-8"
+            className="fixed inset-0 bg-black z-[90] flex flex-col items-center justify-center gap-8 pt-16"
           >
             {menuLinks.map((link) => (
               <button
@@ -116,31 +116,31 @@ export function Header() {
                   link.action();
                   setIsOpen(false);
                 }}
-                className="text-5xl font-beauty text-white hover:text-[#00a3ff] transition-colors"
+                className="text-4xl font-beauty text-white hover:text-[#00a3ff] transition-colors"
               >
                 {link.name}
               </button>
             ))}
-            {/* Instagram Icon Only Mobile Menu */}
-            <a
-              href="https://www.instagram.com/genevieve_website/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-8 flex items-center justify-center bg-white text-[#00a3ff] hover:bg-[#00a3ff] hover:text-white rounded-full p-3 transition-colors shadow-lg shadow-[#00a3ff]/20"
-              aria-label="Instagram Genevieve Website"
-            >
-              <Instagram size={32} />
-            </a>
             {/* Botão Contato Mobile */}
             <button
               onClick={() => {
                 navigate("/contato");
                 setIsOpen(false);
               }}
-              className="mt-4 px-8 py-3 rounded-full text-[12px] font-black uppercase tracking-widest bg-[#00a3ff] text-white hover:bg-white hover:text-black transition-all shadow-lg shadow-[#00a3ff]/20"
+              className="mt-4 mb-4 px-8 py-3 rounded-full text-[12px] font-black uppercase tracking-widest bg-[#00a3ff] text-white hover:bg-white hover:text-black transition-all shadow-lg shadow-[#00a3ff]/20"
             >
               Contato
             </button>
+            {/* Instagram Icon Only Mobile Menu */}
+            <a
+              href="https://www.instagram.com/genevieve_website/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="absolute bottom-6 left-6 flex items-center justify-center bg-white text-[#00a3ff] hover:bg-[#00a3ff] hover:text-white rounded-full p-3 transition-colors shadow-lg shadow-[#00a3ff]/20"
+              aria-label="Instagram Genevieve Website"
+            >
+              <Instagram size={24} />
+            </a>
           </motion.div>
         )}
       </AnimatePresence>

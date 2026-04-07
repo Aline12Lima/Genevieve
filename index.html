@@ -22,13 +22,26 @@
 
     <link rel="canonical" href="https://genevieve.com.br/" />
 
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=AW-17947178216"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "AW-17947178216");
+    </script>
+
     <meta
       property="og:title"
       content="Criação de Sites para Construção Civil | Genevieve"
     />
     <meta
       property="og:description"
-      content="Criação de sites profissionais para empresas do ramo da construção civil. Websites estratégicos, modernos e focados em gerar autoridade e novos clientes."
+      content="Criação de sites profissionais para empresas do ramo da construção civil."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://genevieve.com.br/" />
@@ -49,12 +62,12 @@
     </noscript>
 
     <div id="root"></div>
+
     <script type="module" src="/src/main.tsx"></script>
 
     <script>
       window.addEventListener("load", function () {
         setTimeout(function () {
-          // 1. Google Analytics (Mantido para seu SEO e análise orgânica)
           var gtagScript = document.createElement("script");
           gtagScript.async = true;
           gtagScript.src =
@@ -67,8 +80,6 @@
           }
           gtag("js", new Date());
           gtag("config", "G-65XNK8F292");
-
-          console.log("Google Analytics carregado com sucesso.");
         }, 1500);
       });
     </script>
