@@ -1,17 +1,10 @@
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import {
-  HardHat,
-  MapPin,
-  MousePointer2,
-  BarChart3,
-  LayoutGrid,
-} from "lucide-react";
+import { HardHat, MapPin, LayoutGrid } from "lucide-react";
 
 import service1 from "../../assets/servicos/sites.png";
 import service2 from "../../assets/servicos/bucharest-romania-july-30th-2024-young-man-clicks-facebook-page-bookmark.jpg"; // Usei um placeholder pois o link anterior era longo
-import service3 from "../../assets/servicos/843sitessites.jpg";
-import service5 from "../../assets/servicos/social-media-marketing-concept-marketing-with-applications.jpg";
+
 import service6 from "../../assets/servicos/closeup-hands-using-computer-laptop-with-screen-showing-analysis-data.jpg";
 
 export function Nichos() {
@@ -34,23 +27,7 @@ export function Nichos() {
       icon: <MapPin className="w-5 h-5" />,
       img: service2,
     },
-    {
-      id: 3,
-      title: "Identidade Visual",
-      sub: "Logo & Marca",
-      desc: "Design estratégico para transmitir confiança e profissionalismo, destacando seus diferenciais no mercado de obras.",
-      icon: <MousePointer2 className="w-5 h-5" />,
-      img: service3,
-    },
 
-    {
-      id: 5,
-      title: "Anúncios que trazem clientes",
-      sub: "Google & Meta Instagram Ads",
-      desc: "Atraia pessoas prontas para contratar seus serviços todos os dias.",
-      icon: <BarChart3 className="w-5 h-5" />,
-      img: service5,
-    },
     {
       id: 6,
       title: "Planilhas Automaticas",

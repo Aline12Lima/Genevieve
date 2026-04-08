@@ -1,12 +1,5 @@
 import { motion } from "framer-motion";
-import {
-  Globe,
-  Zap,
-  MessageSquare,
-  BarChart3,
-  Paintbrush,
-  CheckCircle2,
-} from "lucide-react";
+import { Globe, Zap, MessageSquare, CheckCircle2 } from "lucide-react";
 
 const services = [
   {
@@ -52,36 +45,6 @@ const services = [
       "Escalabilidade",
       "Relatórios de Contatos",
       "Otimização de Mensagens",
-    ],
-  },
-  {
-    title: "Tráfego Pago (Ads)",
-    icon: <BarChart3 className="text-red-500" />,
-    setup: "Setup de Conta",
-    maintenance: "Gestão Mensal",
-    description:
-      "Anúncios estratégicos no Google e Meta para atrair quem quer contratar.",
-    includes: [
-      "Análise de Concorrentes",
-      "Criação de Criativos",
-      "Otimização de Verba",
-      "Pixel & API de Conversão",
-      "Relatório de ROI",
-    ],
-  },
-  {
-    title: "Identidade & Marca",
-    icon: <Paintbrush className="text-purple-500" />,
-    setup: "Projeto Único",
-    maintenance: "Sem Mensalidade",
-    description:
-      "Criação de logotipos e identidade visual para empresas de engenharia.",
-    includes: [
-      "Manual da Marca",
-      "Logotipo Vetorizado",
-      "Paleta de Cores",
-      "Tipografia Exclusiva",
-      "Aplicações de Papelaria",
     ],
   },
 ];

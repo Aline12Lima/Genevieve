@@ -33,7 +33,7 @@ export function Header() {
   const menuLinks = [
     { name: "Início", action: scrollToTop },
     { name: "Sobre", action: () => navigate("/about") },
-    { name: "Serviços", action: () => navigate("/services") },
+    { name: "Serviços", action: () => navigate("/servicos") },
     { name: "Projetos", action: () => navigate("/projects") }, // Mude de /templates para /projetos
     { name: "Blog", action: () => navigate("/blog") },
   ];

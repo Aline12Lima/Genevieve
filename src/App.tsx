@@ -10,7 +10,7 @@ import { CTAFlutuante } from "./components/CTAflutuante/CTAFlutuante";
 // Páginas
 import { Home } from "./pages/Home";
 import { About } from "./pages/About";
-import { ServicesPage } from "./pages/Services";
+import { ServicesPage } from "./pages/Servicos";
 import { ProjectsList } from "./pages/ProjectsList";
 
 import { Blog } from "./pages/Blog";
@@ -44,7 +44,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/servicos" element={<ServicesPage />} />
 
           {/* Rota da Galeria (Onde aparecem todos os cards) */}
           <Route path="/projects" element={<ProjectsList />} />
