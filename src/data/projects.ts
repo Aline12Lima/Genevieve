@@ -5,6 +5,7 @@ import build2 from "../assets/dataImagens/capas/3.png";
 import constructor1 from "../assets/dataImagens/capas/4.png";
 import constructor2 from "../assets/dataImagens/capas/5.png";
 import constructor3 from "../assets/dataImagens/capas/6.png";
+import psicologa1 from "../assets/dataImagens/capas/7.png";
 
 export type Project = {
   title: string;
@@ -14,6 +15,12 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  {
+    title: "Portfólio Terapeuta",
+    category: "Terapia e Psicologia",
+    image: psicologa1,
+    link: "https://socorro-lima.vercel.app/",
+  },
   {
     title: "Site Construtora JB",
     category: "Engenharia",
