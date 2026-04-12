@@ -110,7 +110,7 @@ export function Nichos() {
                 </p>
 
                 <button
-                  onClick={() => navigate("/services")}
+                  onClick={() => navigate("/servicos")}
                   className="inline-flex items-center justify-center bg-white text-black border border-gray-200 font-bold py-4 px-8 w-full text-[10px] uppercase tracking-widest hover:bg-black hover:text-white hover:border-black transition-all duration-300 rounded-lg"
                 >
                   Saber mais
