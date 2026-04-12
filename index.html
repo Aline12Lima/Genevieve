@@ -22,17 +22,25 @@
 
     <link rel="canonical" href="https://genevieve.com.br/" />
 
+    <!-- 🔥 GOOGLE TAG (ADS + ANALYTICS NO MESMO LUGAR) -->
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=AW-17947178216"
     ></script>
+
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
         dataLayer.push(arguments);
       }
+
       gtag("js", new Date());
+
+      // 🔥 GOOGLE ADS
       gtag("config", "AW-17947178216");
+
+      // 🔥 GOOGLE ANALYTICS (MESMO GTAG)
+      gtag("config", "G-65XNK8F292");
     </script>
 
     <meta
@@ -52,6 +60,7 @@
   </head>
 
   <body>
+    <!-- 🔥 META PIXEL (fallback sem JS) -->
     <noscript>
       <img
         height="1"
@@ -64,24 +73,5 @@
     <div id="root"></div>
 
     <script type="module" src="/src/main.tsx"></script>
-
-    <script>
-      window.addEventListener("load", function () {
-        setTimeout(function () {
-          var gtagScript = document.createElement("script");
-          gtagScript.async = true;
-          gtagScript.src =
-            "https://www.googletagmanager.com/gtag/js?id=G-65XNK8F292";
-          document.head.appendChild(gtagScript);
-
-          window.dataLayer = window.dataLayer || [];
-          function gtag() {
-            dataLayer.push(arguments);
-          }
-          gtag("js", new Date());
-          gtag("config", "G-65XNK8F292");
-        }, 1500);
-      });
-    </script>
   </body>
 </html>
