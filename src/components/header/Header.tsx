@@ -94,9 +94,9 @@ export function Header() {
 
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="lg:hidden text-white p-2 z-[101]"
+          className="lg:hidden text-white p-2 z-[101] mr-2"
         >
-          {isOpen ? <X size={32} /> : <Menu size={28} />}
+          {isOpen ? <X size={28} /> : <Menu size={24} />}
         </button>
       </motion.header>
 

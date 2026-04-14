@@ -13,25 +13,32 @@ export function CTAFlutuante() {
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
+      onClick={() => {
+        if (window.gtag) {
+          window.gtag("event", "conversion", {
+            send_to: "AW-17947178216/KDJnCL3o7pscEOjp8O1C",
+          });
+        }
+      }}
       className="
-        fixed bottom-10 right-6
-        z-[9999]
-        flex items-center gap-3
-        px-8 py-4
-        rounded-full
-        bg-[#25D366] 
-        text-white
-        text-[12px]
-        font-black
-        uppercase
-        tracking-widest
-        shadow-[0_20px_40px_rgba(37,211,102,0.3)]
-        hover:bg-[#1ebd5e]
-        hover:-translate-y-1
-        active:scale-95
-        transition-all
-        duration-300
-      "
+    fixed bottom-10 right-6
+    z-[9999]
+    flex items-center gap-3
+    px-8 py-4
+    rounded-full
+    bg-[#25D366] 
+    text-white
+    text-[12px]
+    font-black
+    uppercase
+    tracking-widest
+    shadow-[0_20px_40px_rgba(37,211,102,0.3)]
+    hover:bg-[#1ebd5e]
+    hover:-translate-y-1
+    active:scale-95
+    transition-all
+    duration-300
+  "
     >
       <MessageCircle size={18} fill="currentColor" />
       Aderir agora

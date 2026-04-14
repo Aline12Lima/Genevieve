@@ -89,10 +89,16 @@ export function Footer() {
                 genevievewebsite@gmail.com
               </a>
               <a
-                href="https://wa.me/5535997382410?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20da%20Genevieve."
+                href="https://wa.me/5535997382410"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white text-sm transition-colors duration-300"
+                onClick={() => {
+                  if (window.gtag) {
+                    window.gtag("event", "conversion", {
+                      send_to: "AW-17947178216/KDJnCL3o7pscEOjp8O1C",
+                    });
+                  }
+                }}
               >
                 +55 35 99738-2410
               </a>

@@ -2,7 +2,6 @@ import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { Check, ArrowUpRight } from "lucide-react";
 import { useState } from "react";
-import { supabase } from "../lib/supabase";
 import { trackEvent } from "../lib/metaPixel";
 
 declare global {
@@ -20,46 +19,42 @@ const fadeInUp = {
 
 export function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSent, setIsSent] = useState(false);
-  const [whatsAppHref, setWhatsAppHref] = useState(
-    "https://wa.me/5535997382410",
-  );
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  // 🔥 NOVOS CAMPOS
+  const [nome, setNome] = useState("");
+  const [ramo, setRamo] = useState("");
+  const [instagram, setInstagram] = useState("");
+
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (isSubmitting) return;
 
-    setIsSubmitting(true);
-    const form = e.currentTarget;
-    const formData = new FormData(form);
-
-    const empresa = String(formData.get("empresa") ?? "").trim();
-    const nicho = String(formData.get("nicho") ?? "").trim();
-    const email = String(formData.get("email") ?? "").trim();
-    const telefone = String(formData.get("telefone") ?? "").trim();
-    const diferencial = String(formData.get("diferencial") ?? "").trim();
-
-    const payload = {
-      name: empresa,
-      email,
-      message: diferencial,
-      phone: telefone,
-    };
-
-    const { error } = await supabase.from("contacts").insert([payload]);
-
-    if (error) {
-      console.error("Erro ao inserir em contacts:", error);
-      setIsSubmitting(false);
+    if (!nome || !ramo) {
+      alert("Preencha pelo menos seu nome e ramo");
       return;
     }
 
-    // 🔥 GOOGLE ADS (ADICIONADO - NÃO ALTERA LAYOUT)
-    if (typeof window !== "undefined" && window.gtag) {
+    setIsSubmitting(true);
+
+    // 🔥 MENSAGEM OTIMIZADA
+    const mensagem = `Olá! Me chamo ${nome}.
+
+Quero criar um site profissional.
+
+📌 Área: ${ramo}
+📌 Instagram: ${instagram || "Não informado"}
+
+Pode me explicar como funciona?`;
+
+    const url = `https://wa.me/5535997382410?text=${encodeURIComponent(
+      mensagem,
+    )}`;
+
+    // 🔥 GOOGLE ADS
+    if (window.gtag) {
       window.gtag("event", "conversion", {
-        send_to: "AW-17947178216/SEU_LABEL_AQUI", // 🔁 SUBSTITUIR
-        value: 150.0,
-        currency: "BRL",
+        send_to: "AW-17947178216/KDJnCL3o7pscEOjp8O1C",
+        event_label: "FORM_WHATSAPP",
       });
     }
 
@@ -69,19 +64,9 @@ export function Contact() {
       currency: "BRL",
     });
 
-    // 🔥 MENSAGEM WHATSAPP (CORRIGIDO)
-    const whatsappMessage = `Olá! Acabei de preencher o formulário no site.%0A%0A*Nome/Empresa:* ${encodeURIComponent(
-      empresa,
-    )}%0A*Nicho:* ${encodeURIComponent(
-      nicho || "Não informado",
-    )}%0A*E-mail:* ${encodeURIComponent(email)}%0A*WhatsApp:* ${encodeURIComponent(
-      telefone,
-    )}%0A*Mensagem:* ${encodeURIComponent(diferencial)}`;
+    // 🔥 ABRE WHATSAPP DIRETO
+    window.open(url, "_blank");
 
-    setWhatsAppHref(`https://wa.me/5535997382410?text=${whatsappMessage}`);
-
-    form.reset();
-    setIsSent(true);
     setIsSubmitting(false);
   }
 
@@ -105,7 +90,7 @@ export function Contact() {
                   <Check size={12} /> Contato Directo
                 </span>
                 <h1 className="text-6xl md:text-8xl font-bold tracking-tighter uppercase leading-[0.9]">
-                  Vamos <br />{" "}
+                  Vamos <br />
                   <span className="text-[#00a3ff] font-beauty lowercase font-light">
                     Conversar
                   </span>
@@ -117,8 +102,8 @@ export function Contact() {
                   <p className="text-gray-500 text-[10px] uppercase font-bold tracking-widest mb-2">
                     E-mail
                   </p>
-                  <div className="flex items-center gap-3 text-2xl font-medium group-hover:text-[#00a3ff] transition-colors">
-                    genevievewebsite@gmail.com{" "}
+                  <div className="flex items-center gap-3 text-lg md:text-2xl font-medium break-all group-hover:text-[#00a3ff] transition-colors">
+                    genevievewebsite@gmail.com
                     <ArrowUpRight
                       size={20}
                       className="opacity-0 group-hover:opacity-100 transition-all"
@@ -134,9 +119,17 @@ export function Contact() {
                     href="https://wa.me/5535997382410"
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => {
+                      if (window.gtag) {
+                        window.gtag("event", "conversion", {
+                          send_to: "AW-17947178216/KDJnCL3o7pscEOjp8O1C",
+                          event_label: "WHATSAPP_LATERAL",
+                        });
+                      }
+                    }}
                     className="flex items-center gap-3 text-2xl font-medium group-hover:text-[#00a3ff] transition-colors"
                   >
-                    35997382410{" "}
+                    35997382410
                     <ArrowUpRight
                       size={20}
                       className="opacity-0 group-hover:opacity-100 transition-all"
@@ -150,53 +143,45 @@ export function Contact() {
             <motion.div
               {...fadeInUp}
               transition={{ delay: 0.2 }}
-              className="bg-[#0a0a0a] border border-white/5 p-8 md:p-12 rounded-[2.5rem]"
+              className="bg-[#0a0a0a] border border-white/5 p-8 md:p-12 rounded-[2.5rem] w-full max-w-[560px] mx-auto lg:mx-0 lg:max-w-none"
             >
-              {!isSent ? (
-                <form onSubmit={handleSubmit} className="space-y-8">
-                  {/* TODO O SEU FORMULÁRIO ORIGINAL FOI MANTIDO */}
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <input
+                  type="text"
+                  placeholder="Seu nome"
+                  value={nome}
+                  onChange={(e) => setNome(e.target.value)}
+                  className="w-full p-4 rounded bg-black border border-white/10"
+                />
 
-                  <button
-                    disabled={isSubmitting}
-                    type="submit"
-                    className="w-full md:w-auto px-12 py-5 bg-white text-black rounded-full font-bold flex items-center justify-center gap-3 hover:bg-[#00a3ff] hover:text-white transition-all duration-500 group"
-                  >
-                    {isSubmitting ? "Enviando..." : "Enviar Mensagem"}
-                    <ArrowUpRight
-                      size={18}
-                      className="group-hover:rotate-45 transition-transform"
-                    />
-                  </button>
-                </form>
-              ) : (
-                <div className="h-full flex flex-col items-center justify-center text-center py-20 animate-in fade-in zoom-in">
-                  <div className="w-20 h-20 bg-[#00a3ff]/10 rounded-full flex items-center justify-center mb-6">
-                    <Check className="text-[#00a3ff]" size={40} />
-                  </div>
+                <input
+                  type="text"
+                  placeholder="Seu ramo ou área"
+                  value={ramo}
+                  onChange={(e) => setRamo(e.target.value)}
+                  className="w-full p-4 rounded bg-black border border-white/10"
+                />
 
-                  <h3 className="text-3xl font-bold mb-2 uppercase">
-                    Mensagem Recebida
-                  </h3>
+                <input
+                  type="text"
+                  placeholder="Seu Instagram (opcional)"
+                  value={instagram}
+                  onChange={(e) => setInstagram(e.target.value)}
+                  className="w-full p-4 rounded bg-black border border-white/10"
+                />
 
-                  <p className="text-gray-500 mb-8">
-                    Seus dados foram salvos. Agora você pode continuar no
-                    WhatsApp.
-                  </p>
-
-                  <a
-                    href={whatsAppHref}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full md:w-auto px-12 py-5 bg-white text-black rounded-full font-bold flex items-center justify-center gap-3 hover:bg-[#00a3ff] hover:text-white transition-all duration-500 group"
-                  >
-                    Continuar no WhatsApp
-                    <ArrowUpRight
-                      size={18}
-                      className="group-hover:rotate-45 transition-transform"
-                    />
-                  </a>
-                </div>
-              )}
+                <button
+                  disabled={isSubmitting}
+                  type="submit"
+                  className="w-full md:w-auto px-12 py-5 bg-white text-black rounded-full font-bold flex items-center justify-center gap-3 hover:bg-[#00a3ff] hover:text-white transition-all duration-500 group"
+                >
+                  {isSubmitting ? "Abrindo..." : "Enviar Mensagem"}
+                  <ArrowUpRight
+                    size={18}
+                    className="group-hover:rotate-45 transition-transform"
+                  />
+                </button>
+              </form>
             </motion.div>
           </div>
         </section>
