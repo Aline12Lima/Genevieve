@@ -1,0 +1,171 @@
+.projects {
+  padding: 5rem 2rem;
+  border-top: 0.5px solid var(--border);
+}
+
+/* ─ Grid: texto esquerda | phone direita ──────────────────── */
+.projects__inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4rem;
+  align-items: center;
+}
+
+/* ─ Coluna esquerda ───────────────────────────────────────── */
+.projects__left {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.projects__left .section-title {
+  margin-bottom: 0.75rem;
+}
+
+.projects__left .section-sub {
+  margin-bottom: 2.5rem;
+}
+
+.projects__current {
+  margin-bottom: 2.5rem;
+}
+
+.projects__tag {
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.projects__name {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+  line-height: 1.3;
+}
+
+.projects__link {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+  border-bottom: 0.5px solid var(--gold);
+  padding-bottom: 2px;
+  display: inline-block;
+  transition: padding-bottom var(--transition);
+  text-decoration: none;
+}
+
+.projects__link:hover {
+  padding-bottom: 4px;
+}
+
+/* ─ Controles ─────────────────────────────────────────────── */
+.projects__controls {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.projects__arrow {
+  background: transparent;
+  border: 0.5px solid var(--border-hover);
+  color: var(--text-muted);
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.projects__arrow:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.projects__dots {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.projects__dot-nav {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  border: none;
+  background: var(--border-hover);
+  cursor: pointer;
+  transition: all var(--transition);
+  padding: 0;
+}
+
+.projects__dot-nav--active {
+  background: var(--gold);
+  width: 20px;
+  border-radius: 3px;
+}
+
+/* ─ Carrossel — frame de celular ─────────────────────────── */
+.projects__carousel {
+  width: 260px;
+  height: 500px;
+  border-radius: 36px;
+  border: 6px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.04),
+    0 30px 80px rgba(0, 0, 0, 0.55);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.projects__track {
+  display: flex;
+  height: 100%;
+  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.projects__card {
+  flex-shrink: 0;
+  height: 100%;
+  display: block;
+  text-decoration: none;
+}
+
+.projects__screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* ─ Mobile ────────────────────────────────────────────────── */
+@media (max-width: 700px) {
+  .projects {
+    padding: 3.5rem 1.25rem;
+  }
+
+  .projects__inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    justify-items: center;
+  }
+
+  .projects__left {
+    width: 100%;
+  }
+
+  .projects__carousel {
+    width: 220px;
+    height: 420px;
+  }
+}

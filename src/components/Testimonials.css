@@ -1,0 +1,121 @@
+.testimonials {
+  padding: 5rem 2rem;
+  border-top: 0.5px solid var(--border);
+}
+
+.testimonials__inner {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.testimonials__inner .section-title {
+  margin-bottom: 3rem;
+}
+
+/* Carousel */
+.testimonials__carousel {
+  overflow: hidden;
+}
+
+.testimonials__track {
+  display: flex;
+  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.testimonials__quote {
+  flex-shrink: 0;
+  padding: 2rem 2.5rem;
+  border-left: 1.5px solid var(--gold);
+  box-sizing: border-box;
+}
+
+.testimonials__text {
+  font-family: var(--font-serif);
+  font-size: 1.08rem;
+  font-weight: 400;
+  font-style: italic;
+  color: rgba(240, 235, 232, 0.8);
+  line-height: 1.8;
+  margin-bottom: 1.25rem;
+}
+
+.testimonials__author {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.testimonials__author-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  letter-spacing: 0.03em;
+}
+
+.testimonials__author-role {
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+}
+
+/* Controls */
+.testimonials__controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.testimonials__arrow {
+  background: transparent;
+  border: 0.5px solid var(--border-hover);
+  color: var(--text-muted);
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.testimonials__arrow:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.testimonials__dots {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.testimonials__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  border: none;
+  background: var(--border-hover);
+  cursor: pointer;
+  transition: all var(--transition);
+  padding: 0;
+}
+
+.testimonials__dot--active {
+  background: var(--gold);
+  width: 20px;
+  border-radius: 3px;
+}
+
+@media (max-width: 640px) {
+  .testimonials {
+    padding: 3.5rem 1.25rem;
+  }
+
+  .testimonials__quote {
+    padding: 1.5rem 1.25rem;
+  }
+}

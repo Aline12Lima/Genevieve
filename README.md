@@ -1,74 +1,66 @@
-# 🌐 Genevieve - Website Institucional Profissional
+# Genevieve — Landing Page Institucional
 
-Website institucional desenvolvido para apresentar serviços digitais especializados em criação de Landing Pages e Web Sites modernos, responsivos e orientados à conversão.
-
----
-
-## 📖 Sobre o Projeto
-
-O **Genevieve** é uma aplicação SPA (Single Page Application) construída com foco em performance, organização de código e experiência do usuário.
-
-O projeto foi estruturado para apresentar diferentes nichos de atuação (como clínicas, empresas administrativas e restaurantes), além de permitir navegação dinâmica entre páginas de projetos individuais.
-
-O objetivo principal é demonstrar domínio em:
-
-- Arquitetura Front-end moderna
-- Componentização escalável
-- Organização de dados separada da camada de UI
-- Boas práticas de desenvolvimento com TypeScript
+Site institucional para apresentação de serviços de criação de Landing Pages e websites modernos, responsivos e orientados à conversão.
 
 ---
 
-## 🚀 Tecnologias Utilizadas
+## Tecnologias
 
-- React
-- TypeScript
-- Vite
-- Tailwind CSS
-- Framer Motion
-- React Router DOM
-
----
-
-## 🏗 Arquitetura
-
-- SPA (Single Page Application)
-- Roteamento dinâmico via `slug`
-- Separação entre camada de dados e camada visual
-- Estrutura modular baseada em componentes reutilizáveis
-- Organização por domínios (components, pages, layouts, data)
+- **Next.js 16** (App Router)
+- **React 19** + **TypeScript**
+- **Tailwind CSS 4**
+- **Framer Motion** — animações
+- **Supabase** — backend e persistência
+- **Lucide React** — ícones
+- **Vercel** — deploy
 
 ---
 
-## 📁 Estrutura do Projeto
+## Estrutura
 
+```
 src/
-├── assets/ # Imagens, vídeos e recursos estáticos
-├── components/ # Componentes reutilizáveis
-├── data/ # Dados estruturados dos projetos
-├── layouts/ # Layout principal da aplicação
-├── pages/ # Páginas da aplicação
-├── App.tsx
-└── main.tsx
+├── app/               # App Router do Next.js (layout, página raiz)
+├── components/        # Seções da página (Hero, Navbar, Projects, Testimonials…)
+├── layouts/           # Layout compartilhado
+├── lib/               # Integrações (Supabase, utils)
+├── types/             # Tipos TypeScript
+└── assets/            # Imagens e recursos estáticos
+```
 
 ---
 
-## ✨ Funcionalidades
+## Funcionalidades
 
-- Página inicial institucional
-- Seção de apresentação de perfil empresarial
-- Seção de nichos com carrosséis animados
-- Grid de projetos
-- Página dinâmica para cada projeto
-- Exibição de vídeos no hero das páginas individuais
-- Estrutura preparada para expansão de novos projetos
+- Seção hero com headline e CTA direto para WhatsApp
+- Vitrine de projetos com carrossel e frame de celular animado
+- Depoimentos em carrossel horizontal com auto-avanço
+- Seção de diferenciais, precificação e processo de entrega
+- Formulário de contato com mensagem dinâmica para WhatsApp
+- Tracking de conversão via Facebook Pixel
+- SEO com meta tags via `react-helmet-async`
 - Layout totalmente responsivo
-- Animações suaves com Framer Motion
+- Ícone flutuante de WhatsApp
 
 ---
 
-## 📸 Preview
+## Como rodar localmente
 
-Em breve disponível via deploy no GitHub Pages.
+```bash
+npm install
+npm run dev
+```
+
+Acesse `http://localhost:3000`.
 
 ---
+
+## Deploy
+
+O projeto está hospedado na **Vercel**, com deploy automático a cada push na branch `main`.
+
+---
+
+## Branch de desenvolvimento
+
+A branch `feature/migration-to-nextjs` contém a migração do projeto original (Vite + React SPA) para **Next.js com App Router**.

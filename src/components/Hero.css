@@ -1,0 +1,146 @@
+.hero {
+  padding: 5rem 2rem 4rem;
+}
+
+.hero__inner {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.hero__eyebrow {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hero__eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 32px;
+  height: 0.5px;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+.hero__title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+}
+
+.hero__title em {
+  font-style: italic;
+  color: var(--rose);
+}
+
+.hero__sub {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  max-width: 520px;
+  margin-bottom: 2.5rem;
+}
+
+.hero__actions {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 4rem;
+}
+
+/* Shared button styles */
+.btn {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  transition: all var(--transition);
+  cursor: pointer;
+}
+
+.btn--primary {
+  background: var(--gold);
+  color: var(--bg-base);
+  border: none;
+  font-weight: 500;
+  padding: 14px 28px;
+}
+
+.btn--primary:hover {
+  opacity: 0.85;
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--text-muted);
+  border: none;
+  font-weight: 400;
+  padding: 14px 0;
+}
+
+.btn--ghost:hover {
+  color: var(--text-primary);
+}
+
+.btn--outline {
+  background: transparent;
+  border: 1px solid var(--border-hover);
+  color: var(--gold);
+  font-weight: 400;
+  padding: 11px 0;
+  width: 100%;
+  letter-spacing: 0.06em;
+  transition: all var(--transition);
+}
+
+.btn--outline:hover {
+  border-color: var(--gold);
+  background: var(--gold-faint);
+}
+
+/* Stats row */
+.hero__stats {
+  display: flex;
+  gap: 3rem;
+  padding-top: 2.5rem;
+  border-top: 0.5px solid var(--border);
+  flex-wrap: wrap;
+}
+
+.hero__stat-num {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.hero__stat-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 3.5rem 1.25rem 3rem;
+  }
+
+  .hero__stats {
+    gap: 2rem;
+  }
+}
