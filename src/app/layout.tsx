@@ -15,6 +15,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
+      <head>
+        {/* Integração RD Station */}
+        <script
+          type="text/javascript"
+          async
+          src="https://d335luupugsy2.cloudfront.net/js/loader-scripts/899cbc19-9cf8-49ed-8852-72cfe40a8628-loader.js"
+        />
+      </head>
       <body>
         <Navbar />
         <main>{children}</main>
